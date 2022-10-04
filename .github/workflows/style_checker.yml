@@ -1,9 +1,0 @@
-name: python style checker
-# run this on every commit
-on: [push, pull_request]
-jobs: 
-  check-python-style:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Python Style Checker
-      uses: andymckay/pycodestyle-action@0.1.3
