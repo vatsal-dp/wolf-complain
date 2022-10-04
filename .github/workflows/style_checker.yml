@@ -1,4 +1,4 @@
-name: checker
+name: python style checker
 # run this on every commit
 on: [push, pull_request]
 jobs: 
