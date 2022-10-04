@@ -4,5 +4,6 @@ on: push
 jobs: 
   check-python-style:
     runs-on: ubuntu-latest
+    steps:
     - name: Python Style Checker
       uses: andymckay/pycodestyle-action@0.1.3
