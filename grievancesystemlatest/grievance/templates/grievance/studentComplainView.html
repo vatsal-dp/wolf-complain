@@ -1,0 +1,26 @@
+{% extends 'grievance/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% include 'grievance/studentsidebar.html' %}
+
+<div class="content">
+   
+<div class="container button1" style="margin-top: 30px;font-family:'Times New Roman', Times, serif;font-stretch: extra-expanded;line-height: 40px;margin-bottom: 20px;background-color: lightgray">
+<h3 class="container" style="font-weight: bold;border-left: 5px solid royalblue;color: black;margin-bottom: 30px;margin-left: 10px;font-family: 'Times New Roman', 'Times', serif;font-size: 30px;margin-top: 25px;">Detailed View:</h3>
+<div class="col-xs-12 col-md-6"><p style="font-size: 20px;font-weight: bold;float: left;">Title :</p><p style="float: left;font-size: 18px;margin-left: 10px;"> {{complain.complain_heading}}.</p></div>
+<div class="col-xs-12 col-md-6"><p style="font-size: 20px;font-weight: bold;float: left;">Date posted :</p><p style="float: left;font-size: 18px;margin-left: 10px;"> {{complain.date_posted}}.</p></div>
+<hr><div class="col-xs-12 col-md-6"><p style="font-size: 20px;font-weight: bold;float: left;">To College :</p><p style="float: left;font-size: 18px;margin-left: 10px;"> {{complain.college}}.</p></div>
+<div class="col-xs-12 col-md-6"><p style="font-size: 20px;font-weight: bold;float: left;">Related to :</p><p style="float: left;font-size: 18px;margin-left: 10px;"> {{complain.related_to}}.</p></div>
+<div class="col-xs-12 col-md-6"><p style="font-size: 20px;font-weight: bold;float: left;">Branch :</p><p style="float: left;font-size: 18px;margin-left: 10px;"> {{complain.branch}}.</p></div>
+<div class="col-xs-12 col-md-6"><p style="font-size: 20px;font-weight: bold;float: left;">Status :</p><p style="float: left;font-size: 18px;margin-left: 10px;font-weight: ;"> {{complain.status}}.</p></div>
+<div class="col-xs-12 col-md-12" style="border-bottom:1px solid darkgrey;"><p style="font-size: 20px;font-weight: bold;float: left;">Complain :</p><p style="float: left;font-size: 18px;margin-left: 10px;"> {{complain.complain_content}}</p></div>
+<div class="col-xs-12 col-md-12" style="margin-top: 20px;"><p style="font-size: 20px;font-weight: bold;float: left;">Response :</p>
+    {% if complain.response %}
+    <p style="float: left;font-size: 18px;margin-left: 10px;"> {{complain.response}}</p>
+    {% else %}
+    <p style="float: left;font-size: 18px;margin-left: 10px;"> No response yet.</p>
+    {% endif %}
+</div>
+</div>
+</div>
+{% endblock %}
