@@ -1,0 +1,304 @@
+{% extends 'grievance/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% include 'grievance/adminsidebar.html' %}
+      <style>
+        table {
+  font-family: 'Times New Roman', 'Times', serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+letter-spacing: 0.5px    
+}
+
+tr:nth-child(even) {
+  background-color: lightgray;
+  color: black;
+}
+tr:nth-child(odd) {
+  background-color: white;
+  color: black;
+}
+
+      </style>
+
+<div style="font-family: 'Times New Roman', Times, serif;">
+ <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+  
+     
+google.charts.load("current", {packages:['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ["Months", "No. of Complains", { role: "style" } ],
+        {% if cm1 >= 6 %}
+        {% if diff < 01 and 01 <= cm1 %}
+        ["Jan {{cy1}}", {{months.01}}, "#b87333"],
+        {% endif %}
+        {% if diff < 02 and 02 <= cm1 %}
+        ["Feb {{cy1}}", {{months.02}}, "silver"],
+        {% endif %}
+        {% if diff < 03 and 03 <= cm1 %}
+        ["March {{cy1}}", {{months.03}}, "gold"],
+        
+        {% endif %}
+        {% if diff < 04 and 04 <= cm1 %}
+        ["April {{cy1}}", {{months.04}}, "color: #e5e4e2"],
+        {% endif %}
+        {% if diff < 05 and 05 <= cm1 %}
+        ["May {{cy1}}", {{months.05}}, "color: green"],
+        {% endif %}
+        {% if diff < 06 and 06 <= cm1 %}
+        ["June {{cy1}}", {{months.06}}, "color: orange"],
+        
+        {% endif %}
+        {% if diff < 7 and 7 <= cm1 %}
+        ["July {{cy1}}", {{months.07}}, "color: black"],
+        {% endif %}
+          {% if diff < 08 and 08 <= cm1 %}
+          ["Aug {{cy1}}", {{months.08}}, "color: black"],
+          {% endif %}
+          {% if diff < 09 and 09 <= cm1 %}
+          ["Sept {{cy1}}", {{months.09}}, "color: black"],
+          {% endif %}
+          {% if months.10 != 0 or diff < 10 and 10 <= cm1 %}
+          ["Oct {{cy1}}", {{months.10}}, "color: black"],
+          {% endif %}
+          {% if diff < 11 and 11 <= cm1 %}
+          ["Nov {{cy1}}", {{months.11}}, "color: black"],
+          {% endif %}
+          {% if diff < 12 and 12 <= cm1 %}
+          ["Dec {{cy1}}", {{months.12}}, "color: black"]
+          {% endif %}
+          {% endif %}
+
+          {% if cm1 < 6 %}
+        {% if diff <= -5 %}
+        ["Aug {{cy}}", {{months.08}}, "#b87333"],
+        {% endif %}
+        {% if diff <= -4 %}
+        ["Sept {{cy}}", {{months.09}}, "silver"],
+        {% endif %}
+        {% if diff <= -3 %}
+        ["Oct {{cy}}", {{months.10}}, "gold"],
+        
+        {% endif %}
+        {% if diff <= -2 %}
+        ["Nov {{cy}}", {{months.11}}, "color: #e5e4e2"],
+        {% endif %}
+        {% if diff <= -1 %}
+        ["Dec {{cy}}", {{months.12}}, "color: green"],
+        {% endif %}
+        {% if diff < 01 and 01 <= cm1 %}
+        ["Jan {{cy1}}", {{months.01}}, "color: orange"],
+        
+        {% endif %}
+        {% if diff < 02 and 02 <= cm1 %}
+          ["Feb {{cy1}}", {{months.02}}, "color: black"],
+          
+          {% endif %}
+          {% if diff < 03 and 03 <= cm1 %}
+          ["March {{cy1}}", {{months.03}}, "color: black"],
+          {% endif %}
+          {% if diff < 04 and 04 <= cm1 %}
+          ["April {{cy1}}", {{months.04}}, 
+          {% if months.04 >= 2 %}
+          "color: red"
+          {% else %}
+          "color: green"
+          {% endif %}
+          ],
+          {% endif %}
+          {% if diff < 05 and 05 <= cm1 %}
+          ["May {{cy1}}", {{months.05}}, 
+          {% if months.05 >= 2 %}
+          "color: red"
+          {% else %}
+          "color: green"
+          {% endif %}
+          ],
+          {% endif %}
+          {% endif %}
+      ]);
+
+      var view = new google.visualization.DataView(data);
+      view.setColumns([0, 1,
+                       { calc: "stringify",
+                         sourceColumn: 1,
+                         type: "string",
+                         role: "annotation" },
+                       2]);
+
+      var options = {
+        title: 'No. of Complains in Last 6 months',
+        width: 1300,
+        height: 420,
+        bar: {groupWidth: "70%"},
+        legend: { position: "none" },
+      };
+      var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+      chart.draw(view, options);
+        
+        
+        
+        
+        google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Department', 'Number of Complains'],
+          ['Management', {{management}}],
+          ['Security', {{security}}],
+          ['Library', {{library}}],
+          ['Faculty', {{faculty}}],
+          ['Canteen', {{canteen}}]
+        ]);
+
+        var options = {
+          title: 'Department wise Complains',
+          is3D: true,
+        };
+          
+          
+        var data2 = google.visualization.arrayToDataTable([
+          ['Branch', 'Number of Complains'],
+          ['Computer', {{computer}}],
+          ['EXTC', {{extc}}],
+          ['ELEX',{{elex}}],
+          ['Chemical',{{chemical}}],
+          ['IT', {{it}}],
+          ['Production', {{production}}],
+          ['Bio Med', {{biomed}}]
+        ]);
+
+        var options2 = {
+          title: 'Branch wise Complains',
+          is3D: true,
+        };  
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart1_3d'));
+        chart.draw(data, options);
+          
+          
+        var chart2 = new google.visualization.PieChart(document.getElementById('piechart2_3d'));
+        chart2.draw(data2, options2);  
+      }
+        
+        
+  }
+  </script>
+      <!-- Page content -->
+
+      <div class="content">
+
+        {% if messages %}
+    {% for x in messages %}
+            <div class="alert alert-custom  fade in alert-dismissable show" style="margin-top:18px;font-size: 20px; letter-spacing: 0.5px">
+             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true" style="font-size:20px">×</span>
+              </button><center>{{x}}</center>
+            </div>
+     {% endfor %}
+     {% endif %}
+  
+     <h3 class=" container" style="padding-left: 7pxpx;font-weight: bold;border-left: 8px solid rgb(241, 41, 41);font-size: 30px;margin-bottom: 30px;margin-top: 45px;font-family: 'Times New Roman', 'Times', serif;">ADMIN DASHBOARD</h3>
+         
+      <div id="columnchart_values" style="width: 900px; height: 100px;" class="col-md-12 col-xs-12"></div>
+
+      {% if position == 'Principal' %}
+      <div class='row'>
+          <div class='col-md-6 col-xs-12'  id="piechart1_3d" style="width: 600px; height: 500px;"></div><div class='col-md-5 col-md-offset-1' id="piechart2_3d" style="width: 600px; height: 500px;"></div>
+      </div>
+      {% endif %}
+          
+     <div class="container " style="margin-top: 500px;">    
+      <p style="border-left: 6px solid black;font-weight: bold;font-size: 25px;margin-bottom: 50px;padding-left: 15px;color: red;">Most complains were received in {{cal}}.</p>
+      <p style="border-left: 6px solid black;font-weight: bold;font-size: 25px;margin-bottom: 40px;padding-left: 15px;color: green;">Least complains were received in {{cal1}}.</p>
+      
+         <hr> 
+          
+     
+      <h3 class="" style="border-left: 4px solid rgb(241, 41, 41);;font-family: 'Times New Roman', Times, serif;text-align: ;padding-left: 15px;font-weight: bold;margin-bottom: 30px;margin-top: 30px;">UNADRESSED COMPLAINS :</h3>
+      <table class="button1">
+      <tr style="color: white;background-color: rgb(241, 41, 41);">
+        <th style="padding: 10px;font-size: 20px;">Complain title</th>
+        <th style="padding: 10px;font-size: 20px;">From</th>
+        <th style="padding: 10px;font-size: 20px;">Posted On</th>
+        <th style="padding: 10px;font-size: 20px;">View details</th>
+        <th style="padding: 20px;font-size: 20px;">Status</th>
+        
+      </tr>
+          {% if vcomplains %}
+      {% for v in vcomplains %}
+      <tr>
+        <td><p style="font-size: 15px;font-weight: bold;">{{v.complain_heading}}</p></td>
+        <td><p style="font-size: 15px;">{{v.sender.user.first_name}} {{v.sender.user.last_name}}</p></td>
+        <td><p style="font-size: 15px;">{{v.date_posted|date:"M d, Y"}}</p></td>
+        <td><a href="/adminComplainView/{{v.id}}/">View</a></td>
+        <td><p style="font-size: 15px;font-weight: bold;">{{v.status}}</p></td>
+      </tr>
+      {% endfor %}
+    {% else %}
+                  <tr >
+                      <td colspan="5"><center><p class='text-muted'>No Complains to display</p></center></td>
+                  </tr>
+            {% endif %}      
+      
+    </table>
+  </div>
+  
+  
+  <div class="container " style="padding-top: 20px;">
+      
+      
+           
+      
+      
+      
+    <h3 class="" style="border-left: 5px solid rgb(241, 41, 41);;font-family: 'Times New Roman', Times, serif;margin-top: 70px;padding-left: 15px;font-weight: bold;margin-bottom: 30px;">ADDRESSED COMPLAINS:</h2>
+    <table class="button1" style="margin-bottom: 50px;">
+    <tr style="color: white;background-color: rgb(241, 41, 41);">
+      <th style="padding: 10px;font-size: 20px;">Complain title</th>
+      <th style="padding: 10px;font-size: 20px;">From</th>
+      <th style="padding: 10px;font-size: 20px;">Posted On</th>
+      <th style="padding: 10px;font-size: 20px;">View details</th>
+      <th style="padding: 20px;font-size: 20px;">Status</th>
+      
+    </tr>
+        {% if rcomplains or scomplains %}
+    {% for r in rcomplains %}
+    <tr>
+      <td><p style="font-size: 15px;font-weight: bold;">{{r.complain_heading}}</p></td>
+      <td><p style="font-size: 15px;">{{r.sender.user.first_name}} {{r.sender.user.last_name}}</p></td>
+      <td><p style="font-size: 15px;">{{r.date_posted|date:"M d, Y"}}</p></td>
+      <td><a href="/adminComplainView/{{r.id}}/">View</a></td>
+      <td><p style="font-size: 15px;font-weight: bold;">{{r.status}}</p></td>
+    </tr>
+    {% endfor %}
+        
+    {% for s in scomplains %}
+    <tr>
+      <td><p style="font-size: 15px;font-weight: bold;">{{s.complain_heading}}</p></td>
+      <td><p style="font-size: 15px;">{{s.sender.user.first_name}} {{s.sender.user.last_name}}</p></td>
+      <td><p style="font-size: 15px;">{{s.date_posted|date:"M d, Y"}}</p></td>
+      <td><a href="/adminComplainView/{{s.id}}/">View</a></td>
+      <td><p style="font-size: 15px;font-weight: bold;">{{s.status}}</p></td>
+    </tr>
+    {% endfor %}
+        {% else %}
+                  <tr >
+                      <td colspan="5"><center><p class='text-muted'>No Complains to display</p></center></td>
+                  </tr>
+            {% endif %}
+    
+  </table>
+</div>
+
+      </div></div>
+{% endblock %}

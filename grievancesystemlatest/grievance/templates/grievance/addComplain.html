@@ -1,0 +1,77 @@
+{% extends 'grievance/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<script>      
+  function checkIfYes() {
+      if (document.getElementById('related').value == 'Faculty') {
+        document.getElementById('extra').style.display = '';
+        document.getElementById('branches').disabled = false;
+      } else {
+        document.getElementById('extra').style.display = 'none';
+  }
+}
+</script>
+
+<style>
+.alert-custom{
+  background-color: lightgray;
+  color:black;
+    }
+</style>    
+
+{% include 'grievance/studentsidebar.html' %}
+
+      <div class="content">
+          <h3 class="button1 container" style="padding: 15px;padding-left: 7pxpx;border-left: 5px solid black;background-color: royalblue;color: white;margin-bottom: 30px;letter-spacing: 1px; font-family: 'Times New Roman', Times, serif;">Add New Complain</h3>
+          {% if messages %}
+        {% for x in messages %}
+                <div class="alert alert-custom  fade in alert-dismissable show" style="margin-top:18px;font-size: 20px; letter-spacing: 0.5px">
+                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true" style="font-size:20px">×</span>
+                  </button><center>{{x}}</center>
+                </div>
+         {% endfor %}
+         {% endif %}
+          <div class="" style="font-family: 'Times New Roman', Times, serif;">
+        
+              <div class='container'>
+        <form method="POST">
+            {% csrf_token %}
+            {{form|crispy}}
+        
+            
+            
+            <div class="form-group">
+                <label class="control-label" >Complain Related to<sup>*</sup></label>
+    <select onchange='checkIfYes()' class="select form-control" id="related" name="related" required>
+      <option id="No" name='related_to' value="Management">Management</option>
+        <option id="No" name='related_to' value="Library">Library</option>
+        <option id="No" name='related_to' value="Security">Security</option>
+      <option id="Yes" name='related_to' value="Faculty">Faculty</option>
+    </select>
+  </div>
+
+  <div id="extra" name="extra" style="display: none">
+    <label class="control-label" for="branches">Branch<sup>*</sup></label>
+    <select class="form-control" type="text" id="branches" name="branches" required disabled >
+        <option  name='branch' value="Computer">Computer</option>
+        <option  name='branch' value="IT">IT</option>
+        <option  name='branch' value="EXTC">EXTC</option>
+        <option  name='branch' value="ELEX">ELEX</option>
+        <option  name='branch' value="Chemical">Chemical</option>
+        <option  name='branch' value="Production">Production</option>
+        <option  name='branch' value="Bio Med">Bio Med</option>
+    </select>    
+  </div>
+
+            <button type="submit" class="button button2" style="background-color: royalblue;">Submit</button>
+            
+        </form>
+           
+        </div>
+          </div>
+</div>   
+{% endblock %}
+ 
+

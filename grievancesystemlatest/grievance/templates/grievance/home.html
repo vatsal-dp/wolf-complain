@@ -1,0 +1,65 @@
+{% extends 'grievance/base.html' %}
+{% block content %}
+<style>
+    .button {
+  background-color:palevioletred; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+.button2:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+  color: wheat;
+}
+body{
+    background-color: white;
+}
+.alert-custom{
+  background-color: lightgray;
+  color:black;
+    }
+</style>    
+<div class='container'>
+ {% if messages %}
+        {% for x in messages %}
+                <div class="alert alert-custom  fade in alert-dismissable show" style="margin-top:18px;font-size: 20px; letter-spacing: 0.5px">
+                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true" style="font-size:20px">×</span>
+                  </button><center>{{x}}</center>
+                </div>
+         {% endfor %}
+         {% endif %}
+</div>
+ <div class="container" style="font-family: Perpetua;">
+    <div class="row" style="margin-top: 30px;">
+        <div class="col-md-6 col-xs-12" style="text-align: center;border-right: 1px solid lightgray;;">
+            <h2 style="font-weight: bold;">Admin login</h2>
+            <h3>
+                Signup/Login here if you are a faculty or a management staff at a college
+            </h3>
+            <br>
+            <a class="button button2" style="text-decoration: none;background-color:rgb(88, 185, 241);;" href={% url "adminRegister" %}>Get complaints</a>
+        </div>
+        <div class=" col-md-6 col-xs-12" style="text-align: center;">
+            <h2 style="font-weight: bold;">Student login</h2>
+            <h3>
+                Signup/Login here if you are a student at a college want to register your complain
+            </h3>
+            <br>
+            <a class="button button2" style="text-decoration: none;" href={% url "studentRegister" %}>Register complaints</a>
+        </div>
+    </div>
+    {{user}}
+    {{group}}
+    {{complains}}
+    
+ </div>
+ {% endblock content %}

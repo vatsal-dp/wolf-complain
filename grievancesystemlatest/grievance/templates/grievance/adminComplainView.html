@@ -1,0 +1,35 @@
+{% extends 'grievance/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% include 'grievance/adminsidebar.html' %}
+<div class="content">
+    <h3 class="button1" style="padding: 15px;padding-left: 7pxpx;border-left: 5px solid black;background-color: rgb(241, 41, 41);color: white;margin-bottom: 30px;font-family: 'Times New Roman', 'Times', serif; letter-spacing: 1px">&#9679; Detailed View:</h3>
+<div class="container button1" style="margin-top: 30px;font-family:'Times New Roman', Times, serif;font-stretch: extra-expanded;line-height: 40px;margin-bottom: 20px;background-color: lightgray">
+<div class="col-xs-12 col-md-6"><p style="font-size: 20px;font-weight: bold;float: left;">Title :</p><p style="float: left;font-size: 18px;margin-left: 10px;"> {{complain.complain_heading}}.</p></div>
+<div class="col-xs-12 col-md-6"><p style="font-size: 20px;font-weight: bold;float: left;">Date posted :</p><p style="float: left;font-size: 18px;margin-left: 10px;"> {{complain.date_posted}}.</p></div>
+<hr><div class="col-xs-12 col-md-6"><p style="font-size: 20px;font-weight: bold;float: left;">To College :</p><p style="float: left;font-size: 18px;margin-left: 10px;"> {{complain.college}}.</p></div>
+<div class="col-xs-12 col-md-6"><p style="font-size: 20px;font-weight: bold;float: left;">Related to :</p><p style="float: left;font-size: 18px;margin-left: 10px;"> {{complain.related_to}}.</p></div>
+<div class="col-xs-12 col-md-6"><p style="font-size: 20px;font-weight: bold;float: left;">Branch :</p><p style="float: left;font-size: 18px;margin-left: 10px;"> {{complain.branch}}.</p></div>
+<div class="col-xs-12 col-md-6"><p style="font-size: 20px;font-weight: bold;float: left;">Status :</p><p style="float: left;font-size: 18px;margin-left: 10px;font-weight: ;"> {{complain.status}}.</p></div>
+<div class="col-xs-12 col-md-12" style="border-bottom:1px solid darkgrey;"><p style="font-size: 20px;font-weight: bold;float: left;">Complain :</p><p style="float: left;font-size: 18px;margin-left: 10px;"> {{complain.complain_content}}</p></div>
+<div class="col-xs-12 col-md-12" style="margin-top: 20px;"><p style="font-size: 20px;font-weight: bold;float: left;">Response :</p>
+    {% if complain.response %}
+    <p style="float: left;font-size: 18px;margin-left: 10px;"> {{complain.response}}</p>
+    {% else %}
+    <p style="float: left;font-size: 18px;margin-left: 10px;"> No response yet.</p>
+    {% endif %}
+</div>
+
+</div>
+    {% if complain.status == 'Viewed' %}
+<div class="container button1" style="margin-top: 30px;font-family:'Times New Roman', Times, serif;font-stretch: extra-expanded;line-height: 40px;margin-bottom: 20px;background-color: lightgray">
+<h3 class="button1" style="background-color:rgb(241, 41, 41);color: white;padding:20px;margin-bottom: 30px;border-left: 4px solid black ;letter-spacing: 1px">&#9679; Change status and response:</h3>
+    <form method='POST' style="font-family: 'Times New Roman', Times, serif;font-size: 20px;padding: 20px;">
+        {% csrf_token %}
+        {{form|crispy}}
+        <button type="submit" class="button2 button" style="background-color:rgb(241, 41, 41);" >Change Status</button>
+    </form>
+</div>
+    {% endif %}
+</div>
+{% endblock %}
