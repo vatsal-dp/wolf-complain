@@ -27,6 +27,36 @@ def home(request):
     
     
     return render(request,'grievance/home.html')
+   
+
+def delete(request):
+    user = request.user
+    user.delete()
+    messages.info(request, 'Account deleted successfully!')
+    return redirect('home')
+
+
+@is_logged
+def loginStudent(request):
+    if request.method=='POST':
+        form = LoginForm(request.POST or None)
+        if form.is_valid():
+            username = form.cleaned_data.get("username")
+            password = form.cleaned_data.get("password")
+            user = authenticate(username = username,password = password)
+            if user is not None:
+                group=Group.objects.get(user=user)
+                g=group.name
+                if g == 'student':
+                    login(request,user)
+                    return redirect('studentdashboard')
+                else:
+                    messages.info(request, f'Account belongs to a faculty. Go to the admin login page and Log In')
+            elif user is None:
+                messages.info(request, f'Invalid Credentials.')
+    else:
+        form= LoginForm()
+    return render(request,"grievance/studentlogin.html",{'form':form})
 
 
 @is_logged
@@ -155,27 +185,6 @@ def activatestudent(request, uidb64, token, name):
 
 
     
-@is_logged
-def loginStudent(request):
-    if request.method=='POST':
-        form = LoginForm(request.POST or None)
-        if form.is_valid():
-            username = form.cleaned_data.get("username")
-            password = form.cleaned_data.get("password")
-            user = authenticate(username = username,password = password)
-            if user is not None:
-                group=Group.objects.get(user=user)
-                g=group.name
-                if g == 'student':
-                    login(request,user)
-                    return redirect('studentdashboard')
-                else:
-                    messages.info(request, f'Account belongs to a faculty. Go to the admin login page and Log In')
-            elif user is None:
-                messages.info(request, f'Invalid Credentials.')
-    else:
-        form= LoginForm()
-    return render(request,"grievance/studentlogin.html",{'form':form})
     
 @is_logged
 def loginAdmin(request):
@@ -202,32 +211,6 @@ def loginAdmin(request):
     return render(request,"grievance/adminlogin.html",{'form':form})
 
 
-@login_required(login_url='/login/student/')
-@student_required
-@studentprofile_required
-def studentdashboard(request):
-    student= Student.objects.get(user=request.user)
-    pcomplains=Complain.objects.filter(sender=student,status='Pending')
-    rcomplains=Complain.objects.filter(sender=student,status='Rejected')
-    vcomplains=Complain.objects.filter(sender=student,status='Viewed')
-    scomplains=Complain.objects.filter(sender=student,status='Solved')
-    p=pcomplains.count()
-    r=rcomplains.count()
-    s=scomplains.count()
-    v=vcomplains.count()
-
-    context={
-        'student':student,
-        'pcomplains':pcomplains,
-        'vcomplains':vcomplains,
-        'rcomplains':rcomplains,
-        'scomplains':scomplains,
-        'r':r,
-        's':s,
-        'p':p,
-        'v':v,
-    }
-    return render(request,'grievance/studentdashboard.html',context)
 
 @login_required(login_url='/login/admins/')
 @admin_required
@@ -529,12 +512,34 @@ def admin_editprofile(request):
     return render(request, 'grievance/admin_editprofile.html', {'form1':u_form, 'form2':a_form})  
 
 
+@login_required(login_url='/login/student/')
+@student_required
+@studentprofile_required
+def studentdashboard(request):
+    student= Student.objects.get(user=request.user)
+    pcomplains=Complain.objects.filter(sender=student,status='Pending')
+    rcomplains=Complain.objects.filter(sender=student,status='Rejected')
+    vcomplains=Complain.objects.filter(sender=student,status='Viewed')
+    scomplains=Complain.objects.filter(sender=student,status='Solved')
+    p=pcomplains.count()
+    r=rcomplains.count()
+    s=scomplains.count()
+    v=vcomplains.count()
 
-def delete(request):
-    user = request.user
-    user.delete()
-    messages.info(request, 'Account deleted successfully!')
-    return redirect('home')
+    context={
+        'student':student,
+        'pcomplains':pcomplains,
+        'vcomplains':vcomplains,
+        'rcomplains':rcomplains,
+        'scomplains':scomplains,
+        'r':r,
+        's':s,
+        'p':p,
+        'v':v,
+    }
+    return render(request,'grievance/studentdashboard.html',context)
+
+
 
 
     
