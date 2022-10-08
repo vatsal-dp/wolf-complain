@@ -52,6 +52,13 @@ class LoginForm(forms.Form):
     username = forms.CharField(label = "Username")
     password = forms.CharField(label = "Password",widget = forms.PasswordInput)
 
+
+class StudentProfileForm(forms.ModelForm):
+    class Meta:
+        
+        model = Student
+        fields=['college','branch']
+        
 class ChangeStatusForm(ModelForm):
     status_choices = {
         ('Pending', 'Pending'),
@@ -65,11 +72,6 @@ class ChangeStatusForm(ModelForm):
         model = Complain
         fields=['status','response']
 
-class StudentProfileForm(forms.ModelForm):
-    class Meta:
-        
-        model = Student
-        fields=['college','branch']
 
 class AdminProfileForm(forms.ModelForm):
     class Meta:
