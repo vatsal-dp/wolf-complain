@@ -22,12 +22,13 @@ urlpatterns = [
     path('login/student/',views.loginStudent,name='loginStudent'),
     path('login/admins/',views.loginAdmin,name='loginAdmin'),
     path('student/studentdashboard/',views.studentdashboard,name='studentdashboard'),
+    path('student/studentdashboard/previousComplaints/',views.previousComplaints,name='previousComplaints'),
+    path('student/studentdashboard/studentProfileView/',views.studentProfileView,name='studentProfileView'),
+    
     path('admin/admindashboard/',views.admindashboard,name='admindashboard'),
     path('admin/admindashboard/profile/',views.adminProfileView,name='adminProfileView'),
     path('adminComplainView/<int:cid>/',views.adminComplainView,name='adminComplainView'),
     path('student/studentdashboard/AddComplain/',views.addComplain,name='addComplain'),
-    path('student/studentdashboard/previousComplaints/',views.previousComplaints,name='previousComplaints'),
-    path('student/studentdashboard/studentProfileView/',views.studentProfileView,name='studentProfileView'),
 
 
 
