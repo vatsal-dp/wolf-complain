@@ -17,14 +17,6 @@ def is_logged(view_func):
     
 
 
-def student_required(view_func):
-    def wrapper_func(request, *args, **kwargs):
-        group = Group.objects.get(user = request.user)
-        if group.name == 'student':
-            return view_func(request, *args, **kwargs)
-        else:
-            return HttpResponse('You are not authorized to view this page.')
-    return wrapper_func 
 
 
 def admin_required(view_func):
@@ -45,6 +37,15 @@ def adminprofile_required(view_func):
             return view_func(request, *args, **kwargs)
     return wrapper_func 
 
+
+def student_required(view_func):
+    def wrapper_func(request, *args, **kwargs):
+        group = Group.objects.get(user = request.user)
+        if group.name == 'student':
+            return view_func(request, *args, **kwargs)
+        else:
+            return HttpResponse('You are not authorized to view this page.')
+    return wrapper_func 
 
 def studentprofile_required(view_func):
     def wrapper_func(request, *args, **kwargs):
