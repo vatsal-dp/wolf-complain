@@ -8,5 +8,5 @@ from .models import Complain
 
 
 admin.site.register(Admin)
-admin.site.register(Student)
 admin.site.register(Complain)
+admin.site.register(Student)
