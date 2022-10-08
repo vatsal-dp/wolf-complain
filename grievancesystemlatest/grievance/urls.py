@@ -10,6 +10,11 @@ urlpatterns = [
     path('complainview/<int:cid>/', views.complainview, name='complainview'),
     path('logout/', views.logout_view, name='logout_view'),
     path('student/activate/<uidb64>/<token>/<name>/', views.activatestudent, name='activatestudent'),
+    path('admin/completeprofile/', views.adminProfile, name='adminProfile'),
+    path('student/completeprofile/', views.studentProfile, name='studentProfile'),
+    path('admin/admindashboard/',views.admindashboard,name='admindashboard'),
+    path('admin/admindashboard/profile/',views.adminProfileView,name='adminProfileView'),
+    path('adminComplainView/<int:cid>/',views.adminComplainView,name='adminComplainView'),
     path('admin/activate/<uidb64>/<token>/<name>/', views.activateadmin, name='activateadmin'),
     path('student/studentdashboard/studentProfileView/editprofile/', views.student_editprofile, name='student_editprofile'),
     path('admin/admindashboard/profile/editprofile/', views.admin_editprofile, name='admin_editprofile'),
@@ -22,11 +27,7 @@ urlpatterns = [
     path('student/studentdashboard/',views.studentdashboard,name='studentdashboard'),
     path('student/studentdashboard/previousComplaints/',views.previousComplaints,name='previousComplaints'),
     path('student/studentdashboard/studentProfileView/',views.studentProfileView,name='studentProfileView'),
-    path('admin/completeprofile/', views.adminProfile, name='adminProfile'),
-    path('student/completeprofile/', views.studentProfile, name='studentProfile'),
-    path('admin/admindashboard/',views.admindashboard,name='admindashboard'),
-    path('admin/admindashboard/profile/',views.adminProfileView,name='adminProfileView'),
-    path('adminComplainView/<int:cid>/',views.adminComplainView,name='adminComplainView'),
+    
     path('student/studentdashboard/AddComplain/',views.addComplain,name='addComplain'),
 
 
