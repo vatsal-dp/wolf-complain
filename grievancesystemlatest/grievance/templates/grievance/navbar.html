@@ -1,64 +1,48 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2113.6">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
-</head>
-<body>
-<p class="p1">&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>#X{</p>
-<p class="p1"><span class="Apple-converted-space">    </span>color: #FF5C5C;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>.navbar-nav .nav-item a.nav-link{</p>
-<p class="p1"><span class="Apple-converted-space">    </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1">&lt;/style&gt;</p>
-<p class="p1">&lt;nav class="navbar<span class="Apple-converted-space">  </span>navbar-dark sticky-top static-top" &gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;a class="navbar-brand" href={% url 'home' %}&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h4 style="padding-top: 5px;font-weight: bold;"&gt;Complain&lt;span id='X' style="font-style: italic"&gt;X&lt;/span&gt;&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" style="color: ;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="navbar-toggler-icon" style="color: "&gt;&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="collapse navbar-collapse" id="navbarResponsive" &gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;ul class="navbar-nav sm-auto"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;li class="nav-item "&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;a class="nav-link" href={% url "home" %} &gt;Home</p>
-<p class="p1"><span class="Apple-converted-space">                  </span>&lt;span class="sr-only"&gt;(current)&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;li class="nav-item"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;a class="nav-link" href={% url "adminRegister" %} &gt;Admin Signup&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;!--&lt;li class="nav-item"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;a class="nav-link" href=&gt;Map&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/li&gt;--&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;li class="nav-item"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;a class="nav-link" href={% url "loginAdmin" %}&gt;Admin Login&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;li class="nav-item"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;a class="nav-link" href={% url "studentRegister" %} &gt;Student Signup&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;li class="nav-item"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;a class="nav-link"<span class="Apple-converted-space">  </span>href={% url "loginStudent" %}&gt;Student Login&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/li&gt;</p>
-<p class="p1">&lt;!-- <span class="Apple-converted-space">          </span>&lt;li class="nav-item"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;a class="nav-link"<span class="Apple-converted-space">  </span>href={% url "about" %}&gt;About Us&lt;/a&gt; --&gt;</p>
-<p class="p2"><span class="Apple-converted-space">          </span></p>
-<p class="p2"><span class="Apple-converted-space">          </span></p>
-<p class="p2"><span class="Apple-converted-space">          </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/nav&gt;</p>
-</body>
-</html>
+<style>
+  #X{
+    color: #FF5C5C;
+  }
+
+  .navbar-nav .nav-item a.nav-link{
+    color: white;
+  }
+</style>
+<nav class="navbar  navbar-dark sticky-top static-top" >
+    <div class="container">
+      <a class="navbar-brand" href={% url 'home' %}>
+            <h4 style="padding-top: 5px;font-weight: bold;">Complain<span id='X' style="font-style: italic">X</span></h4>
+          </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" style="color: ;">
+            <span class="navbar-toggler-icon" style="color: "></span>
+          </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive" >
+        <ul class="navbar-nav sm-auto">
+          <li class="nav-item ">
+            <a class="nav-link" href={% url "home" %} >Home
+                  <span class="sr-only">(current)</span>
+                </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href={% url "adminRegister" %} >Admin Signup</a>
+          </li>
+          <!--<li class="nav-item">
+            <a class="nav-link" href=>Map</a>
+          </li>-->
+          <li class="nav-item">
+            <a class="nav-link" href={% url "loginAdmin" %}>Admin Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href={% url "studentRegister" %} >Student Signup</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  href={% url "loginStudent" %}>Student Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  href={% url "about" %}>About Us</a>
+          
+          
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
