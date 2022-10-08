@@ -221,13 +221,13 @@ def admindashboard(request):
             c.status = 'Viewed'
             c.save()
 
+    security = Complain.objects.filter(college=college, related_to='Security').count()
+    library = Complain.objects.filter(college=college, related_to='Library').count()
+    faculty = Complain.objects.filter(college=college, related_to='Faculty').count()
     rcomplains=Complain.objects.filter(receiver=admin,status='Rejected')
     scomplains=Complain.objects.filter(receiver=admin,status='Solved')
     vcomplains=Complain.objects.filter(receiver=admin,status='Viewed')
     management = Complain.objects.filter(college=college, related_to='Management').count()
-    security = Complain.objects.filter(college=college, related_to='Security').count()
-    library = Complain.objects.filter(college=college, related_to='Library').count()
-    faculty = Complain.objects.filter(college=college, related_to='Faculty').count()
     canteen = Complain.objects.filter(college=college, related_to='Canteen').count()
     computer = Complain.objects.filter(college=college, related_to='Faculty', branch='Computer').count()
     it = Complain.objects.filter(college=college, related_to='Faculty', branch='IT').count()
