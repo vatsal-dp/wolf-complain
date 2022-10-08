@@ -3,6 +3,37 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 
 # Create your models here.
+
+class Student(models.Model):
+    college_choices=(
+        ('DJ Sanghvi College of Engineering','DJ Sanghvi College of Engineering'),
+        ('KJ Somaiya College of Engineering','KJ Somaiya College of Engineering'),
+        ('Thadomal Sahani College of Engineering','Thadomal Sahani College of Engineering'),
+        ('Thakur College of Engineering','Thakur College of Engineering'),
+        ('Atharva College of Engineering','Atharva College of Engineering'),
+        ('Sardar Patel College of Engineering','Sardar Patel College of Engineering'),
+        ('VJTI College of Engineering','VJTI College of Engineering'),
+    )
+
+    branch_choices=(
+        ('Computer','Computer'),
+        ('IT','IT'),
+        ('EXTC','EXTC'),
+        ('ELEX','ELEX'),
+        ('Chemical','Chemical'),
+        ('Production','Production'),
+        ('Bio Med','Bio Med'),
+
+    )
+
+    user = models.OneToOneField(User,on_delete=models.CASCADE,default='')
+    college=models.CharField(max_length=300,default='',choices=college_choices)
+    branch=models.CharField(max_length=300,default='',choices=branch_choices)
+
+    def __str__(self):
+        return f"{self.user.username} : {self.branch}'s Student"
+
+
 class Admin(models.Model):
     college_choices=(
         ('DJ Sanghvi College of Engineering','DJ Sanghvi College of Engineering'),
@@ -47,35 +78,6 @@ class Admin(models.Model):
         return f"{self.user.username}, Department : {self.branch}"
 
 
-
-class Student(models.Model):
-    college_choices=(
-        ('DJ Sanghvi College of Engineering','DJ Sanghvi College of Engineering'),
-        ('KJ Somaiya College of Engineering','KJ Somaiya College of Engineering'),
-        ('Thadomal Sahani College of Engineering','Thadomal Sahani College of Engineering'),
-        ('Thakur College of Engineering','Thakur College of Engineering'),
-        ('Atharva College of Engineering','Atharva College of Engineering'),
-        ('Sardar Patel College of Engineering','Sardar Patel College of Engineering'),
-        ('VJTI College of Engineering','VJTI College of Engineering'),
-    )
-
-    branch_choices=(
-        ('Computer','Computer'),
-        ('IT','IT'),
-        ('EXTC','EXTC'),
-        ('ELEX','ELEX'),
-        ('Chemical','Chemical'),
-        ('Production','Production'),
-        ('Bio Med','Bio Med'),
-
-    )
-
-    user = models.OneToOneField(User,on_delete=models.CASCADE,default='')
-    college=models.CharField(max_length=300,default='',choices=college_choices)
-    branch=models.CharField(max_length=300,default='',choices=branch_choices)
-
-    def __str__(self):
-        return f"{self.user.username} : {self.branch}'s Student"
 
 
 class Complain(models.Model):
