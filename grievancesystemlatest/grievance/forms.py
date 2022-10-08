@@ -15,6 +15,21 @@ class UserFormAdmin(UserCreationForm):
         fields = [ 'first_name','last_name','username','email',  'password1', 'password2']
 
 
+class EditStudent(ModelForm):
+    class Meta:
+        model = Student
+        fields = ['college', 'branch']
+
+class EditUser(ModelForm):
+    class Meta:
+        model = User
+        fields = ['first_name', 'last_name', 'username', 'email']
+        
+class EditAdmin(ModelForm):
+    class Meta:
+        model = Admin
+        fields = ['designation', 'college', 'branch']        
+
 class UserFormStudent(UserCreationForm):
     
     email = forms.CharField(max_length=30, label='Email-id')
@@ -63,17 +78,3 @@ class AdminProfileForm(forms.ModelForm):
         fields=['college']
         
         
-class EditStudent(ModelForm):
-    class Meta:
-        model = Student
-        fields = ['college', 'branch']
-
-class EditUser(ModelForm):
-    class Meta:
-        model = User
-        fields = ['first_name', 'last_name', 'username', 'email']
-        
-class EditAdmin(ModelForm):
-    class Meta:
-        model = Admin
-        fields = ['designation', 'college', 'branch']        
