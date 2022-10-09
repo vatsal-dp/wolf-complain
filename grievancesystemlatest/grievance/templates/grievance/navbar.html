@@ -1,0 +1,48 @@
+<style>
+  #X{
+    color: #FF5C5C;
+  }
+
+  .navbar-nav .nav-item a.nav-link{
+    color: white;
+  }
+</style>
+<nav class="navbar  navbar-dark sticky-top static-top" >
+    <div class="container">
+      <a class="navbar-brand" href={% url 'home' %}>
+            <h4 style="padding-top: 5px;font-weight: bold;">Complain<span id='X' style="font-style: italic">X</span></h4>
+          </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" style="color: ;">
+            <span class="navbar-toggler-icon" style="color: "></span>
+          </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive" >
+        <ul class="navbar-nav sm-auto">
+          <li class="nav-item ">
+            <a class="nav-link" href={% url "home" %} >Home
+                  <span class="sr-only">(current)</span>
+                </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href={% url "adminRegister" %} >Admin Signup</a>
+          </li>
+          <!--<li class="nav-item">
+            <a class="nav-link" href=>Map</a>
+          </li>-->
+          <li class="nav-item">
+            <a class="nav-link" href={% url "loginAdmin" %}>Admin Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href={% url "studentRegister" %} >Student Signup</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  href={% url "loginStudent" %}>Student Login</a>
+          </li>
+<!--           <li class="nav-item">
+            <a class="nav-link"  href={% url "about" %}>About Us</a> -->
+          
+          
+          
+        </ul>
+      </div>
+    </div>
+  </nav>

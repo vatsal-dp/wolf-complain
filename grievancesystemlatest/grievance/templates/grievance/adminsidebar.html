@@ -1,0 +1,163 @@
+<style>
+    .sidebar {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color:lightgray;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+.btn{
+  background-color: #D10000;
+}
+
+/* Sidebar links */
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+  font-size: 18px;
+}
+    
+.alert-custom{
+  background-color: lightgray;
+  color:black;
+    }    
+    
+.sidebar h4 {
+  display: block;
+  color: white;
+  padding: 15px;
+  background-color: #D10000;
+  font-weight: bold;
+}
+
+/* Active/current link */
+.sidebar a.active {
+  background-color: whitesmoke;
+  color: #D10000;
+}
+
+/* Links on mouse-over */
+.sidebar a:hover:not(.active) {
+  background-color: whitesmoke;
+  color: #D10000;
+}
+
+/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  
+}
+
+/* On screens that are less than 700px wide, make the sidebar into a topbar */
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    background-color:white;
+  }
+  .sidebar a {
+    float: left;
+    padding: 10px;
+    padding-right: 15px;
+    padding-left: 15px;
+    border:1px solid rgb(70, 70, 70);
+    background-color: rgb(99, 99, 99);
+    color: whitesmoke;
+    border-radius: 20px;
+    font-size: 12px;
+    margin:5px;
+    }
+    /* Links on mouse-over */
+.sidebar a:hover:not(.active) {
+  background-color: #D10000;
+  color: white;
+}
+/* Active/current link */
+.sidebar a.active {
+  background-color: #D10000;
+  border:1px solid #D10000;
+  color: white;
+  padding: 10px;
+    padding-right: 15px;
+    padding-left: 15px;
+    border-radius: 20px;
+}
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+
+}
+</style>
+<div class="" >
+
+    <div class="sidebar">
+        <h4 style="">Welcome, {{user.first_name}} {{user.last_name}}!</h4>
+        {% if user.admin.designation == 'Principal' %}
+        <a  href={% url 'principaldashboard' %} class='{{pcomplains}}'>Dashboard</a>
+        
+        <a href={% url 'principalComplains' %} class='{{my_complains}}'>My Complains</a>
+
+        <a href = '{% url 'members_list' %}' class='{{members_list}}'>Members List</a>
+
+        {% else %}
+        <a  href={% url 'admindashboard' %} class='{{admin_dashboard_active}}'>Dashboard</a>
+        <a  href={% url 'complain_history' %} class='{{admin_complains_active}}'>Complain History</a>
+        {% endif %}
+        <a href={% url 'adminProfileView' %} class='{{admin_profile_active}}'>My Profile</a>
+
+        <a  href='myModal69' data-toggle="modal" data-target="#myModal69">Log Out</a>
+      </div>
+</div>    
+
+<!-- Modal -->
+            <div class="modal fade" id="myModal69" role="dialog">
+              <div class="modal-dialog">
+              
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title" style='color: black'>Log Out</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    
+                  </div>
+                  <div class="modal-body" style='color: black'>
+                      Are you sure you want to Log Out?
+                  </div>
+                  <div class="modal-footer">
+                    <a href='#' data-dismiss="modal" class="btn btn-danger">Close</a>
+                      <a href='{% url 'logout_view' %}' class="btn btn-danger">Log Out</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+<div class="modal fade" id="myModal6969" role="dialog">
+              <div class="modal-dialog">
+              
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title" style='color: black'>DELETE</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    
+                  </div>
+                  <div class="modal-body" style='color: black'>
+                      Are you sure you want to delete your account? You will lose it permanently.
+                  </div>
+                  <div class="modal-footer">
+                    <a href='#' class="btn btn-outline-danger" data-dismiss="modal" style="color: white;">Close</a>
+                      <a href='{% url 'deleteadmin' %}' class="btn btn-outline-danger" style="color: white;">Delete</a>
+                  </div>
+                </div>
+              </div>
+            </div>

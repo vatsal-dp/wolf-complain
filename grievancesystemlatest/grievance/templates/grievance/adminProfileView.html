@@ -1,0 +1,51 @@
+{% extends 'grievance/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% include 'grievance/adminsidebar.html' %}
+
+<style>
+  .alert-custom{
+  background-color: rgb(209, 0, 0, 0.3);
+  color:rgb(141, 0, 0);
+  font-weight: bold;
+  }
+  </style>
+
+<div class="content">
+
+  {% if messages %}
+         {% for x in messages %}
+                 <div class="alert alert-custom  fade in alert-dismissable show" style="margin-top:18px;font-size: 15px;font-weight: bold;background-color: rgb(99, 99, 99);color: whitesmoke;">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                     <span aria-hidden="true" style="font-size:20px">×</span>
+                   </button><center>{{x}}</center>
+                 </div>
+          {% endfor %}
+          {% endif %}
+ 
+ 
+ <br>
+ <div class="card">
+   <h3 style="font-weight: bold;padding-bottom: 15px;border-bottom: 2px solid #D10000 ;text-align: center;">My Profile</h3><br>
+   <div class="row">
+       <div class="col-12 col-md-6"><p ><span style="font-weight: bold;">Full Name: </span>{{a.user.first_name}} {{a.user.last_name}}.</p></div>
+       <div class="col-12 col-md-6"><p class=""><span style="font-weight: bold;">Email: </span>{{a.user.email}}.</p></div>
+   </div>
+   <div class="row">
+       <div class="col-12 col-md-6"><p ><span style="font-weight: bold;">College: </span>{{a.college}}.</p></div>
+       <div class="col-12 col-md-6"><p class=""><span style="font-weight: bold;">Branch: </span>{{a.branch}}.</p></div>
+   </div>
+   <div class="row">
+   <div class="col-12 col-md-6"><p ><span style="font-weight: bold;">Designation: </span>{{a.designation}}.</p></div>
+   <div class="col-12 col-md-6"><p ><span style="font-weight: bold;">Total Complaints: </span>{{tcomplains}}.</p></div>
+  </div>
+   <div class="row">
+       <div class="col-12 col-md-6 "><p class=""><span style="font-weight: bold;">Solved Complaints: </span>{{scomplains}}.</p></div>
+       <div class=" col-12 col-md-6"><p ><span style="font-weight: bold;">Rejected Complaints: </span>{{rcomplains}}.</p></div>
+   </div>
+   <div class="" style="border-bottom: 1px solid lightgray;"></div><br>
+   
+   <span><a href='{% url 'admin_editprofile' %}' style="margin-right:20px">Edit Profile</a><a style="margin-right:20px"  {% if user.username == 'demoadmin' %}href='#'{% else %}href='myModal6969' data-toggle="modal" data-target="#myModal6969"{% endif %}>Delete Account</a><br><a   {% if user.username == 'demoadmin' %}href='#'{% else %}href='{% url 'password_change' %}' {% endif %}>Change Password</a><span>
+ </div><br>
+{% endblock %}
+

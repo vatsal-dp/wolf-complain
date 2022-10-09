@@ -1,0 +1,48 @@
+{% extends 'grievance/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% include 'grievance/adminsidebar.html' %}
+<style>
+
+
+</style>
+<div class="content">
+ 
+  <div >
+    <h3  style="font-weight: bold;;margin-top: 20px;" class="">Complain History</h2>
+    <div style="border-bottom: 3px solid #D10000;width:40%;;margin-bottom: 40px;" class=""></div>
+    {% if complains %}
+  
+  <div class="" style="padding: 20px;;border: 1px solid lightgray;background-color: whitesmoke;border-radius: 10px;">
+    {% for p in complains %}
+    <div style="padding-bottom: 10px;margin-bottom: 10px;;">
+      <h5 style="font-weight: bold;">{{p.complain_heading}}</h4>
+      <small><span style="margin-right: 15px;"><i class="fas fa-thumbs-up" style="color: rgb(49, 49, 49);"></i> {{p.total_likes}}</span><span style="margin-right: 15px;">{{p.date_posted|date:"M d, Y"}}</span>
+        {% if p.status == 'Solved' %}
+        <span style="color: green;font-weight: bold;" >{{p.status}}</span>
+        {% elif p.status == 'In Progress' %}
+        <span style="color:rgb(168, 168, 28);font-weight: bold;" >{{p.status}}</span>
+        {% elif p.status == 'Rejected' %}
+        <span style="color: red;font-weight: bold;" >{{p.status}}</span>
+        {% else %}
+        <span style="font-weight: bold;" >{{p.status}}</span>
+        {% endif %}
+        <span style="margin-left: 15px;"><a href="/adminComplainView/{{p.id}}/">View</a></span></small>
+    </div>
+    {% endfor %}
+  </div>
+    {% else %}
+    <div class="" style="padding-bottom: 10px;;">
+      <p class='text-muted'>No Complains to display</p>
+
+    </div>
+  {% endif %}
+
+  
+
+</div><br>
+
+   
+    
+</div>
+{% endblock content %}

@@ -1,0 +1,51 @@
+{% extends 'grievance/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% include 'grievance/studentsidebar.html' %}
+<div class="content"><br>
+    <div class="card">
+        <h3 style="font-weight: bold;padding-bottom: 15px;border-bottom: 2px solid #0D98BA ;text-align: center;">Detailed View</h3><br>
+        <div class="row">
+            <div class="col-12 col-md-6"><p ><span style="font-weight: bold;">Title: </span>{{complain.complain_heading}}.</p></div>
+            <div class="col-12 col-md-6"><p class=""><span style="font-weight: bold;">Date posted: </span>{{complain.date_posted|date:"M d, Y"}}.</p></div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6"><p ><span style="font-weight: bold;">To College: </span>{{complain.college}}.</p></div>
+            <div class="col-12 col-md-6"><p class=""><span style="font-weight: bold;">Related to: </span>{{complain.related_to}}.</p></div>
+        </div>
+        <div class="row">
+            <div class=" col-6"><p ><span style="font-weight: bold;">Branch: </span>{{complain.branch}}.</p></div>
+            <div class="col-6 "><p class=""><span style="font-weight: bold;">Status: </span>{{complain.status}}.</p></div>
+        </div>
+        <div class="row" style="">
+            <div class=" col-12"><p ><span style="font-weight: bold;">Complain: </span>{{complain.complain_content}}.</p></div>
+            
+        </div><br>
+        <div class="" style="border-bottom: 1px solid lightgray;"></div><br>
+        <div class="row">
+        <div class="col-12 " style=""><p ><span style="font-weight: bold;">Response: </span><span>
+            {% if complain.response %}
+             {{complain.response}}
+             {% if complain.status == 'Solved' or complain.status == 'Rejected' %}
+             <p><span style="font-weight: bold;">Date resolved: </span>{{complain.date_resolved}}</p>
+             {% endif %}
+            {% else %}
+            No response yet.
+            {% endif %}
+        </span>
+        </p>
+        </div>
+    </div>
+
+    </div><br>
+    {% if complain.transfer %}
+    <p style="font-style: italic;margin-top: 20px;"><sup>*</sup>This complain was transferred to higher authority.</p>
+    {% endif %}
+</div>
+
+        
+
+   
+
+{% endblock %}
+

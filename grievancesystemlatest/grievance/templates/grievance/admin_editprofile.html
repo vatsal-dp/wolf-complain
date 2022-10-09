@@ -1,0 +1,16 @@
+{% extends 'grievance/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+{% include 'grievance/adminsidebar.html' %}
+<div class="content">
+    <h3 class='' style="margin-top: 20px;font-weight: bold;">Edit Your Profile</h3>
+    <div class='' style='border-bottom: 3px solid #D10000;margin-bottom: 20px;width: 40%;'></div>
+         <form method="POST" class='' style=''>
+             {% csrf_token %}
+             {{form1|crispy}}
+             {{form2|crispy}}
+             {% if user.username == 'demoadmin' %}<a href='#' class='btn btn-danger'>Update Profile</a>{% else %}<button type="submit" class="btn btn-danger">Update Profile</button>{% endif %}
+      </form>
+ </div>
+{% endblock content %}

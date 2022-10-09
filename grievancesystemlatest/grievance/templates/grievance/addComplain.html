@@ -1,0 +1,94 @@
+{% extends 'grievance/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<script>      
+  function checkIfYes() {
+      if (document.getElementById('related').value == 'Faculty') {
+        document.getElementById('extra').style.display = '';
+        document.getElementById('branches').disabled = false;
+      } else {
+        document.getElementById('extra').style.display = 'none';
+  }
+}
+</script>
+
+<style>
+.alert-custom{
+  background-color: lightgray;
+  color:black;
+  
+    }
+    .btn{
+      background-color: #0D98BA;
+    }
+</style>    
+
+{% include 'grievance/studentsidebar.html' %}
+
+<div class="content">
+        {% if messages %}
+        {% for x in messages %}
+        <div class="alert alert-custom  fade in alert-dismissable show " style="margin-top:18px;background-color: rgb(99, 99, 99);color: whitesmoke;font-weight: bold;font-size: 15px;">
+                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true" style="font-size:20px">×</span>
+                  </button><center>{{x}}</center>
+                </div>                
+         {% endfor %}
+     {% endif %}
+</div>
+     {% if complains_count < 6  %}
+     <div class="content">
+     <br>
+         <span style="font-style: italic;"><center>You can add {{diff}} complain(s) today.</center></span>
+       
+                
+          <h3 class='' style="margin-top: 30px;font-weight: bold;">Add Complain</h3>
+          <div class='' style='border-bottom: 3px solid #0D98BA;margin-bottom: 20px;width: 30%;'></div>
+          <div >
+        
+              <div class='' style="">
+            <div id="form1">
+        <form method="POST">
+            {% csrf_token %}
+            {{form|crispy}}
+            <div class="form-group">
+              <label for="formGroupExampleInput">College<sup>*</sup></label>
+              <input name = "college" value="{{user.student.college}}" type="text" class="form-control" id="formGroupExampleInput" disabled>
+            </div>
+            <div class="form-group">
+                <label class="control-label" >Complain Related to<sup>*</sup></label>
+    <select onchange='checkIfYes()' class="select form-control" id="related" name="related" required>
+      <option id="No" name='related_to' value="Management">Management</option>
+        <option id="No" name='related_to' value="Library">Library</option>
+        <option id="No" name='related_to' value="Security">Security</option>
+      <option id="Yes" name='related_to' value="Faculty">Faculty</option>
+    </select>
+  </div>
+
+  <div id="extra" name="extra" style="display: none">
+    <label class="control-label" for="branches">Branch<sup>*</sup></label>
+    <select class="form-control" type="text" id="branches" name="branches" required disabled >
+        <option  name='branch' value="Computer">Computer</option>
+        <option  name='branch' value="IT">IT</option>
+        <option  name='branch' value="EXTC">EXTC</option>
+        <option  name='branch' value="ELEX">ELEX</option>
+        <option  name='branch' value="Chemical">Chemical</option>
+        <option  name='branch' value="Production">Production</option>
+        <option  name='branch' value="Bio Med">Bio Med</option>
+    </select>    
+  </div><br>
+
+            {% if user.username == 'demostudent' %}<a href='#' class='btn btn-primary' style="background-color: #0D98BA; border-color: #0D98BA;">Submit</a>{% else %}<button type="submit" class="btn btn-primary" style="background-color: #0D98BA; border-color: #0D98BA;">Submit</button>{% endif %}
+            
+        </form>
+        {% endif %}
+      </div>
+           
+        </div>
+          </div>
+
+</div>   
+{% endblock %}
+ 
+

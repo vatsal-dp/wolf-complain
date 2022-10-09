@@ -1,0 +1,49 @@
+
+{% extends 'grievance/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% include 'grievance/navbar.html' %}
+<style>
+
+  .alert-custom{
+  background-color: rgb(209, 0, 0, 0.3);
+  color:rgb(141, 0, 0);
+  font-weight: bold;
+  }
+
+    .navbar{
+   background-color: #D10000;
+ }    
+
+ #X{
+   color: rgb(0, 0, 0);
+ }
+</style>    
+<div class="container">
+  <div class="row justify-content-center">
+    <div class='col-12 col-md-8'>
+        {% if messages %}
+        {% for x in messages %}
+                <div class="alert alert-custom  fade in alert-dismissable show" style="margin-top:18px;font-size: 15px;font-weight: bold;background-color: rgb(99, 99, 99);color: whitesmoke;">
+                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true" style="font-size:20px">×</span>
+                  </button><center>{{x}}</center>
+                </div>
+         {% endfor %}
+         {% endif %}
+         <div class="" style="background-color: whitesmoke;padding: 30px;margin-top: 10%;margin-bottom:10%;text-align: center;border-radius: 10px;border: 1px solid lightgray;">
+      <h2 style="padding: 15px;border-bottom: 2px solid rgb(241, 41, 41);font-weight: bold;">Admin Signup:</h2><br>
+        <form method="POST">
+            <div style="text-align: left;">
+            {% csrf_token %}
+            {{form|crispy}}
+            </div>
+            <button type="submit" class="btn btn-danger" >Sign up</button><br><br>
+            </form>
+            <small class="text-muted">Already registered? </small> <a href={% url "loginAdmin" %}  style="color: rgb(241, 41, 41);">Admin Log In</a>
+    </div>
+</div>
+</div>
+</div>
+
+{% endblock content %}

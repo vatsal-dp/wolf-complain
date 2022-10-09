@@ -1,0 +1,46 @@
+{% extends 'grievance/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+{% include 'grievance/studentsidebar.html' %}
+
+<div class="content">
+
+  {% if messages %}
+  {% for x in messages %}
+          <div class="alert alert-custom  fade in alert-dismissable show " style="margin-top:18px;font-size: 15px;background-color: rgb(99, 99, 99);color: whitesmoke;font-weight: bold;">
+           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true" style="font-size:20px">×</span>
+            </button><center>{{x}}</center>
+          </div>
+   {% endfor %}
+{% endif %}
+
+
+<br>
+<div class="card">
+  <center><img class="rounded-circle img-fluid" src="{% static "grievance/images/icon3.png" %}" style="height: 200px;width: 200px;" alt="{{user.username}}" title='{{user.first_name}} {{user.last_name}}'>
+  </center>
+  <br><hr><br>
+  <div class="row">
+      <div class="col-12 col-md-6"><p ><span style="font-weight: bold;">Full Name: </span>{{a.user.first_name}} {{a.user.last_name}}.</p></div>
+      <div class="col-12 col-md-6"><p class=""><span style="font-weight: bold;">Email: </span>{{a.user.email}}.</p></div>
+  </div>
+  <div class="row">
+      <div class="col-12 col-md-6"><p ><span style="font-weight: bold;">College: </span>{{a.college}}.</p></div>
+      <div class="col-12 col-md-6"><p class=""><span style="font-weight: bold;">Branch: </span>{{a.branch}}.</p></div>
+  </div>
+  <div class="row">
+      <div class="col-12 col-md-6"><p ><span style="font-weight: bold;">Total Complaints: </span>{{tcomplains}}.</p></div>
+      <div class="col-12 col-md-6 "><p class=""><span style="font-weight: bold;">Solved Complaints: </span>{{scomplains}}.</p></div>
+  </div>
+  <div class="row" style="">
+      <div class=" col-12"><p ><span style="font-weight: bold;">Rejected Complaints: </span>{{rcomplains}}.</p></div>
+      
+  </div><br>
+  <div class="" style="border-bottom: 1px solid lightgray;"></div><br>
+  
+  <span><a href='{% url 'student_editprofile' %}' style="margin-right:20px">Edit Profile</a><a style="margin-right:20px"  {% if user.username == 'demostudent' %}href='#'{% else %}href='myModal6969' data-toggle="modal" data-target="#myModal6969"{% endif %}>Delete Account</a><br><a   {% if user.username == 'demostudent' %}href='#'{% else %}href='{% url 'password_change' %}' {% endif %}>Change Password</a><span>
+</div><br>
+
+{% endblock %}

@@ -1,0 +1,89 @@
+{% extends 'grievance/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% include 'grievance/navbar.html' %}
+<script>      
+  function checkIfYes() {
+      if (document.getElementById('designation').value == 'HOD') {
+        document.getElementById('extra').style.display = '';
+        document.getElementById('branches').disabled = false;
+      } else {
+        document.getElementById('extra').style.display = 'none';
+  }
+}
+</script>
+
+<style>
+  .alert-custom{
+  background-color: rgb(209, 0, 0, 0.3);
+  color:rgb(141, 0, 0);
+  font-weight: bold;
+  }
+    .navbar{
+   background-color: rgb(197, 0, 0);
+ }    
+
+ #X{
+   color: rgb(0, 0, 0);
+ }  
+       
+    
+</style>    
+<div class="container">
+  <h5 style="text-align: center;margin-top:10px;padding: 10px;font-size: 15px;font-weight: bold;background-color: rgb(99, 99, 99);color: whitesmoke;" class='alert alert-custom'>Complete your profile. This step is mandatory.</h5>
+  {% if messages %}
+        {% for x in messages %}
+                <div class="alert alert-custom  fade in alert-dismissable show" style="margin-top:18px;font-size: 15px;font-weight: bold;background-color: rgb(99, 99, 99);color: whitesmoke;">
+                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true" style="font-size:20px">×</span>
+                  </button><center>{{x}}</center>
+                </div>
+         {% endfor %}
+         {% endif %}
+         <div class='row justify-content-center'>
+         <div class='col-md-6 col-12' style=" margin-top: 10px;">
+    <div class="card" >
+      <h3 style="font-weight: bold;padding-bottom: 15px;border-bottom: 2px solid red ;text-align: center;">Complete Profile</h3>   
+    <form method="POST">
+        <div style="text-align: left;">
+        {% csrf_token %}
+        {{form|crispy}}
+        
+            
+             
+            <div class="form-group">
+                <label class="control-label" >Designation<sup>*</sup></label>
+    <select onchange='checkIfYes()' class="select form-control" id="designation" name="designation" required>
+      <option id="No" value="Principal">Principal</option>
+        <option id="No" value="Vice-Principal">Vice-Principal</option>
+        <option id="Yes" value="HOD">HOD</option>
+        <option id="No" value="Security Head">Security Head</option>
+      <option id="No" value="Senior Librarian">Senior Librarian</option>
+        <option id="No" value="Canteen Owner">Canteen Owner</option>
+    </select>
+  </div>
+
+  <div id="extra" name="extra" style="display: none">
+    <label class="control-label" for="branches">Branch<sup>*</sup></label>
+    <select class="form-control" type="text" id="branches" name="branches" required disabled >
+        <option  name='branch' value="Computer">Computer</option>
+        <option  name='branch' value="IT">IT</option>
+        <option  name='branch' value="EXTC">EXTC</option>
+        <option  name='branch' value="ELEX">ELEX</option>
+        <option  name='branch' value="Chemical">Chemical</option>
+        <option  name='branch' value="Production">Production</option>
+        <option  name='branch' value="Bio Med">Bio Med</option>
+    </select>    
+  </div>
+            
+            
+        </div>
+        <button type="submit" class="btn btn-danger mt-3" >Submit</button>
+        </form>
+</div>
+</div>
+</div></div>
+
+
+
+{% endblock %}

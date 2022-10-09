@@ -1,0 +1,124 @@
+{% extends 'grievance/base.html' %}
+{% load static %}
+{% block content %}
+{% include 'grievance/navbar.html' %}
+<style>
+@media (min-width: 768px) {
+  .carousel-inner img {
+    width: 100%;
+    height:70%;
+    
+    
+  }
+}
+
+
+
+@media (max-width: 760px){
+.demo{
+  text-align: center;
+  
+
+}
+}
+</style>
+<center>
+<div id="demo" class="carousel slide" data-ride="carousel">
+
+  <!-- Indicators -->
+  <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+  </ul>
+
+  <!-- The slideshow -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="img-fluid" src="{% static "grievance/images/corousel10.jpg" %}" alt="Los Angeles">
+    </div>
+    <div class="carousel-item">
+      <img class="img-fluid" src="{% static "grievance/images/corousel12.jpg" %}" alt="Chicago">
+    </div>
+    <div class="carousel-item">
+      <img class="img-fluid" src="{% static "grievance/images/corousel11.jpg" %}" alt="New York">
+    </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon" style="color: black;"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+
+</div></center>
+<div class="container">
+  <div class="row" style="margin-top: 30px;">
+    <div class="col-md-6" >
+      <div class="" style="padding:20px;border-radius: 15px;padding-bottom: 30px;border: 1px solid lightgray;margin-bottom: 20px;background-color: whitesmoke;">
+        <h4 style="font-weight: bold;"><i class="fas fa-user-shield " style="font-size: 20px;margin-bottom: 13px;"></i> Admin Login</h4>
+      <p>If you are a Management staff of a college, login here </p>
+      <a href={% url 'loginAdmin' %} style="text-decoration: none;padding: 10px;border: 1px sloid #0D98BA;background-color: #0D98BA;color: white;border-radius: 5px;">Sign up</a>
+    </div>
+  </div>
+    <div class="col-md-6" >
+      <div class="" style="padding:20px;border-radius: 15px;padding-bottom: 30px;border: 1px solid lightgray;margin-bottom: 20px;background-color: whitesmoke;">
+        <h4 style="font-weight: bold;"><i class="fas fa-user-graduate " style="font-size: 20px;"></i> Student Login</h4>
+      <p>If you are a student, login here</p>
+      <a href={% url 'loginStudent' %} style="text-decoration: none;padding: 10px;border: 1px solid #0D98BA;background-color: #0D98BA;color: white;border-radius: 5px;">Sign up</a>
+    </div>
+    </div>
+  </div>
+  <div style="border-bottom: 1px solid lightgray;margin-top: 15px;" class=""></div>
+  <div style="margin-top:20px">
+    <h2  style="font-weight: bold;" class="">Our Features</h2>
+    <div style="border-bottom: 3px solid #0D98BA;width:100px;" class=""></div><br>
+    <h4 style="font-weight: bold;" class="">For Students</h5>
+    <div style="border-bottom: 2px solid #0D98BA;width:60px;" class=""></div>
+    <br>
+    <p style="class=""><span style="font-weight: bold;font-size: 20px;">S</span>upport complains of college mates in college feed section and get supported.</p>
+      <p style="" class=""><span style="font-weight: bold;font-size: 20px;">S</span>tatus update of a complaint.</p>
+      <p style="" class=""><span style="font-weight: bold;font-size: 20px;">M</span>inimalistic ui for ease of use.</p><br>
+        <h4  style="font-weight: bold;" class="">For HODs</h5>
+    <div style="border-bottom: 2px solid #0D98BA;width:60px;" class=""></div>
+    <br>
+    <p style="class=""><span style="font-weight: bold;font-size: 20px;">S</span>pam is avoided by limiting the number of complains per day for each student.</p>
+      <p style="" class=""><span style="font-weight: bold;font-size: 20px;">T</span>ransfer a complain to Principal if it seems to be unsolvable at your level.</p>
+      <p style="" class=""><span style="font-weight: bold;font-size: 20px;">A</span>nalyze your branch performance in last 6 months through graph.</p><br>
+        <h4  style="font-weight: bold;" class="">For Principal</h5>
+        <div style="border-bottom: 2px solid #0D98BA;width:60px;" class=""></div>
+        <br>
+        <p style="class=""><span style="font-weight: bold;font-size: 20px;">A</span>nalyze complain stats of various branches through graphs provided on home page.</p>
+          <p style="" class=""><span style="font-weight: bold;font-size: 20px;">I</span>ssue warning to HODs if the stats seem unsatisfactory.</p>
+         
+  </div>
+  <div class=" pt-4 mb-5" style="border-top: 1px solid lightgray;" >
+    <h4 style="font-weight: bold" class="mb-4"><i class="fas fa-info-circle"></i> Need a demo?</h4>
+    <div class='card '>
+      <div class='row'>
+   <div class="col-5 mb-2" style="border-right: 1px solid gray;"> <p style="font-weight: bold;">For Admin </p>
+    <a href='{% url "loginAdmin" %}' class='button_student' style="color: white;text-decoration: none">Admin</a>
+  </div>
+  <div class="col-7">
+    <p><span style="font-weight: bold;">Username :</span> demoadmin<br><span style="font-weight: bold;">Password : </span> pass@123</p>
+  </div>
+</div>
+    </div>
+    <div class='card mt-3'>
+      <div class='row'>
+   <div class="col-5 mb-2" style="border-right: 1px solid gray;"> <p style="font-weight: bold;">For Student </p>
+    <a href='{% url "loginStudent" %}' class='button_student' style="color: white;text-decoration: none">Student</a>
+  </div>
+  <div class="col-7">
+    <p><span style="font-weight: bold;">Username :</span> demostudent<br><span style="font-weight: bold;">Password :</span> pass@123</p>
+  </div>
+</div>
+    </div>
+  
+      
+  </div>
+  
+</div>
+ {% endblock content %}

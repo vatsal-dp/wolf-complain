@@ -1,0 +1,315 @@
+{% extends 'grievance/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% include 'grievance/adminsidebar.html' %}
+<style>
+  .alert-custom{
+  background-color: rgb(209, 0, 0, 0.3);
+  color:rgb(141, 0, 0);
+  font-weight: bold;
+  }
+  </style>
+
+<div style="">
+  <script src="https://cdn.jsdelivr.net/npm/chart.9.3/dist/Chart.min.js"></script>
+      <!-- Page content -->
+
+      <div class="content">
+
+        {% if messages %}
+    {% for x in messages %}
+            <div class="alert alert-custom  fade in alert-dismissable show" style="margin-top:18px;font-size: 15px;font-weight: bold;background-color: rgb(99, 99, 99);color: whitesmoke;">
+             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true" style="font-size:20px">×</span>
+              </button><center>{{x}}</center>
+            </div>
+     {% endfor %}
+     {% endif %}
+     <div >
+      <h3  style="font-weight: bold;;margin-top: 20px;" class="">Principal Dashboard</h2>
+      <div style="border-bottom: 3px solid #D10000;width:40%;;" class=""></div>
+    </div>   <br> <br>
+    <div class="row">
+        <div class="col-12 col-md-6 mb-5">
+     <canvas id="columnchart_values" style="padding:15px; width: 900px;height: 350px;animation-delay: 0.2s; border-radius: 15px;border: 1px solid lightgray;background-color: whitesmoke;" class="col-md-12 col-12"></canvas>
+    </div>
+    <div class="col-12 col-md-6 mb-5">
+        <canvas id="columnchart_values1" style="padding:15px; width: 900px;height: 250px; border-radius: 15px;animation-delay: 0.2s;border: 1px solid lightgray;background-color: whitesmoke;" class="col-md-12 col-12"></canvas>
+       </div>
+    </div>
+     <script type="text/javascript">
+      Chart.defaults.global.defaultFontSize = 12;
+      Chart.defaults.global.defaultFontColor = 'black'; 
+      var ctx = document.getElementById('columnchart_values').getContext('2d');
+      var myChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: [
+                'Comps',
+                'IT',
+                'EXTC',
+                'Elex',
+                'Prod',
+                'Bio Med',
+                'Chemical'
+            
+            ],
+            datasets: [{
+                label: 'Number of Complains',
+                data: [
+                {{compcomplains.count}},
+                {{itcomplains.count}},
+                {{extccomplains.count}},
+                {{elexcomplains.count}},
+                {{prodcomplains.count}},
+                {{biocomplains.count}},
+                {{chemcomplains.count}}
+
+                ],
+                 backgroundColor:[ 'rgb(209, 0, 0, 0.5)',
+                     'rgba(255, 99, 132, 0.5)',
+                     'rgba(54, 162, 235, 0.5)',
+                     'rgba(255, 206, 86, 0.5)',
+                     'rgba(75, 192, 192, 0.5)',
+                     'rgba(153, 102, 255, 0.5)',
+                     'rgba(100, 101, 285, 0.5)'
+                     ]
+                
+                 ,
+                borderColor: ['#D10000',
+                     'rgba(255, 99, 132, 1)',
+                     'rgba(54, 162, 235, 1)',
+                     'rgba(255, 206, 86, 1)',
+                     'rgba(75, 192, 192, 1)',
+                     'rgba(153, 102, 255, 1)',
+                     'rgba(100, 101, 285)'
+                     ]
+                ,
+                borderWidth: 2
+            }]
+        },
+        options: {
+          title: {
+                  display: true,
+                  text: 'Number of complains in various branches this month'
+                },
+            
+        }
+    });
+
+    var ctx1 = document.getElementById('columnchart_values1').getContext('2d');
+
+    var myChart = new Chart(ctx1, {
+        type: 'bar',
+        data: {
+            labels: [
+            {% if cm1 >= 6 %}
+            {% if diff < 01 and 01 <= cm1 %}
+            "Jan {{cy1}}",
+            {% endif %}
+            {% if diff < 02 and 02 <= cm1 %}
+            "Feb {{cy1}}",
+            {% endif %}
+            {% if diff < 03 and 03 <= cm1 %}
+            "March {{cy1}}",
+            
+            {% endif %}
+            {% if diff < 04 and 04 <= cm1 %}
+            "April {{cy1}}",
+            {% endif %}
+            {% if diff < 05 and 05 <= cm1 %}
+            "May {{cy1}}",
+            {% endif %}
+            {% if diff < 06 and 06 <= cm1 %}
+            "June {{cy1}}",
+            
+            {% endif %}
+            {% if diff < 7 and 7 <= cm1 %}
+            "July {{cy1}}",
+            {% endif %}
+              {% if diff < 08 and 08 <= cm1 %}
+              "Aug {{cy1}}",
+              {% endif %}
+              {% if diff < 09 and 09 <= cm1 %}
+              "Sept {{cy1}}",
+              {% endif %}
+              {% if months.10 != 0 or diff < 10 and 10 <= cm1 %}
+              "Oct {{cy1}}",
+              {% endif %}
+              {% if diff < 11 and 11 <= cm1 %}
+              "Nov {{cy1}}", 
+              {% endif %}
+              {% if diff < 12 and 12 <= cm1 %}
+              "Dec {{cy1}}",
+              {% endif %}
+              {% endif %}
+    
+              {% if cm1 < 6 %}
+            {% if diff <= -5 %}
+            "Aug {{cy}}", 
+            {% endif %}
+            {% if diff <= -4 %}
+            "Sept {{cy}}", 
+            {% endif %}
+            {% if diff <= -3 %}
+            "Oct {{cy}}",
+            
+            {% endif %}
+            {% if diff  %}
+            "Nov {{cy}}", 
+            {% endif %}
+            {% if diff <= -1 %}
+            "Dec {{cy}}",
+            {% endif %}
+            {% if diff < 01 and 01 <= cm1 %}
+            "Jan {{cy1}}", 
+            
+            {% endif %}
+            {% if diff < 02 and 02 <= cm1 %}
+              "Feb {{cy1}}", 
+              
+              {% endif %}
+              {% if diff < 03 and 03 <= cm1 %}
+              "March {{cy1}}", 
+              {% endif %}
+              {% if diff < 04 and 04 <= cm1 %}
+              "April {{cy1}}",
+              {% endif %}
+              {% if diff < 05 and 05 <= cm1 %}
+              "May {{cy1}}",
+              {% endif %}
+              {% endif %}
+
+            ],
+            datasets: [{
+                label: 'Number of Complains',
+                data: [
+                {% if cm1 >= 6 %}
+            {% if diff < 01 and 01 <= cm1 %}
+            "{{months.01}}",
+            {% endif %}
+            {% if diff < 02 and 02 <= cm1 %}
+            "{{months.02}}",
+            {% endif %}
+            {% if diff < 03 and 03 <= cm1 %}
+            "{{months.03}}",
+            
+            {% endif %}
+            {% if diff < 04 and 04 <= cm1 %}
+            "{{months.04}}",
+            {% endif %}
+            {% if diff < 05 and 05 <= cm1 %}
+            "{{months.05}}",
+            {% endif %}
+            {% if diff < 06 and 06 <= cm1 %}
+            "{{months.06}}",
+            
+            {% endif %}
+            {% if diff < 7 and 7 <= cm1 %}
+            "{{months.07}}",
+            {% endif %}
+              {% if diff < 08 and 08 <= cm1 %}
+              "{{months.08}}",
+              {% endif %}
+              {% if diff < 09 and 09 <= cm1 %}
+              "{{months.09}}",
+              {% endif %}
+              {% if months.10 != 0 or diff < 10 and 10 <= cm1 %}
+              "{{months.10}",
+              {% endif %}
+              {% if diff < 11 and 11 <= cm1 %}
+              "{{months.11}}", 
+              {% endif %}
+              {% if diff < 12 and 12 <= cm1 %}
+              "{{months.12}}",
+              {% endif %}
+              {% endif %}
+    
+              {% if cm1 < 6 %}
+            {% if diff <= -5 %}
+            "{{months.08}}", 
+            {% endif %}
+            {% if diff <= -4 %}
+            "{{months.09}}", 
+            {% endif %}
+            {% if diff <= -3 %}
+            "{{months.10}}",
+            
+            {% endif %}
+            {% if diff  %}
+            "{{months.11}}", 
+            {% endif %}
+            {% if diff <= -1 %}
+            "{{months.12}}",
+            {% endif %}
+            {% if diff < 01 and 01 <= cm1 %}
+            "{{months.01}}", 
+            
+            {% endif %}
+            {% if diff < 02 and 02 <= cm1 %}
+              "{{months.02}}", 
+              
+              {% endif %}
+              {% if diff < 03 and 03 <= cm1 %}
+              "{{months.03}}", 
+              {% endif %}
+              {% if diff < 04 and 04 <= cm1 %}
+              "{{months.04}}",
+              {% endif %}
+              {% if diff < 05 and 05 <= cm1 %}
+              "{{months.05}}",
+              {% endif %}
+              {% endif %}
+
+
+
+                ],
+                 backgroundColor: '#D10000'
+                //     'rgba(255, 99, 132)',
+                //     'rgba(54, 162, 235)',
+                //     'rgba(255, 206, 86)',
+                //     'rgba(75, 192, 192)',
+                //     'rgba(153, 102, 255)',
+                //     'rgba(255, 159, 64)'
+                 ,
+                borderColor: '#D10000'
+                    // 'rgba(255, 99, 132, 1)',
+                    // 'rgba(54, 162, 235, 1)',
+                    // 'rgba(255, 206, 86, 1)',
+                    // 'rgba(75, 192, 192, 1)',
+                    // 'rgba(153, 102, 255, 1)',
+                    // 'rgba(255, 159, 64, 1)'
+                ,
+                borderWidth: 1
+            }]
+        },
+        options: {
+          title: {
+                  display: true,
+                  text: 'Number of complains in the college in past 6 months'
+                },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+    
+  
+      </script>
+
+      {% if position == 'Principal' %}
+      <div class='row'>
+          <div class='col-md-6 col-xs-12'  id="piechart1_3d" style="width: 600px; height: 500px;"></div><div class='col-md-5 col-md-offset-1' id="piechart2_3d" style="width: 600px; height: 500px;"></div>
+      </div>
+      {% endif %}
+         {{complains.count}}
+     
+</div>
+</div>
+
+      
+{% endblock content %}

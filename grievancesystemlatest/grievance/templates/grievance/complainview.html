@@ -1,0 +1,40 @@
+{% extends 'grievance/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="content">
+    <table class="table table-borderless" style='margin-top: 50px'>
+  <thead>
+    <tr>
+      <th scope="col">From</th>
+      <td scope="col">: {{c.sender.user.first_name}} {{c.sender.user.lasst_name}}</td>
+      <th scope="col">Branch</th>
+      <td scope='col'>: {{c.sender.branch}}</td>    
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Institute name</th>
+      <td>: {{c.sender.college}}</td>
+      <th>To</th>
+      <td>: {{c.receiver.user.first_name}} {{c.receiver.user.last_name}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Posted on</th>
+      <td scope="row" colspan='3'>: {{c.date_posted}}</td>
+      
+    </tr>
+    <tr>
+        <th>Complain Details</th>
+        <td colspan="3">: {{c.complain_content}}</td>
+    </tr>
+  </tbody>
+</table>
+    <form method='POST'>
+        {% csrf_token %}
+        {{form|crispy}}
+        <button type="submit" class="btn btn-danger">Change Status</button>
+    </form>
+</div>    
+{% endblock content %}
+
+

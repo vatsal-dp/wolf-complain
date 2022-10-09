@@ -1,0 +1,512 @@
+{% extends 'grievance/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% include 'grievance/adminsidebar.html' %}
+<style>
+  .alert-custom{
+  background-color: rgb(209, 0, 0, 0.3);
+  color:rgb(141, 0, 0);
+  font-weight: bold;
+  }
+  </style>
+
+<div style="">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+      <!-- Page content -->
+
+      <div class="content">
+
+        {% if messages %}
+    {% for x in messages %}
+            <div class="alert alert-custom  fade in alert-dismissable show" style="margin-top:18px;font-size: 15px;font-weight: bold;background-color: rgb(99, 99, 99);color: whitesmoke;">
+             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true" style="font-size:20px">×</span>
+              </button><center>{{x}}</center>
+            </div>
+     {% endfor %}
+     {% endif %}
+  
+     <div >
+      <h3  style="font-weight: bold;;margin-top: 20px;" class="">Admin Dashboard</h2>
+      <div style="border-bottom: 3px solid #D10000;width:40%;;" class=""></div>
+    </div>   <br> <br>
+     <canvas id="columnchart_values" style="animation-delay: 0.2s;padding:15px; width: 900px;height: 240px; background-color: whitesmoke;border: 1px solid lightgrey;border-radius: 10px;" class="col-md-12 col-12"></canvas>
+     <script type="text/javascript">
+      Chart.defaults.global.defaultFontSize = 12;
+      Chart.defaults.global.defaultFontColor = 'black'; 
+      var ctx = document.getElementById('columnchart_values').getContext('2d');
+      var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: [
+            {% if cm1 >= 6 %}
+            {% if diff < 01 and 01 <= cm1 %}
+            "Jan {{cy1}}",
+            {% endif %}
+            {% if diff < 02 and 02 <= cm1 %}
+            "Feb {{cy1}}",
+            {% endif %}
+            {% if diff < 03 and 03 <= cm1 %}
+            "March {{cy1}}",
+            
+            {% endif %}
+            {% if diff < 04 and 04 <= cm1 %}
+            "April {{cy1}}",
+            {% endif %}
+            {% if diff < 05 and 05 <= cm1 %}
+            "May {{cy1}}",
+            {% endif %}
+            {% if diff < 06 and 06 <= cm1 %}
+            "June {{cy1}}",
+            
+            {% endif %}
+            {% if diff < 7 and 7 <= cm1 %}
+            "July {{cy1}}",
+            {% endif %}
+              {% if diff < 08 and 08 <= cm1 %}
+              "Aug {{cy1}}",
+              {% endif %}
+              {% if diff < 09 and 09 <= cm1 %}
+              "Sept {{cy1}}",
+              {% endif %}
+              {% if months.10 != 0 or diff < 10 and 10 <= cm1 %}
+              "Oct {{cy1}}",
+              {% endif %}
+              {% if diff < 11 and 11 <= cm1 %}
+              "Nov {{cy1}}", 
+              {% endif %}
+              {% if diff < 12 and 12 <= cm1 %}
+              "Dec {{cy1}}",
+              {% endif %}
+              {% endif %}
+    
+              {% if cm1 < 6 %}
+            {% if diff <= -5 %}
+            "Aug {{cy}}", 
+            {% endif %}
+            {% if diff <= -4 %}
+            "Sept {{cy}}", 
+            {% endif %}
+            {% if diff <= -3 %}
+            "Oct {{cy}}",
+            
+            {% endif %}
+            {% if diff <= -2 %}
+            "Nov {{cy}}", 
+            {% endif %}
+            {% if diff <= -1 %}
+            "Dec {{cy}}",
+            {% endif %}
+            {% if diff < 01 and 01 <= cm1 %}
+            "Jan {{cy1}}", 
+            
+            {% endif %}
+            {% if diff < 02 and 02 <= cm1 %}
+              "Feb {{cy1}}", 
+              
+              {% endif %}
+              {% if diff < 03 and 03 <= cm1 %}
+              "March {{cy1}}", 
+              {% endif %}
+              {% if diff < 04 and 04 <= cm1 %}
+              "April {{cy1}}",
+              {% endif %}
+              {% if diff < 05 and 05 <= cm1 %}
+              "May {{cy1}}",
+              {% endif %}
+              {% endif %}
+
+            ],
+            datasets: [{
+                label: 'Number of Complains',
+                data: [
+                {% if cm1 >= 6 %}
+            {% if diff < 01 and 01 <= cm1 %}
+            "{{months.01}}",
+            {% endif %}
+            {% if diff < 02 and 02 <= cm1 %}
+            "{{months.02}}",
+            {% endif %}
+            {% if diff < 03 and 03 <= cm1 %}
+            "{{months.03}}",
+            
+            {% endif %}
+            {% if diff < 04 and 04 <= cm1 %}
+            "{{months.04}}",
+            {% endif %}
+            {% if diff < 05 and 05 <= cm1 %}
+            "{{months.05}}",
+            {% endif %}
+            {% if diff < 06 and 06 <= cm1 %}
+            "{{months.06}}",
+            
+            {% endif %}
+            {% if diff < 7 and 7 <= cm1 %}
+            "{{months.07}}",
+            {% endif %}
+              {% if diff < 08 and 08 <= cm1 %}
+              "{{months.08}}",
+              {% endif %}
+              {% if diff < 09 and 09 <= cm1 %}
+              "{{months.09}}",
+              {% endif %}
+              {% if months.10 != 0 or diff < 10 and 10 <= cm1 %}
+              "{{months.10}",
+              {% endif %}
+              {% if diff < 11 and 11 <= cm1 %}
+              "{{months.11}}", 
+              {% endif %}
+              {% if diff < 12 and 12 <= cm1 %}
+              "{{months.12}}",
+              {% endif %}
+              {% endif %}
+    
+              {% if cm1 < 6 %}
+            {% if diff <= -5 %}
+            "{{months.08}}", 
+            {% endif %}
+            {% if diff <= -4 %}
+            "{{months.09}}", 
+            {% endif %}
+            {% if diff <= -3 %}
+            "{{months.10}}",
+            
+            {% endif %}
+            {% if diff <= -2 %}
+            "{{months.11}}", 
+            {% endif %}
+            {% if diff <= -1 %}
+            "{{months.12}}",
+            {% endif %}
+            {% if diff < 01 and 01 <= cm1 %}
+            "{{months.01}}", 
+            
+            {% endif %}
+            {% if diff < 02 and 02 <= cm1 %}
+              "{{months.02}}", 
+              
+              {% endif %}
+              {% if diff < 03 and 03 <= cm1 %}
+              "{{months.03}}", 
+              {% endif %}
+              {% if diff < 04 and 04 <= cm1 %}
+              "{{months.04}}",
+              {% endif %}
+              {% if diff < 05 and 05 <= cm1 %}
+              "{{months.05}}",
+              {% endif %}
+              {% endif %}
+
+
+
+                ],
+                 backgroundColor: 'rgba(255, 0, 0, 0.35)'
+                //     'rgba(255, 99, 132, 0.2)',
+                //     'rgba(54, 162, 235, 0.2)',
+                //     'rgba(255, 206, 86, 0.2)',
+                //     'rgba(75, 192, 192, 0.2)',
+                //     'rgba(153, 102, 255, 0.2)',
+                //     'rgba(255, 159, 64, 0.2)'
+                 ,
+                borderColor: '#D10000'
+                    // 'rgba(255, 99, 132, 1)',
+                    // 'rgba(54, 162, 235, 1)',
+                    // 'rgba(255, 206, 86, 1)',
+                    // 'rgba(75, 192, 192, 1)',
+                    // 'rgba(153, 102, 255, 1)',
+                    // 'rgba(255, 159, 64, 1)'
+                ,
+                borderWidth: 1
+            }]
+        },
+        options: {
+          title: {
+                  display: true,
+                  text: 'Number of complains in past 6 months'
+                },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+    
+    google.charts.load("current", {packages:['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+          var data = google.visualization.arrayToDataTable([
+            ["Months", "No. of Complains", { role: "style" } ],
+            {% if cm1 >= 6 %}
+            {% if diff < 01 and 01 <= cm1 %}
+            ["Jan {{cy1}}", {{months.01}}, "#b87333"],
+            {% endif %}
+            {% if diff < 02 and 02 <= cm1 %}
+            ["Feb {{cy1}}", {{months.02}}, "silver"],
+            {% endif %}
+            {% if diff < 03 and 03 <= cm1 %}
+            ["March {{cy1}}", {{months.03}}, "gold"],
+            
+            {% endif %}
+            {% if diff < 04 and 04 <= cm1 %}
+            ["April {{cy1}}", {{months.04}}, "color: #e5e4e2"],
+            {% endif %}
+            {% if diff < 05 and 05 <= cm1 %}
+            ["May {{cy1}}", {{months.05}}, "color: green"],
+            {% endif %}
+            {% if diff < 06 and 06 <= cm1 %}
+            ["June {{cy1}}", {{months.06}}, "color: orange"],
+            
+            {% endif %}
+            {% if diff < 7 and 7 <= cm1 %}
+            ["July {{cy1}}", {{months.07}}, "color: black"],
+            {% endif %}
+              {% if diff < 08 and 08 <= cm1 %}
+              ["Aug {{cy1}}", {{months.08}}, "color: black"],
+              {% endif %}
+              {% if diff < 09 and 09 <= cm1 %}
+              ["Sept {{cy1}}", {{months.09}}, "color: black"],
+              {% endif %}
+              {% if months.10 != 0 or diff < 10 and 10 <= cm1 %}
+              ["Oct {{cy1}}", {{months.10}}, "color: black"],
+              {% endif %}
+              {% if diff < 11 and 11 <= cm1 %}
+              ["Nov {{cy1}}", {{months.11}}, "color: black"],
+              {% endif %}
+              {% if diff < 12 and 12 <= cm1 %}
+              ["Dec {{cy1}}", {{months.12}}, "color: black"]
+              {% endif %}
+              {% endif %}
+    
+              {% if cm1 < 6 %}
+            {% if diff <= -5 %}
+            ["Aug {{cy}}", {{months.08}}, "#b87333"],
+            {% endif %}
+            {% if diff <= -4 %}
+            ["Sept {{cy}}", {{months.09}}, "silver"],
+            {% endif %}
+            {% if diff <= -3 %}
+            ["Oct {{cy}}", {{months.10}}, "gold"],
+            
+            {% endif %}
+            {% if diff <= -2 %}
+            ["Nov {{cy}}", {{months.11}}, "color: #e5e4e2"],
+            {% endif %}
+            {% if diff <= -1 %}
+            ["Dec {{cy}}", {{months.12}}, "color: green"],
+            {% endif %}
+            {% if diff < 01 and 01 <= cm1 %}
+            ["Jan {{cy1}}", {{months.01}}, "color: orange"],
+            
+            {% endif %}
+            {% if diff < 02 and 02 <= cm1 %}
+              ["Feb {{cy1}}", {{months.02}}, "color: black"],
+              
+              {% endif %}
+              {% if diff < 03 and 03 <= cm1 %}
+              ["March {{cy1}}", {{months.03}}, "color: black"],
+              {% endif %}
+              {% if diff < 04 and 04 <= cm1 %}
+              ["April {{cy1}}", {{months.04}}, 
+              {% if months.04 >= 2 %}
+              "color: #D10000"
+              {% else %}
+              "color: green"
+              {% endif %}
+              ],
+              {% endif %}
+              {% if diff < 05 and 05 <= cm1 %}
+              ["May {{cy1}}", {{months.05}}, 
+              {% if months.05 >= 2 %}
+              "color: #D10000"
+              {% else %}
+              "color: green"
+              {% endif %}
+              ],
+              {% endif %}
+              {% endif %}
+          ]);
+    
+          var view = new google.visualization.DataView(data);
+          view.setColumns([0, 1,
+                           { calc: "stringify",
+                             sourceColumn: 1,
+                             type: "string",
+                             role: "annotation" },
+                           2]);
+    
+          var options = {
+            title: 'No. of Complains in Last 6 months',
+            width: 1300,
+            height: 420,
+            bar: {groupWidth: "70%"},
+            legend: { position: "none" },
+          };
+          var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+          chart.draw(view, options);
+            
+            
+            
+            
+            google.charts.load("current", {packages:["corechart"]});
+          google.charts.setOnLoadCallback(drawChart);
+          function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+              ['Department', 'Number of Complains'],
+              ['Management', {{management}}],
+              ['Security', {{security}}],
+              ['Library', {{library}}],
+              ['Faculty', {{faculty}}],
+              ['Canteen', {{canteen}}]
+            ]);
+    
+            var options = {
+              title: 'Department wise Complains',
+              is3D: true,
+            };
+              
+              
+            var data2 = google.visualization.arrayToDataTable([
+              ['Branch', 'Number of Complains'],
+              ['Computer', {{computer}}],
+              ['EXTC', {{extc}}],
+              ['ELEX',{{elex}}],
+              ['Chemical',{{chemical}}],
+              ['IT', {{it}}],
+              ['Production', {{production}}],
+              ['Bio Med', {{biomed}}]
+            ]);
+    
+            var options2 = {
+              title: 'Branch wise Complains',
+              is3D: true,
+            };  
+    
+            var chart = new google.visualization.PieChart(document.getElementById('piechart1_3d'));
+            chart.draw(data, options);
+              
+              
+            var chart2 = new google.visualization.PieChart(document.getElementById('piechart2_3d'));
+            chart2.draw(data2, options2);  
+          }
+            
+            
+      }
+      </script>
+
+      {% if position == 'Principal' %}
+      <div class='row'>
+          <div class='col-md-6 col-xs-12'  id="piechart1_3d" style="width: 600px; height: 500px;"></div><div class='col-md-5 col-md-offset-1' id="piechart2_3d" style="width: 600px; height: 500px;"></div>
+      </div>
+      {% endif %}
+          
+      <div  style="padding-top: 20px;padding-bottom: 40px;border-bottom: 1px solid lightgray;">
+        <h4  style="font-weight: bold;;margin-top: 20px;" class="">Unaddressed Complains</h2>
+        <div style="border-bottom: 3px solid #D10000;width:40%;;margin-bottom: 20px;" class=""></div>
+        {% if vcomplains  %}      
+      <div class="" style="padding: 20px;;border: 1px solid lightgray;background-color: whitesmoke;border-radius: 10px;">
+        {% for p in vcomplains %}
+        {% if not p.transfer %}
+        <div style="padding-bottom: 10px;margin-bottom: 10px;;">
+          <h5 style="font-weight: bold;">{{p.complain_heading}}</h4>
+            <small><span style="margin-right: 10px;"><i class="fas fa-thumbs-up" style="color: rgb(37, 35, 35);"></i>  {{p.total_likes}}</span>&bull;<span style="margin-right: 10px;margin-left: 10px;">{{p.date_posted|date:"M d, Y"}}</span>&bull;<span style="color: black;font-weight: bold;margin-left: 10px;" >{{p.status}}</span><span style="margin-left: 15px;"><a href="/adminComplainView/{{p.id}}/">View</a></span></small>
+
+        </div>
+        {% endif %}
+        {% endfor %}
+      </div>
+      
+        {% else %}
+        <div class="" style="padding-bottom: 10px;;">
+          <p class='text-muted'>No Complains to display</p>
+
+        </div>
+      {% endif %}
+
+      
+    
+  </div>
+  <div  style="padding-top: 20px;padding-bottom: 40px;border-bottom: 1px solid lightgray;">
+    <h4  style="font-weight: bold;;margin-top: 20px;" class="">Tranferred Complains</h2>
+    <div style="border-bottom: 3px solid #D10000;width:40%;;margin-bottom: 20px;" class=""></div>
+    {% if tcomplains  %}
+  <div class="" style="padding: 20px;;border: 1px solid lightgray;background-color: whitesmoke;border-radius: 10px;">
+    {% for p in tcomplains %}
+    <div style="padding-bottom: 10px;margin-bottom: 10px;;">
+      <h5 style="font-weight: bold;">{{p.complain_heading}}</h4>
+      <small><span style="margin-right: 15px;">{{p.date_posted|date:"M d, Y"}}</span><span style="color: {% if p.status == 'Solved' %}green{% elif p.status == 'Rejected' %}#D10000{% elif p.status == 'In Progress' %}rgb(168, 168, 28){% else %}black{% endif %};font-weight: bold;" >{{p.status}}</span><span style="margin-left: 15px;"><a href="/adminComplainView/{{p.id}}/">View</a></span></small>
+
+    </div>
+    
+    {% endfor %}
+  </div>
+  
+    {% else %}
+    <div class="" style="padding-bottom: 10px;;">
+      <p class='text-muted'>No Complains to display</p>
+
+    </div>
+  {% endif %}
+
+  
+
+</div>
+
+  <div  style="padding-top: 20px;padding-bottom: 40px;border-bottom: 1px solid lightgray;">
+    <h4  style="font-weight: bold;;margin-top: 20px;" class="">Complains in Progress</h2>
+    <div style="border-bottom: 3px solid #D10000;width:40%;;margin-bottom: 20px;" class=""></div>
+    {% if ipcomplains %}
+  <div class="" style="padding: 20px;;border: 1px solid lightgray;background-color: whitesmoke;border-radius: 10px;">
+    {% for p in ipcomplains %}
+    {% if not p.transfer %}
+    <div style="padding-bottom: 10px;margin-bottom: 10px;;">
+      <h5 style="font-weight: bold;">{{p.complain_heading}}</h4>
+      <small><span style="margin-right: 15px;">{{p.date_posted|date:"M d, Y"}}</span><span style="color: rgb(168, 168, 28);font-weight: bold;" >{{p.status}}</span><span style="margin-left: 15px;"><a href="/adminComplainView/{{p.id}}/">View</a></span></small>
+
+    </div>
+    {% endif %}
+    {% endfor %}
+  </div>
+    {% else %}
+    <div class="" style="padding-bottom: 10px;;">
+      <p class='text-muted'>No Complains to display</p>
+
+    </div>
+  {% endif %}
+  </div>
+
+  <div  style="padding-top: 20px;padding-bottom: 40px;border-bottom: 1px solid lightgray;">
+    <h4  style="font-weight: bold;;margin-top: 20px;" class="">Addressed Complains</h2>
+    <div style="border-bottom: 3px solid #D10000;width:40%;;margin-bottom: 20px;" class=""></div>
+    {% if scomplains or rcomplains %}
+  
+  <div class="" style="padding: 20px;;border: 1px solid lightgray;background-color: whitesmoke;border-radius: 10px;">
+    {% for p in srcomplains %}
+    {% if not p.srcomplains %}
+    <div style="padding-bottom: 10px;margin-bottom: 10px;;">
+      <h5 style="font-weight: bold;">{{p.complain_heading}}</h4>
+      <small><span style="margin-right: 15px;">{{p.date_posted|date:"M d, Y"}}</span><span style="color: {% if p.status == 'Solved' %}green{% else %}#D10000{% endif %};font-weight: bold;" >{{p.status}}</span><span style="margin-left: 15px;"><a href="/adminComplainView/{{p.id}}/">View</a></span></small>
+    </div>
+    {% endif %}
+    {% endfor %}
+  </div>
+    {% else %}
+    <div class="" style="padding-bottom: 10px;;">
+      <p class='text-muted'>No Complains to display</p>
+
+    </div>
+  {% endif %}
+
+  
+
+</div>
+
+          
+     
+</div>
+</div>
+
+      
+{% endblock content %}

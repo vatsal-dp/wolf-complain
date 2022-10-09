@@ -1,0 +1,214 @@
+{% extends 'grievance/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+{% include 'grievance/studentsidebar.html' %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js" integrity="sha256-JtQPj/3xub8oapVMaIijPNoM0DHoAtgh/gwFYuN5rik=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js" integrity="sha256-jDnOKIOq2KNsQZTcBTEnsp76FnfMEttF6AV2DF2fFNE=" crossorigin="anonymous"></script>
+        
+
+ 
+        
+
+      <!-- Page content -->
+      <div class="content ">
+        
+         
+        {% if messages %}
+        {% for x in messages %}
+                <div class="alert alert-custom  fade in alert-dismissable show " style="margin-top:18px;background-color: rgb(99, 99, 99);color: whitesmoke;font-weight: bold;font-size: 15px;">
+                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true" style="font-size:20px">×</span>
+                  </button><center>{{x}}</center>
+                </div>
+         {% endfor %}
+     {% endif %}
+
+    <div >
+        <h3  style="font-weight: bold;;margin-top: 30px;" class="">Student Dashboard</h2>
+        <div style="border-bottom: 3px solid #0D98BA;width:30%;;" class=""></div>
+      </div>   <br> <br>
+      <div  style="text-align: center;padding-top: 2%;padding-bottom: 50px;border-bottom: 1px solid lightgray;">
+        <div class="row">
+          <div class="col-4 " style=";" >
+            <i class="fas fa-laugh-wink fa-5x" style="color: rgb(45, 153, 45);" ></i><br><br>
+            <h3><span class="counter" style="font-weight: bold;">{{s}}</span></h1>
+            <h6 style="color: rgb(126, 126, 126);">Solved Complains</h3>
+            
+          </div> 
+          <div class="col-4 " style=";" >
+            
+            <i class="fas fa-frown fa-5x" style="color: rgb(255, 40, 40);"></i><br><br>
+            <h3><span class="counter" style="font-weight: bold;">{{r}}</span></h1>
+            <h6 style="color: rgb(126, 126, 126);">Rejected Complains</h3>
+            
+          </div>
+          <div class="col-4 " style="">
+            <i class="fas fa-stopwatch-20 fa-5x" style="color: #0D98BA;" ></i><br><br>
+            <h3><span class="counter" style="font-weight: bold;">{{p}}</span></h1>
+            <h6 style="color: rgb(126, 126, 126);">Pending Complains</h3>
+           
+          </div>
+         
+        </div>
+
+    <script>
+$('.counter').counterUp({
+delay: 10,
+time: 1000,
+});
+    </script> 
+      </div>  
+
+ 
+            <div  style="padding-top: 20px;padding-bottom: 40px;border-bottom: 1px solid lightgray;">
+              <h4  style="font-weight: bold;;margin-top: 20px;" class="">Solved Complains</h2>
+              <div style="border-bottom: 3px solid #0D98BA;width:30%;;margin-bottom: 20px;" class=""></div>
+              {% if scomplains %}
+            
+            <div class="" style="padding: 20px;;border: 1px solid lightgray;background-color: whitesmoke;border-radius: 10px;">
+              {% for p in scomplains %}
+              <div style="padding-bottom: 10px;margin-bottom: 10px;">
+                <h5 style="font-weight: bold;">{{p.complain_heading}}</h4>
+                <small><span style="margin-right: 10px;"><i class="fas fa-thumbs-up" style="color: rgb(94, 94, 94);"></i>  {{p.total_likes}}</span>&bull;<span style="margin-right: 10px;margin-left: 10px;">{{p.date_posted|date:"M d, Y"}}</span>&bull;<span style="color: white;;margin-left: 10px;padding-top:5px;padding-bottom:5px;padding-left:8px;padding-right:8px;border-radius: 15px;background-color:rgb(0, 128, 0,0.5) ;" >{{p.status}}</span><span style="margin-left: 15px;"><a href="/studentComplainView/{{p.id}}/">View</a></span></small>
+
+              </div><hr>
+              {% endfor %}
+            </div>
+              {% else %}
+              <div class="" style="padding-bottom: 10px;;">
+                <p class='text-muted'>No Complains to display</p>
+
+              </div>
+            {% endif %}
+
+            
+          </div>
+          <div  style="padding-top: 20px;padding-bottom: 40px;border-bottom: 1px solid lightgray;">
+            <h4  style="font-weight: bold;;margin-top: 20px;" class="">Transferred Complains</h2>
+            <div style="border-bottom: 3px solid #0D98BA;width:30%;;margin-bottom: 20px;" class=""></div>
+            {% if tcomplains %}
+          
+          <div class="" style="padding: 20px;;border: 1px solid lightgray;background-color: whitesmoke;border-radius: 10px;">
+            {% for p in tcomplains %}
+            <div style="padding-bottom: 10px;margin-bottom: 10px;">
+              <h5 style="font-weight: bold;">{{p.complain_heading}}</h4>
+                <small><span style="margin-right: 10px;"><i class="fas fa-thumbs-up" style="color: rgb(94, 94, 94);"></i>  {{p.total_likes}}</span>&bull;<span style="margin-right: 10px;margin-left: 10px;">{{p.date_posted|date:"M d, Y"}}</span>&bull;<span style="color: red;font-weight: bold;margin-left: 10px;" >{{p.status}}</span><span style="margin-left: 15px;"><a href="/studentComplainView/{{p.id}}/">View</a></span></small>
+
+            </div><hr>
+            {% endfor %}
+          </div>
+            {% else %}
+            <div class="" style="padding-bottom: 10px;;">
+              <p class='text-muted'>No Complains to display</p>
+
+            </div>
+          {% endif %}
+
+          
+        </div>
+           
+          <div  style="padding-top: 20px;padding-bottom: 40px;border-bottom: 1px solid lightgray;">
+            <h4  style="font-weight: bold;;margin-top: 20px;" class="">Rejected Complains</h2>
+            <div style="border-bottom: 3px solid #0D98BA;width:30%;;margin-bottom: 20px;" class=""></div>
+            {% if rcomplains %}
+          
+          <div class="" style="padding: 20px;;border: 1px solid lightgray;background-color: whitesmoke;border-radius: 10px;">
+            {% for p in rcomplains %}
+            <div style="margin-bottom:20px;">
+              <h5 style="font-weight: bold;">{{p.complain_heading}}</h4>
+                <small><span style="margin-right: 10px;"><i class="fas fa-thumbs-up" style="color: rgb(94, 94, 94);"></i>  {{p.total_likes}}</span>&bull;<span style="margin-right: 10px;margin-left: 10px;">{{p.date_posted|date:"M d, Y"}}</span>&bull;<span style="color: white;;margin-left: 10px;padding-top:5px;padding-bottom:5px;padding-left:8px;padding-right:8px;border-radius: 15px;background-color:rgba(250, 10, 10, 0.5) ;" >{{p.status}}</span><span style="margin-left: 15px;"><a href="/studentComplainView/{{p.id}}/">View</a></span></small>
+
+            </div><hr>
+            {% endfor %}
+          </div>
+            {% else %}
+            <div class="" style="padding-bottom: 10px;;">
+              <p class='text-muted'>No Complains to display</p>
+
+            </div>
+          {% endif %}
+
+          
+        
+      </div>
+
+      <div  style="padding-top: 20px;padding-bottom: 40px;border-bottom: 1px solid lightgray;">
+        <h4  style="font-weight: bold;;margin-top: 20px;" class="">Complains in progress</h2>
+        <div style="border-bottom: 3px solid #0D98BA;width:30%;;margin-bottom: 20px;" class=""></div>
+        {% if ipcomplains %}
+      
+      <div class="" style="padding: 20px;;border: 1px solid lightgray;background-color: whitesmoke;border-radius: 10px;">
+        {% for p in ipcomplains %}
+        <div style="margin-bottom: 10px;padding-bottom: 10px">
+          <h5 style="font-weight: bold;">{{p.complain_heading}}</h4>
+            <small><span style="margin-right: 10px;"><i class="fas fa-thumbs-up" style="color: rgb(94, 94, 94);"></i>  {{p.total_likes}}</span>&bull;<span style="margin-right: 10px;margin-left: 10px;">{{p.date_posted|date:"M d, Y"}}</span>&bull;<span style="color: white;;margin-left: 10px;padding-top:5px;padding-bottom:5px;padding-left:8px;padding-right:8px;border-radius: 15px;background-color:rgba(250, 186, 10, 0.6) ;" >{{p.status}}</span><span style="margin-left: 15px;"><a href="/studentComplainView/{{p.id}}/">View</a></span></small>
+
+        </div>
+        {% endfor %}<hr>
+      </div>
+        {% else %}
+        <div class="" style="padding-bottom: 10px;;">
+          <p class='text-muted'>No Complains to display</p>
+
+        </div>
+      
+      {% endif %}
+
+      
+    </div>
+
+
+        <div  style="padding-top: 20px;padding-bottom: 40px;border-bottom: 1px solid lightgray;">
+          <h4  style="font-weight: bold;;margin-top: 20px;" class="">Viewed Complains</h2>
+          <div style="border-bottom: 3px solid #0D98BA;width:30%;;margin-bottom: 20px;" class=""></div>
+          {% if vcomplains %}
+        
+        <div class="" style="padding: 20px;;border: 1px solid lightgray;background-color: whitesmoke;border-radius: 10px;">
+          {% for p in vcomplains %}
+          <div style="margin-bottom: 10px;padding-bottom: 10px">
+            <h5 style="font-weight: bold;">{{p.complain_heading}}</h4>
+              <small><span style="margin-right: 10px;"><i class="fas fa-thumbs-up" style="color: rgb(94, 94, 94);"></i>  {{p.total_likes}}</span>&bull;<span style="margin-right: 10px;margin-left: 10px;">{{p.date_posted|date:"M d, Y"}}</span>&bull;<span style="color: white;;margin-left: 10px;padding-top:5px;padding-bottom:5px;padding-left:8px;padding-right:8px;border-radius: 15px;background-color:rgba(94, 94, 94, 0.6) ;" >{{p.status}}</span><span style="margin-left: 15px;"><a href="/studentComplainView/{{p.id}}/">View</a></span></small>
+
+          </div><hr>
+          {% endfor %}
+        </div>
+          {% else %}
+          <div class="" style="padding-bottom: 10px;;">
+            <p class='text-muted'>No Complains to display</p>
+
+          </div>
+        
+        {% endif %}
+
+        
+      </div>
+      <div  style="padding-top: 20px;padding-bottom: 40px;border-bottom: 1px solid lightgray;">
+        <h4  style="font-weight: bold;;margin-top: 20px;" class="">Pending Complains</h2>
+        <div style="border-bottom: 3px solid #0D98BA;width:30%;;margin-bottom: 20px;" class=""></div>
+        {% if pcomplains %}
+      
+      <div class="" style="padding: 20px;;border: 1px solid lightgray;background-color: whitesmoke;border-radius: 10px;">
+        {% for p in pcomplains %}
+        <div style="padding-bottom: 10px;margin-bottom: 10px;">
+          <h5 style="font-weight: bold;">{{p.complain_heading}}</h4>
+            <small><span style="margin-right: 10px;"><i class="fas fa-thumbs-up" style="color: rgb(94, 94, 94);"></i>  {{p.total_likes}}</span>&bull;<span style="margin-right: 10px;margin-left: 10px;">{{p.date_posted|date:"M d, Y"}}</span>&bull;<span style="color: white;;margin-left: 10px;padding-top:5px;padding-bottom:5px;padding-left:8px;padding-right:8px;border-radius: 15px;background-color:rgba(94, 94, 94, 0.6) ;" >{{p.status}}</span><span style="margin-left: 15px;"><a href="/studentComplainView/{{p.id}}/">View</a></span></small>
+
+        </div><hr>
+        {% endfor %}
+      </div>
+        {% else %}
+        <div class="" style="padding-bottom: 10px;;">
+          <p class='text-muted'>No Complains to display</p>
+
+        
+      </div>
+      {% endif %}
+
+      
+    </div> 
+
+</div>
+{% endblock content %}

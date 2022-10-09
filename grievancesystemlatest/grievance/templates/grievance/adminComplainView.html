@@ -1,0 +1,115 @@
+{% extends 'grievance/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% include 'grievance/adminsidebar.html' %}
+<div class="content"><br>
+    <div class="card">
+        <h3 style="font-weight: bold;padding-bottom: 15px;border-bottom: 2px solid #D10000 ;text-align: center;">Detailed View</h3><br>
+        <div class="row">
+            <div class="col-12 col-md-6"><p ><span style="font-weight: bold;">Title: </span>{{complain.complain_heading}}.</p></div>
+            <div class="col-12 col-md-6"><p class=""><span style="font-weight: bold;">Date posted: </span>{{complain.date_posted|date:"M d, Y"}}.</p></div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6"><p ><span style="font-weight: bold;">To College: </span>{{complain.college}}.</p></div>
+            <div class="col-12 col-md-6"><p class=""><span style="font-weight: bold;">Related to: </span>{{complain.related_to}}.</p></div>
+        </div>
+        <div class="row">
+            <div class=" col-md-6 col-12"><p ><span style="font-weight: bold;">Branch: </span>{{complain.branch}}.</p></div>
+            <div class="col-md-6 col-12"><p class=""><span style="font-weight: bold;">Status: </span>{{complain.status}}.</p></div>
+        </div>
+        <div class="row" style="">
+            <div class=" col-12"><p ><span style="font-weight: bold;">Complain: </span>{{complain.complain_content}}.</p></div>
+            
+        </div><br>
+        <div class="" style="border-bottom: 1px solid lightgray;"></div><br>
+        <div class="row">
+        <div class="col-12 " style=""><p ><span style="font-weight: bold;">Response: </span><span>
+            {% if complain.response %}
+             {{complain.response}}
+            {% else %}
+            No response yet.
+            {% endif %}
+        </span>
+        </p>
+        </div>
+    </div>
+
+    </div><br>
+    {% if user.admin.designation == 'Principal' %}
+    {% if complain.transfer and complain.status == 'Viewed' or complain.status == 'In Progress' %}
+    <div class="card">
+        <h4 style="font-weight: bold;padding-bottom: 15px;border-bottom: 2px solid red ;text-align: center;">Change Status and Response</h4><br>
+        <form method='POST' >
+            {% csrf_token %}
+            {{form|crispy}}
+            {% if user.username == 'demoadmin' %}<a href='#' class='btn btn-danger'>Change Status</a>{% else %}<button type="submit" class="btn btn-danger"  >Change Status</button>{% endif %}
+        </form>
+    </div> <br> 
+    
+    {% elif complain.status == 'Viewed' or complain.status == 'In Progress' %}
+    <div class="card">
+        <h4 style="font-weight: bold;padding-bottom: 15px;border-bottom: 2px solid red ;text-align: center;">Change Status and Response</h4><br>
+        <form method='POST' >
+            {% csrf_token %}
+            {{form|crispy}}
+            {% if user.username == 'demoadmin' %}<a href='#' class='btn btn-danger'>Change Status</a>{% else %}<button type="submit" class="btn btn-danger"  >Change Status</button>{% endif %}
+        </form>
+    </div> <br> 
+    {% endif %}
+
+
+    {% else %}
+    {% if complain.status == 'Viewed' or complain.status == 'In Progress'  %}
+    {% if not complain.transfer %}
+    <div class="card">
+        <h4 style="font-weight: bold;padding-bottom: 15px;border-bottom: 2px solid red ;text-align: center;">Change Status and Response</h4><br>
+        <form method='POST' >
+            {% csrf_token %}
+            {{form|crispy}}
+            {% if user.username == 'demoadmin' %}<a href='#' class='btn btn-danger'>Change Status</a>{% else %}<button type="submit" class="btn btn-danger"  >Change Status</button>{% endif %}
+        </form>
+    </div><br>
+    <div style="margin-bottom: 20px;">
+    <a  href='myModaltransfer' data-toggle="modal" data-target="#myModaltransfer" style="padding: 15px;border: 1px solid red;border-radius: 10px;color: red;">Transfer</a>
+    </div>
+    <div class="modal fade" id="myModaltransfer" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+        
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" style='color: black'>Transfer complain confirmation </h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              
+            </div>
+            <div class="modal-body" style='color: black'>
+                Are you sure you want to transfer this complain?
+            </div>
+            <div class="modal-footer">
+              <a href='#' data-dismiss="modal" class="btn btn-outline-danger" style="color: white;">Close</a>
+              <form method='POST' action="/admin/transfer/{{complain.id}}/">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-outline-danger" style="margin-top: 15px;color: white;">Transfer Complain</button>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    <br>
+   {% else %}
+   
+   <p style="font-style: italic;"><sup>*</sup>This complain has been transfered.</p>
+   <br>
+    {% endif %}
+    {% elif complain.status == 'Solved' or complain.status == 'Rejected' %}
+    {% if complain.transfer %}
+    <p style="font-style: italic;"><sup>*</sup>This complain has been transfered.</p>
+    <br>
+    {% endif %}
+    {% endif %}
+    {% endif %}
+
+    
+</div>
+
+{% endblock %}

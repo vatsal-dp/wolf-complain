@@ -1,0 +1,114 @@
+{% extends 'grievance/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% include 'grievance/studentsidebar.html' %}
+<style>
+  .karo:hover
+  {
+    color: whitesmoke;
+
+  }
+
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js" integrity="sha256-JtQPj/3xub8oapVMaIijPNoM0DHoAtgh/gwFYuN5rik=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js" integrity="sha256-jDnOKIOq2KNsQZTcBTEnsp76FnfMEttF6AV2DF2fFNE=" crossorigin="anonymous"></script>
+        
+
+        
+        
+
+      
+
+<!--Content from here-->
+<div class="content">
+  <h3  style="font-weight: bold;;margin-top: 30px;" class="">College feed</h3>
+    <div style="border-bottom: 3px solid #0D98BA;width:30%;;margin-bottom: 20px;" class=""></div>
+    {% if complains %}
+    {% for p in complains %}
+    <div style="margin-bottom: 20px;margin-top: 30px;;" class="" >
+    <div class="card-feed">
+      <div style="background-color: lightgray;padding: 15px;border-top-left-radius: 10px;border-top-right-radius: 10px;">
+      <h6 style="font-weight: bold;;color: black;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">{{p.complain_heading}}</h6>
+      </div>
+      
+      <p style="padding: 15px;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">{{p.complain_content}}</p>  
+
+    </div>
+    <div style="margin: 10px;margin-left: 12px;">
+    <span id="button{{p.id}}">
+      {% if user in p.likes.all %}
+      <a id="likebutton"   name="cid" value="{{p.id}}"  href={% url 'likecomplain' %} style="margin-right: 8px;font-size: 25px;" ><i class="fas fa-thumbs-up" style="color: #0D98BA;"></i></a>
+      {% else %}
+      <a id="likebutton"  name="cid" value="{{p.id}}"  href={% url 'likecomplain' %} style="margin-right: 8px;font-size: 25px;" ><i class="far fa-thumbs-up" style="color: darkgray;"></i></a>
+      {% endif %}
+    
+      <span  style="font-weight: bold;">{{p.total_likes}}</span></span>
+    </div>
+    <div style="margin-left: 10px;" >    
+      <small style="">{{p.date_posted|date:"M d, Y"}}</small><br>
+      <small style="color: gray;">For: {{p.branch}} Branch</small>
+  <small>
+      
+      {% if p.status == 'Solved' %}
+      <p style="color: white;border-radius: 15px;background-color:rgb(0, 128, 0,0.7) ;width: 70px;text-align: center;padding: 5px;" >{{p.status}}</p>
+      {% elif p.status == 'Rejected' %}
+      <p style="color: white;padding: 5px;border-radius: 15px;background-color:rgba(250, 10, 10, 0.856) ;width: 70px;text-align: center;" >{{p.status}}</p>
+      {% elif p.status == 'In Progress' %}
+      <p style="color: white;padding:5px;text-align: center;border-radius: 15px;background-color:rgba(250, 186, 10, 0.856) ;width: 85px;" >{{p.status}}</p>
+      {% else %}
+      <p style="color: white;padding:5px;text-align: center;border-radius: 15px;background-color:rgba(94, 94, 94, 0.856);width: 70px;" >{{p.status}}</p>
+      {% endif %}
+    
+    </small>
+  </div>
+
+  </div>
+  <hr>
+    {% endfor %}
+    {% else %}
+    <p style="font-style: italic;">No complains to display</p>
+    {% endif %}
+
+</div>
+
+
+
+
+   
+    
+
+
+<script type="text/javascript">
+
+  $(document).on('click','#likebutton',function(event){
+    event.preventDefault();
+    var pk = $(this).attr('value');
+    $.ajax({
+      type:'GET',
+      url:'{% url "likecomplain" %}',
+      data:{'cid': pk,
+
+      },
+      beforeSend:function(xhr){
+        $('#button' + pk).html('<small>Almost done...</small>');
+      },
+      success:function(response){
+        
+        $('#button' + pk).load(location.href + " #button" + pk);
+      },
+      error:function(response){
+        alert("Error");
+      }
+
+    });
+
+  });
+
+
+
+</script>
+
+{% endblock content %}
+

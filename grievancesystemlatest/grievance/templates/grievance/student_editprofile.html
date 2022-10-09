@@ -1,0 +1,16 @@
+{% extends 'grievance/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+{% include 'grievance/studentsidebar.html' %}
+ <div class="content">
+   <h3 class='  ' style="margin-top: 20px;font-weight: bold;">Edit Your Profile</h3>
+   <div class='  ' style='border-bottom: 3px solid #0D98BA;margin-bottom: 40px;width: 40%;'></div>
+        <form method="POST" class='  ' style='animation-delay: 0.5s;' enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form1|crispy}}
+            {{form2|crispy}}
+            {% if user.username == 'demostudent' %}<a href='#' class='btn btn-primary' style="background-color: #0D98BA; border-color: #0D98BA;">Update Profile</a>{% else %}<button type="submit" class="btn btn-primary" style="background-color: #0D98BA; border-color: #0D98BA;">Update Profile</button>{% endif %} <a href={% url 'studentProfileView' %} class='btn btn-primary ml-2' style="background-color: #0D98BA; border-color: #0D98BA;">Cancel</a> 
+     </form>
+</div>
+{% endblock content %}

@@ -1,0 +1,59 @@
+{% extends 'grievance/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% include 'grievance/navbar.html' %}
+<style>
+.alert-custom{
+  background-color: lightgray;
+  color:black;
+    }
+    .btn{
+      background-color: #0D98BA;
+    }
+</style>
+
+<div class="container" style="height:100%;" >
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8">
+      {% if messages %}
+        {% for x in messages %}
+                <div class="alert alert-custom  fade in alert-dismissable show " style="margin-top:18px;font-size: 15px;background-color: rgb(99, 99, 99);color: whitesmoke;font-weight: bold;">
+                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true" style="font-size:20px">×</span>
+                  </button><center>{{x}}</center>
+                </div>
+         {% endfor %}
+     {% endif %}
+      <div class="" style="padding: 20px;background-color: whitesmoke;margin-top: 10%;border-radius: 10px;;text-align: center;border: 1px solid lightgray">
+        <div style="padding: 10px;">
+      <h2 style="padding: 20px;font-weight: bold;border-bottom: 2px solid #0D98BA;">Student Login:</h2><br>
+           <form method="POST">
+             
+             <div style="text-align: left;">
+             {% csrf_token %}
+             {{form|crispy}}
+             <a href='{% url 'password_reset' %}'>Forgot your Password?</a><br>
+         </div><br>
+             <button type="submit" class="btn btn-primary" style="background-color: #0D98BA; border-color: #0D98BA;">Login</button><br>  <br>
+         </form>
+         <small class='text-muted'>Don't have an acoount? You can create one in just few steps.</small> <a href={% url "studentRegister" %}>Create Account</a>
+        </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+
+
+
+{% endblock %}
+
+
+
+         <div class="container" style="">
+        
+          <div class="col-12 col-md-offset-3 col-md-6 button1  justify-content-end" style="font-family: 'Times New Roman', Times, serif;background-color: lightgrey;padding: 30px;margin-top: 10%;text-align: center;border-radius: 15px;">    
+           
+     </div>
+     </div>
