@@ -18,6 +18,10 @@
 
 This repo contains code for project 1 of group 28. More documentation coming soon
 
+## Advertisement Video
+<a href="https://www.youtube.com/watch?v=XYYWJ1TtzEQ">
+<img src="https://github.com/Sanayshah2/SE_Project_1/blob/main/grievancesystemlatest/grievance/static/grievance/images/banner.PNG" width="400" height="200"></a>
+
 ## Installation
 This project requires:
 
