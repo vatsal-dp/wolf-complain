@@ -68,6 +68,9 @@ pip install -r requirements.txt
 ## Documentation
 All the documentation related to our project could be found under the docs folder and at this link - https://sanayshah2.github.io/SE_Project_1/
 <p align="right">(<a href="https://github.com/Sanayshah2/SE_Project_1/blob/main/README.md">back to top</a>)</p>
+<a href="https://github.com/Sanayshah2/SE_Project_1/blob/main/docs/Function%20Descriptions.md">Description of Functions</a>
+
+<a href="https://github.com/Sanayshah2/SE_Project_1/blob/main/docs/Mini-Tutorial.pdf">Mini Tutorials</a>
  
 <!-- ## Install
 <a href="https://github.com/ShiveshJha12/SE_group28_HW2/blob/main/INSTALL.md"><h4>INSTALL.md</a>  -->
