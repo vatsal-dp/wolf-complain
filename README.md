@@ -62,12 +62,13 @@ pip install -r requirements.txt
 ## DOI
 [![DOI](https://zenodo.org/badge/537628861.svg)](https://zenodo.org/badge/latestdoi/537628861)
 
+## Requirements
+<a href="https://github.com/Sanayshah2/SE_Project_1/blob/main/requirements.txt">REQUIREMENTS.txt</a>
+
 ## Documentation
 All the documentation related to our project could be found under the docs folder and at this link - https://sanayshah2.github.io/SE_Project_1/
 <p align="right">(<a href="https://github.com/Sanayshah2/SE_Project_1/blob/main/README.md">back to top</a>)</p>
-
-<!-- ## Requirements - To be added
-<a href="https://github.com/ShiveshJha12/SE_group28_HW2/blob/main/requirements.txt"><h4>REQUIREMENTS.txt</a>  -->
+ 
 <!-- ## Install
 <a href="https://github.com/ShiveshJha12/SE_group28_HW2/blob/main/INSTALL.md"><h4>INSTALL.md</a>  -->
 
