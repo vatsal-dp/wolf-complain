@@ -120,12 +120,12 @@ class Complain(models.Model):
     }
     complain_heading=models.CharField(max_length=300,default='')
     complain_content=models.TextField()
-    receiver=models.ForeignKey(Admin,on_delete=models.CASCADE)
-    sender=models.ForeignKey(Student,on_delete=models.CASCADE)
+    receiver=models.ForeignKey(Admin,on_delete=models.CASCADE, null = True)
+    sender=models.ForeignKey(Student,on_delete=models.CASCADE, null = True)
     college=models.CharField(max_length=300,default='',choices=college_choices)
     branch=models.CharField(max_length=300,blank='true', null='true',choices=branch_choices)
-    date_posted =models.DateTimeField(default=timezone.now)
-    date_resolved = models.CharField(default='', max_length = 40)
+    date_posted =models.DateTimeField(default=timezone.now, null = True)
+    date_resolved = models.CharField(default='', max_length = 40, null = True)
     status = models.CharField(choices = status_choices, default='Pending', max_length = 20)
     response = models.TextField(default='')
     related_to = models.CharField(choices = related_to_choices, default='', max_length = 20, verbose_name = 'Complain Related to')
@@ -145,3 +145,15 @@ class Complain(models.Model):
 class Like(models.Model):
     complain=models.ForeignKey(Complain,on_delete=models.CASCADE,default='',related_name='complain')
     liker=models.ForeignKey(Student,on_delete=models.CASCADE,default='')
+
+
+
+class Contact(models.Model):
+    first_name = models.CharField(max_length=150)
+    last_name = models.CharField(max_length=150)
+    phone = models.CharField(max_length=150)
+    email = models.CharField(max_length=150, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.phone
