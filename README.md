@@ -25,6 +25,8 @@ As such faculty use other softwares and platforms like Discord, GitHub, Piazza a
 This leads to students spending useful time at learning and getting acquitaned to these softwares. 
 Students waste time in finding a answers to questions like 'where can I find this feature' or 'how do I post this' which could be better spent on productive things.
 Also finding a particular resource takes more time and as such students tend to ask the same questions again and again.
+
+
 To tackle this issue we have created a this website which is specialily designed for doubt solving and class discussions.
 In our website students can easily track all the questions they have asked so far across all courses. 
 Also they can find all doubts posted for a particular course by all students. 
