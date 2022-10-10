@@ -13,6 +13,7 @@
 
 [![Code Coverage](https://codecov.io/gh/Sanayshah2/SE_Project_1/branch/main/graphs/badge.svg)](https://codecov.io/gh/Sanayshah2/SE_Project_1/branch/main)
 [![Django CI](https://github.com/sanayshah2/SE_Project_1/actions/workflows/django.yml/badge.svg)](https://github.com/sanayshah2/SE_Project_1/actions/workflows/django.yml)
+[![DOI](https://zenodo.org/badge/537628861.svg)](https://zenodo.org/badge/latestdoi/537628861)
 
 ## Introduction
 This repository contains source code for Project 1 which was created for CSC 510 course of NC State University Fall 22. 
