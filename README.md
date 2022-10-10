@@ -35,6 +35,10 @@ With this project we aim to increase the productivity of students and faculty by
 <a href="https://www.youtube.com/watch?v=XYYWJ1TtzEQ">
 <img src="https://github.com/Sanayshah2/SE_Project_1/blob/main/grievancesystemlatest/grievance/static/grievance/images/banner.PNG" width="400" height="200"></a>
 
+[Click here if the video does not play](https://www.youtube.com/watch?v=XYYWJ1TtzEQ)
+
+
+
 ## Languages
 - HTML
 - Python 
