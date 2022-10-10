@@ -11,10 +11,9 @@
 <a href="https://github.com/Sanayshah2/SE_Project_1/actions/workflows/code_checker.yml">
         <img src="https://github.com/Sanayshah2/SE_Project_1/actions/workflows/code_checker.yml/badge.svg"/></a>
 
-
 [![Code Coverage](https://codecov.io/gh/Sanayshah2/SE_Project_1/branch/main/graphs/badge.svg)](https://codecov.io/gh/Sanayshah2/SE_Project_1/branch/main)
+[![Django CI](https://github.com/sanayshah2/SE_Project_1/actions/workflows/django.yml/badge.svg)](https://github.com/sanayshah2/SE_Project_1/actions/workflows/django.yml)
 
-(need to add tests checker later)
 ## Introduction
 This repository contains source code for Project 1 which was created for CSC 510 course of NC State University Fall 22. 
 As international students, the US education system was very new for us and it took time getting used to it. 
