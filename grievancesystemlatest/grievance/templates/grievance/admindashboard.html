@@ -233,10 +233,110 @@
             }
         }
     });
+    google.charts.load("current", {packages:['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+          var data = google.visualization.arrayToDataTable([
+            ["Months", "No. of Complains", { role: "style" } ],
+            {% if cm1 >= 6 %}
+            {% if diff < 01 and 01 <= cm1 %}
+            ["Jan {{cy1}}", {{months.01}}, "#b87333"],
+            {% endif %}
+            {% if diff < 02 and 02 <= cm1 %}
+            ["Feb {{cy1}}", {{months.02}}, "silver"],
+            {% endif %}
+            {% if diff < 03 and 03 <= cm1 %}
+            ["March {{cy1}}", {{months.03}}, "gold"],
+            
+            {% endif %}
+            {% if diff < 04 and 04 <= cm1 %}
+            ["April {{cy1}}", {{months.04}}, "color: #e5e4e2"],
+            {% endif %}
+            {% if diff < 05 and 05 <= cm1 %}
+            ["May {{cy1}}", {{months.05}}, "color: green"],
+            {% endif %}
+            {% if diff < 06 and 06 <= cm1 %}
+            ["June {{cy1}}", {{months.06}}, "color: orange"],
+              
+//             {% endif %}
+//             {% if diff < 04 and 04 <= cm1 %}
+//             ["April {{cy1}}", {{months.04}}, "color: #e5e4e2"],
+//             {% endif %}
+//             {% if diff < 05 and 05 <= cm1 %}
+//             ["May {{cy1}}", {{months.05}}, "color: green"],
+//             {% endif %}
+//             {% if diff < 06 and 06 <= cm1 %}
+//             ["June {{cy1}}", {{months.06}}, "color: orange"],
+            
+            {% endif %}
+            {% if diff < 7 and 7 <= cm1 %}
+            ["July {{cy1}}", {{months.07}}, "color: black"],
+            {% endif %}
+              {% if diff < 08 and 08 <= cm1 %}
+              ["Aug {{cy1}}", {{months.08}}, "color: black"],
+              {% endif %}
+              {% if diff < 09 and 09 <= cm1 %}
+              ["Sept {{cy1}}", {{months.09}}, "color: black"],
+              {% endif %}
+              {% if months.10 != 0 or diff < 10 and 10 <= cm1 %}
+              ["Oct {{cy1}}", {{months.10}}, "color: black"],
+              {% endif %}
+              {% if diff < 11 and 11 <= cm1 %}
+              ["Nov {{cy1}}", {{months.11}}, "color: black"],
+              {% endif %}
+              {% if diff < 12 and 12 <= cm1 %}
+              ["Dec {{cy1}}", {{months.12}}, "color: black"]
+              {% endif %}
+              {% endif %}
     
-    \\
-             
-    \\
+              {% if cm1 < 6 %}
+            {% if diff <= -5 %}
+            ["Aug {{cy}}", {{months.08}}, "#b87333"],
+            {% endif %}
+            {% if diff <= -4 %}
+            ["Sept {{cy}}", {{months.09}}, "silver"],
+            {% endif %}
+            {% if diff <= -3 %}
+            ["Oct {{cy}}", {{months.10}}, "gold"],
+            
+            {% endif %}
+            {% if diff <= -2 %}
+            ["Nov {{cy}}", {{months.11}}, "color: #e5e4e2"],
+            {% endif %}
+            {% if diff <= -1 %}
+            ["Dec {{cy}}", {{months.12}}, "color: green"],
+            {% endif %}
+            {% if diff < 01 and 01 <= cm1 %}
+            ["Jan {{cy1}}", {{months.01}}, "color: orange"],
+            
+            {% endif %}
+            {% if diff < 02 and 02 <= cm1 %}
+              ["Feb {{cy1}}", {{months.02}}, "color: black"],
+              
+              {% endif %}
+              {% if diff < 03 and 03 <= cm1 %}
+              ["March {{cy1}}", {{months.03}}, "color: black"],
+              {% endif %}
+              {% if diff < 04 and 04 <= cm1 %}
+              ["April {{cy1}}", {{months.04}}, 
+              {% if months.04 >= 2 %}
+              "color: #D10000"
+              {% else %}
+              "color: green"
+              {% endif %}
+              ],
+              {% endif %}
+              {% if diff < 05 and 05 <= cm1 %}
+              ["May {{cy1}}", {{months.05}}, 
+              {% if months.05 >= 2 %}
+              "color: #D10000"
+              {% else %}
+              "color: green"
+              {% endif %}
+              ],
+              {% endif %}
+              {% endif %}
+          ]);
     
           var view = new google.visualization.DataView(data);
           view.setColumns([0, 1,
@@ -326,6 +426,22 @@
         {% endif %}
         {% endfor %}
       </div>
+        
+<!--       <div  style="padding-top: 20px;padding-bottom: 40px;border-bottom: 1px solid lightgray;">
+        <h4  style="font-weight: bold;;margin-top: 20px;" class="">Unaddressed Complains</h2>
+        <div style="border-bottom: 3px solid #D10000;width:40%;;margin-bottom: 20px;" class=""></div>
+        {% if vcomplains  %}      
+      <div class="" style="padding: 20px;;border: 1px solid lightgray;background-color: whitesmoke;border-radius: 10px;">
+        {% for p in vcomplains %}
+        {% if not p.transfer %}
+        <div style="padding-bottom: 10px;margin-bottom: 10px;;">
+          <h5 style="font-weight: bold;">{{p.complain_heading}}</h4>
+            <small><span style="margin-right: 10px;"><i class="fas fa-thumbs-up" style="color: rgb(37, 35, 35);"></i>  {{p.total_likes}}</span>&bull;<span style="margin-right: 10px;margin-left: 10px;">{{p.date_posted|date:"M d, Y"}}</span>&bull;<span style="color: black;font-weight: bold;margin-left: 10px;" >{{p.status}}</span><span style="margin-left: 15px;"><a href="/adminComplainView/{{p.id}}/">View</a></span></small>
+
+        </div>
+        {% endif %}
+        {% endfor %}
+</div> -->
       
         {% else %}
         <div class="" style="padding-bottom: 10px;;">
