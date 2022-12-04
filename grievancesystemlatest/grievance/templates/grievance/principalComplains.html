@@ -10,3 +10,35 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js" integrity="sha256-JtQPj/3xub8oapVMaIijPNoM0DHoAtgh/gwFYuN5rik=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js" integrity="sha256-jDnOKIOq2KNsQZTcBTEnsp76FnfMEttF6AV2DF2fFNE=" crossorigin="anonymous"></script>
         
+<div class="content" style="margin-bottom: 30px;">
+ 
+  <div >
+    <h4  style="font-weight: bold;;margin-top: 30px;" class="">Unaddressed Complains</h2>
+    <div style="border-bottom: 3px solid red;width:40%;;margin-bottom: 20px;" class=""></div>
+    {% if vcomplains %}
+      
+  <div class="" style="padding: 20px;;border: 1px solid lightgray;background-color: whitesmoke;border-radius: 10px;">
+    {% for p in vcomplains %}
+    <div style="padding-bottom: 10px;margin-bottom: 10px;;">
+      <h5 style="font-weight: bold;">{{p.complain_heading}}</h4>
+      <small><span style="margin-right: 15px;"><i class="fas fa-thumbs-up" style="color: red;"></i>  {{p.total_likes}}</span><span style="margin-right: 15px;">{{p.date_posted|date:"M d, Y"}}</span>
+        {% if p.status == 'Solved' %}
+        <span style="color: green;font-weight: bold;" >{{p.status}}</span>
+        {% elif p.status == 'Rejected' %}
+        <span style="color: red;font-weight: bold;" >{{p.status}}</span>
+        {% elif p.status == 'In Progress' %}
+        <span style="color:rgb(168, 168, 28);font-weight: bold;" >{{p.status}}</span>
+        {% else %}
+        <span style="font-weight: bold;" >{{p.status}}</span>
+        {% endif %}
+        <span style="margin-left: 15px;"><a href="/adminComplainView/{{p.id}}/">View</a></span></small>
+
+    </div>
+    {% endfor %}
+  </div>
+    {% else %}
+    <div class="" style="padding-bottom: 10px;;">
+      <p class='text-muted'>No Complains to display</p>
+
+    </div>
+  {% endif %}
