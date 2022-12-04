@@ -97,9 +97,172 @@
         }
     });
 
-//
-       
-//
+
+    var ctx1 = document.getElementById('columnchart_values1').getContext('2d');
+
+    var myChart = new Chart(ctx1, {
+        type: 'bar',
+        data: {
+            labels: [
+            {% if cm1 >= 6 %}
+            {% if diff < 01 and 01 <= cm1 %}
+            "Jan {{cy1}}",
+            {% endif %}
+            {% if diff < 02 and 02 <= cm1 %}
+            "Feb {{cy1}}",
+            {% endif %}
+            {% if diff < 03 and 03 <= cm1 %}
+            "March {{cy1}}",
+            
+            {% endif %}
+            {% if diff < 04 and 04 <= cm1 %}
+            "April {{cy1}}",
+            {% endif %}
+            {% if diff < 05 and 05 <= cm1 %}
+            "May {{cy1}}",
+            {% endif %}
+            {% if diff < 06 and 06 <= cm1 %}
+            "June {{cy1}}",
+            
+            {% endif %}
+            {% if diff < 7 and 7 <= cm1 %}
+            "July {{cy1}}",
+            {% endif %}
+              {% if diff < 08 and 08 <= cm1 %}
+              "Aug {{cy1}}",
+              {% endif %}
+              {% if diff < 09 and 09 <= cm1 %}
+              "Sept {{cy1}}",
+              {% endif %}
+              {% if months.10 != 0 or diff < 10 and 10 <= cm1 %}
+              "Oct {{cy1}}",
+              {% endif %}
+              {% if diff < 11 and 11 <= cm1 %}
+              "Nov {{cy1}}", 
+              {% endif %}
+              {% if diff < 12 and 12 <= cm1 %}
+              "Dec {{cy1}}",
+              {% endif %}
+              {% endif %}
+    
+              {% if cm1 < 6 %}
+            {% if diff <= -5 %}
+            "Aug {{cy}}", 
+            {% endif %}
+            {% if diff <= -4 %}
+            "Sept {{cy}}", 
+            {% endif %}
+            {% if diff <= -3 %}
+            "Oct {{cy}}",
+            
+            {% endif %}
+            {% if diff  %}
+            "Nov {{cy}}", 
+            {% endif %}
+            {% if diff <= -1 %}
+            "Dec {{cy}}",
+            {% endif %}
+            {% if diff < 01 and 01 <= cm1 %}
+            "Jan {{cy1}}", 
+            
+            {% endif %}
+            {% if diff < 02 and 02 <= cm1 %}
+              "Feb {{cy1}}", 
+              
+              {% endif %}
+              {% if diff < 03 and 03 <= cm1 %}
+              "March {{cy1}}", 
+              {% endif %}
+              {% if diff < 04 and 04 <= cm1 %}
+              "April {{cy1}}",
+              {% endif %}
+              {% if diff < 05 and 05 <= cm1 %}
+              "May {{cy1}}",
+              {% endif %}
+              {% endif %}
+
+            ],
+            datasets: [{
+                label: 'Number of Complains',
+                data: [
+                {% if cm1 >= 6 %}
+            {% if diff < 01 and 01 <= cm1 %}
+            "{{months.01}}",
+            {% endif %}
+            {% if diff < 02 and 02 <= cm1 %}
+            "{{months.02}}",
+            {% endif %}
+            {% if diff < 03 and 03 <= cm1 %}
+            "{{months.03}}",
+            
+            {% endif %}
+            {% if diff < 04 and 04 <= cm1 %}
+            "{{months.04}}",
+            {% endif %}
+            {% if diff < 05 and 05 <= cm1 %}
+            "{{months.05}}",
+            {% endif %}
+            {% if diff < 06 and 06 <= cm1 %}
+            "{{months.06}}",
+            
+            {% endif %}
+            {% if diff < 7 and 7 <= cm1 %}
+            "{{months.07}}",
+            {% endif %}
+              {% if diff < 08 and 08 <= cm1 %}
+              "{{months.08}}",
+              {% endif %}
+              {% if diff < 09 and 09 <= cm1 %}
+              "{{months.09}}",
+              {% endif %}
+              {% if months.10 != 0 or diff < 10 and 10 <= cm1 %}
+              "{{months.10}",
+              {% endif %}
+              {% if diff < 11 and 11 <= cm1 %}
+              "{{months.11}}", 
+              {% endif %}
+              {% if diff < 12 and 12 <= cm1 %}
+              "{{months.12}}",
+              {% endif %}
+              {% endif %}
+    
+              {% if cm1 < 6 %}
+            {% if diff <= -5 %}
+            "{{months.08}}", 
+            {% endif %}
+            {% if diff <= -4 %}
+            "{{months.09}}", 
+            {% endif %}
+            {% if diff <= -3 %}
+            "{{months.10}}",
+            
+            {% endif %}
+            {% if diff  %}
+            "{{months.11}}", 
+            {% endif %}
+            {% if diff <= -1 %}
+            "{{months.12}}",
+            {% endif %}
+            {% if diff < 01 and 01 <= cm1 %}
+            "{{months.01}}", 
+            
+            {% endif %}
+            {% if diff < 02 and 02 <= cm1 %}
+              "{{months.02}}", 
+              
+              {% endif %}
+              {% if diff < 03 and 03 <= cm1 %}
+              "{{months.03}}", 
+              {% endif %}
+              {% if diff < 04 and 04 <= cm1 %}
+              "{{months.04}}",
+              {% endif %}
+              {% if diff < 05 and 05 <= cm1 %}
+              "{{months.05}}",
+              {% endif %}
+              {% endif %}
+
+
 
 
                 ],
