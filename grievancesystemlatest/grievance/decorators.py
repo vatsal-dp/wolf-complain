@@ -8,16 +8,16 @@ def is_logged(view_func):
             if request.user.is_authenticated:
                 group = Group.objects.get(user = request.user)
                 if group.name == 'faculty':
-                    if request.user.admin.designation == 'Principal':
+                    if Admin(user=request.user).designation == 'Principal':
                         return redirect('principaldashboard')
-                    else:    
+                    else:
                         return redirect('admindashboard')
                 else:
                     return redirect('studentdashboard')
             else:
                 return view_func(request, *args, **kwargs)
-        return wrapper_func 
-    
+        return wrapper_func
+
 
 
 def student_required(view_func):
@@ -27,8 +27,16 @@ def student_required(view_func):
             return view_func(request, *args, **kwargs)
         else:
             return HttpResponse('You are not authorized to view this page.')
-    return wrapper_func 
+    return wrapper_func
 
+# def student_required(view_func):
+#     def wrapper_func(request, *args, **kwargs):
+#         group = Group.objects.get(user = request.user)
+#         if group.name == 'student':
+#             return view_func(request, *args, **kwargs)
+#         else:
+#             return HttpResponse('You are not authorized to view this page.')
+#     return wrapper_func
 
 def admin_required(view_func):
     def wrapper_func(request, *args, **kwargs):
@@ -37,7 +45,7 @@ def admin_required(view_func):
             return view_func(request, *args, **kwargs)
         else:
             return HttpResponse('You are not authorized to view this page.')
-    return wrapper_func 
+    return wrapper_func
 
 def adminprofile_required(view_func):
     def wrapper_func(request, *args, **kwargs):
@@ -46,7 +54,7 @@ def adminprofile_required(view_func):
             return redirect('adminProfile')
         else:
             return view_func(request, *args, **kwargs)
-    return wrapper_func 
+    return wrapper_func
 
 
 def studentprofile_required(view_func):
@@ -56,4 +64,4 @@ def studentprofile_required(view_func):
             return redirect('studentProfile')
         else:
             return view_func(request, *args, **kwargs)
-    return wrapper_func 
+    return wrapper_func
