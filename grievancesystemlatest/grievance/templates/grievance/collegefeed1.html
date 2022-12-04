@@ -1,3 +1,70 @@
+{% extends 'grievance/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% include 'grievance/studentsidebar.html' %}
+
+<style>
+
+
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js" integrity="sha256-JtQPj/3xub8oapVMaIijPNoM0DHoAtgh/gwFYuN5rik=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js" integrity="sha256-jDnOKIOq2KNsQZTcBTEnsp76FnfMEttF6AV2DF2fFNE=" crossorigin="anonymous"></script>
+        
+
+        
+        
+
+      
+<div class="content" style="margin-bottom: 30px;">
+ 
+  <div >
+    <h3  style="font-weight: bold;animation-delay: 0.1s;margin-top: 30px;" class="animated animatedFadeInUp fadeInUp">College feed</h2>
+    <div style="border-bottom: 3px solid rgb(57, 120, 255);width:40%;animation-delay: 0.1s;margin-bottom: 20px;" class="animated animatedFadeInUp fadeInUp"></div>
+    {% if complains %}
+  
+  <div class="animated animatedFadeInUp fadeInUp" style="padding: 20px;animation-delay: 0.4s;border: 1px solid lightgray;background-color: whitesmoke;border-radius: 10px;">
+    {% for p in complains %}
+    <div style="padding-bottom: 10px;margin-bottom: 10px;border-bottom: 1px solid lightgray;">
+      <h5 style="font-weight: bold;">{{p.complain_heading}}</h4>
+      
+     
+      <small>
+             
+        <span style="margin-right: 15px;margin-left: 15px;">{{p.date_posted|date:"M d, Y"}}</span>
+        {% if p.status == 'Solved' %}
+        <span style="color: green;font-weight: bold;" >{{p.status}}</span>
+        {% elif p.status == 'Rejected' %}
+        <span style="color: red;font-weight: bold;" >{{p.status}}</span>
+        {% elif p.status == 'In Progress' %}
+        <span style="color:rgb(168, 168, 28);font-weight: bold;" >{{p.status}}</span>
+        {% else %}
+        <span style="font-weight: bold;" >{{p.status}}</span>
+        {% endif %}
+        <span style="margin-left: 15px;"><a href="/studentComplainView/{{p.id}}/">View</a></span></small>
+
+    </div>
+    
+    {% endfor %}
+  </div>
+    {% else %}
+    <div class="animated animatedFadeInUp fadeInUp" style="padding-bottom: 10px;animation-delay: 0.4s;">
+      <p class='text-muted'>No Complains to display</p>
+
+    </div>
+  {% endif %}
+
+  
+
+</div>
+
+   
+    
+</div>
+
 
 <!--
 <script type="text/javascript">
