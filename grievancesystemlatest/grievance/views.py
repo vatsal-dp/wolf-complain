@@ -320,3 +320,11 @@ def admin_editprofile(request):
         u_form = EditUser(instance=user)
         a_form = EditAdmin(instance=admin)
     return render(request, 'grievance/admin_editprofile.html', {'form1':u_form, 'form2':a_form, 'admin_profile_active':'active'})
+
+@login_required(login_url='/login/admins/')
+@admin_required
+@adminprofile_required
+def complain_history(request):
+    admin = Admin.objects.get(user = request.user)
+    complains = Complain.objects.filter(receiver = admin)
+    return render (request, 'grievance/admin_complain_history.html', {'complains':complains, 'admin_complains_active':'active'})
