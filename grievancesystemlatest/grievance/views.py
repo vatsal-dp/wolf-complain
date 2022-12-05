@@ -149,3 +149,24 @@ def loginStudent(request):
     return render(request,"grievance/studentlogin.html",{'form':form})
 
 
+def activatestudent(request, uidb64, token, name):
+    try:
+        uid = force_str((urlsafe_base64_decode(uidb64)))
+        user = User.objects.get(pk=uid)
+        print(uid)
+    except Exception as identifier:
+        print(uid)
+        print(uidb64)
+        user = User.objects.get(username=name)
+    if user is not None and account_activation_token.check_token(user, token):
+        print('Success')
+        user.is_active = True
+        user.save()
+        group=Group.objects.get(name='student')
+        user.groups.add(group)
+        messages.info(request, f'Thank you for your email confirmation. Your account has been created! {user.username}, you are now ready to Log In.')
+        return redirect('loginStudent')
+    else:
+        user.delete()
+        messages.info(request, 'Activation link is invalid! Request account activation again')
+        return redirect('studentRegister')
