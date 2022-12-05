@@ -339,3 +339,12 @@ def delete(request):
 def about(request):
     return render (request, 'grievance/about.html')
 
+def transfer(request,cid):
+    if request.method == 'POST':
+        complain = Complain.objects.get(id = cid)
+        complain.transfer = True
+        complain.save()
+        messages.info(request, 'Complain transferred to higher authority!')
+        return redirect('admindashboard')
+
+
