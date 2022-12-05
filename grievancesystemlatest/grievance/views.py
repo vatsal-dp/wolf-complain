@@ -227,3 +227,21 @@ def adminComplainView(request,cid):
     else:
         form = ChangeStatusForm(instance=complain)
     return render(request, 'grievance/adminComplainView.html', {'form':form, 'complain':complain, 'admin_complains_active':'active'})
+
+@login_required(login_url='/login/admins/')
+@admin_required
+@adminprofile_required
+def adminProfileView(request):
+    admin=Admin.objects.get(user=request.user)
+    tcomplains=Complain.objects.filter(receiver=admin).count()
+    rcomplains=Complain.objects.filter(receiver=admin,status='Rejected').count()
+    scomplains=Complain.objects.filter(receiver=admin,status='Solved').count()
+    context={
+        'a':admin,
+        'scomplains':scomplains,
+        'rcomplains':rcomplains,
+        'tcomplains':tcomplains,
+        'admin_profile_active':'active'
+
+    }
+    return render(request,'grievance/adminProfileView.html',context)
