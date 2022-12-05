@@ -245,3 +245,21 @@ def adminProfileView(request):
 
     }
     return render(request,'grievance/adminProfileView.html',context)
+
+@login_required(login_url='/login/student/')
+@student_required
+@studentprofile_required
+def studentProfileView(request):
+    student=Student.objects.get(user=request.user)
+    tcomplains=Complain.objects.filter(sender=student).count()
+    rcomplains=Complain.objects.filter(sender=student,status='Rejected').count()
+    scomplains=Complain.objects.filter(sender=student,status='Solved').count()
+    context={
+        'a':student,
+        'scomplains':scomplains,
+        'rcomplains':rcomplains,
+        'tcomplains':tcomplains,
+        'sprofile_active':'active'
+
+    }
+    return render(request,'grievance/studentProfileView.html',context)
