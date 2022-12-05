@@ -329,6 +329,22 @@ def complain_history(request):
     complains = Complain.objects.filter(receiver = admin)
     return render (request, 'grievance/admin_complain_history.html', {'complains':complains, 'admin_complains_active':'active'})
 
+'''def like(request):
+    if request.method == 'GET':
+        cid = request.GET.get('cid')
+        student = Student.objects.get(user = request.user)
+        complain1 = Complain.objects.get(id = cid )
+        new_like,created = Like.objects.get_or_create(liker = student ,complain = complain1)
+        if not created:
+            new_like.save()
+
+            return redirect('previousComplaints')
+        else:
+            complain1.like_count = complain1.like_count+1
+            complain1.save()
+            return redirect('previousComplaints')'''
+
+
 
 def delete(request):
     user = request.user
