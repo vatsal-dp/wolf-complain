@@ -434,3 +434,58 @@ def principaldashboard(request):
 
     return render(request,'grievance/principaldashboard.html',context)
 
+@login_required(login_url='/login/student/')
+@student_required
+@studentprofile_required
+def collegefeed(request):
+    if request.method == 'POST':
+        college = request.POST.get('college')
+        type = request.POST.get('type')
+        department = request.POST.get('department')
+        print(college, type, department)
+        if college == '' and type == '' and department == '':
+            complains=Complain.objects.all()
+        else:
+
+            if college != '':
+                complains = Complain.objects.filter( college = college)
+                if type != '':
+                    complains = complains.filter(related_to = type)
+                    type = ''
+                    if department != '':
+
+                        complains = complains.filter(branch = department)
+                        department = ''
+
+            if type != '':
+                    complains = Complain.objects.filter(related_to = type)
+                    if department != '':
+                        complains = complains.filter(branch = department)
+                        department = ''
+            if department != '':
+                        complains = Complain.objects.filter(branch = department)
+    else:
+        complains=Complain.objects.all()
+    college_list =   [ 'NCSU', 'TAMU', 'USC', 'NYU', 'UIUC', 'UCSD', 'CMU'     ]
+    type = ['Management', 'Library', 'Faculty', 'Security']
+    department = ['Computer',
+        'IT',
+        'EXTC',
+        'ELEX',
+        'Chemical',
+        'Production',
+        'Bio Med']
+
+    p = Paginator(complains, 10)
+    page_number = request.GET.get('page')
+    page_obj = p.get_page(page_number)
+    print(page_obj.number)
+    context={
+        'complains':page_obj,
+        'collegefeed_active':'active',
+        'college_list' : college_list,
+        'type' : type,
+        'department':department,
+    }
+    return render(request,'grievance/collegefeed.html',context)
+
