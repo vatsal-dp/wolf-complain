@@ -302,3 +302,21 @@ def principalComplains(request):
     }
     return render(request,'grievance/principalComplains.html',context)
 
+@login_required(login_url='/login/admins/')
+@admin_required
+@adminprofile_required
+def admin_editprofile(request):
+    admin = Admin.objects.get(user = request.user)
+    user = request.user
+    if request.method == 'POST':
+        u_form = EditUser(request.POST, instance=user)
+        a_form = EditAdmin(request.POST, instance=admin)
+        if u_form.is_valid() and a_form.is_valid():
+            u_form.save()
+            a_form.save()
+            messages.info(request, 'Profile Updated Successfully!')
+            return redirect('adminProfileView')
+    else:
+        u_form = EditUser(instance=user)
+        a_form = EditAdmin(instance=admin)
+    return render(request, 'grievance/admin_editprofile.html', {'form1':u_form, 'form2':a_form, 'admin_profile_active':'active'})
