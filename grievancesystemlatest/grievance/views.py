@@ -10,3 +10,13 @@ from django.db.models import Q
 from django.utils import timezone
 from django.core.paginator import Paginator
 from django.utils.encoding import force_str
+
+def likecomplain(request):
+
+    cid=request.GET.get('cid')
+    complain=Complain.objects.get(id=cid)
+    if complain.likes.filter(id = request.user.id).exists() :
+        complain.likes.remove(request.user)
+    else:
+        complain.likes.add(request.user)
+    return redirect('collegefeed')
