@@ -344,6 +344,13 @@ def complain_history(request):
             complain1.save()
             return redirect('previousComplaints')'''
 
+@login_required(login_url='/login/admins/')
+@admin_required
+@adminprofile_required
+def memberslist(request):
+    admin = Admin.objects.filter(college = request.user.admin.college)
+    return render(request, 'grievance/members_list.html', {'members_list':'active', 'admins':admin})
+
 
 
 def delete(request):
