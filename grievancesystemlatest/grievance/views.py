@@ -267,6 +267,85 @@ def admindashboard(request):
     production = Complain.objects.filter(college=college, related_to='Faculty', branch='Production').count()
     biomed = Complain.objects.filter(college=college, related_to='Faculty', branch='Bio Med').count()
 
+    months = {
+        1:0,
+        2:0,
+        3:0,
+        4:0,
+        5:0,
+        6:0,
+        7:0,
+        8:0,
+        9:0,
+        10:0,
+        11:0,
+        12:0,
+    }
+
+
+
+    c=datetime.today()
+    cm=c.month
+    cm1=c.month
+    diff= cm1 - 6
+
+    cy=c.year
+    cy1=c.year
+
+
+    for i in range(0,6) :
+        if cm < 1:
+            cm=12
+            cy=cy-1
+        for x in complains:
+            l = str(x.date_posted)
+            monthnumber = l[5:7]
+            m=int(monthnumber)
+            year = l[0:4]
+            y=int(year)
+            if m == cm and y == cy:
+                months[cm] = months[cm] + 1
+        cm = cm-1
+
+
+    keymax=max(months, key=months.get)
+    keymin=min(months, key=months.get)
+    cal=calendar.month_name[keymax]
+    cal1=calendar.month_name[keymin]
+
+
+    context={
+        'cal':cal,
+        'cal1':cal1,
+        'rcomplains':rcomplains,
+        'scomplains':scomplains,
+        'vcomplains':vcomplains,
+        'srcomplains':srcomplains,
+        'ipcomplains':ipcomplains,
+        'months':months,
+        'management':management,
+        'security':security,
+        'library':library,
+        'faculty':faculty,
+        'canteen':canteen,
+        'computer':computer,
+        'it':it,
+        'extc':extc,
+        'elex':elex,
+        'chemical':chemical,
+        'production':production,
+        'biomed':biomed,
+        'cy1':cy1,
+        'cm1':cm1,
+        'cy':cy,
+        'diff':diff,
+        'position':position,
+        'admin_dashboard_active':'active',
+        'tcomplains':tcomplains,
+
+    }
+    return render(request,'grievance/admindashboard.html',context)
+
     
 @login_required(login_url='/login/student/')
 @student_required
