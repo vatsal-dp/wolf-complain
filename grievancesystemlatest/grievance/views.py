@@ -328,3 +328,10 @@ def complain_history(request):
     admin = Admin.objects.get(user = request.user)
     complains = Complain.objects.filter(receiver = admin)
     return render (request, 'grievance/admin_complain_history.html', {'complains':complains, 'admin_complains_active':'active'})
+
+
+def delete(request):
+    user = request.user
+    user.delete()
+    messages.info(request, 'Account deleted successfully!')
+    return redirect('home')
