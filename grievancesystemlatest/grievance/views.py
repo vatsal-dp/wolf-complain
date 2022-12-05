@@ -161,6 +161,17 @@ def loginStudent(request):
         form= LoginForm()
     return render(request,"grievance/studentlogin.html",{'form':form})
 
+@login_required(login_url='/login/student/')
+@student_required
+@studentprofile_required
+def studentComplainView(request,cid):
+    complain=Complain.objects.get(id=cid)
+    context={
+        'complain':complain,
+        'scomplains_active':'active'
+    }
+    return render(request,'grievance/studentComplainView.html',context)
+
 
 def activatestudent(request, uidb64, token, name):
     try:
