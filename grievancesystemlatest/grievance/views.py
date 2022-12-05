@@ -161,6 +161,43 @@ def loginStudent(request):
         form= LoginForm()
     return render(request,"grievance/studentlogin.html",{'form':form})
 
+@is_logged
+def loginAdmin(request):
+    if request.method=='POST':
+        form = LoginForm(request.POST or None)
+
+        if form.is_valid():
+            username = form.cleaned_data.get("username")
+            password = form.cleaned_data.get("password")
+            user = authenticate(username = username,password = password)
+            if user is not None:
+                group=Group.objects.get(user=user)
+                g=group.name
+                if g == 'faculty':
+                    login(request,user)
+                    profile=Admin.objects.filter(user=request.user).count()
+                    if profile>0:
+                        if request.user.admin.designation == 'Principal':
+                            return redirect('principaldashboard')
+                        else:
+                            return redirect('admindashboard')
+                    else:
+                        return redirect("adminProfile")
+
+
+
+
+                else:
+                    messages.info(request, f'Account belongs to a student. Go to the student login page and Log In')
+            elif user is None:
+                messages.info(request, f'Invalid Credentials.')
+
+    else:
+        form= LoginForm()
+    return render(request,"grievance/adminlogin.html",{'form':form})
+
+
+
 @login_required(login_url='/login/student/')
 @student_required
 @studentprofile_required
