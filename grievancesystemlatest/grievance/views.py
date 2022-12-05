@@ -489,3 +489,17 @@ def collegefeed(request):
     }
     return render(request,'grievance/collegefeed.html',context)
 
+@login_required(login_url='/login/admins/')
+@admin_required
+@adminprofile_required
+def issue_warning(request, myid):
+        admin = Admin.objects.get(user = myid)
+        mail_subject = 'Warning'
+        message = 'This email has been sent to you to bring in to your notice that many complains have been written into your department. Please look after it.\n\nPrincipal.'
+        # to_email = admin.user.email
+        # email = EmailMessage(
+        #         mail_subject, message, to=[to_email]
+        # )
+        # email.send()
+        messages.info(request, 'Warning issued successfully!')
+        return redirect('members_list')
