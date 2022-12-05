@@ -87,5 +87,45 @@ def activateadmin(request, uidb64, token, name):
         messages.info(request, 'Activation link is invalid! Request account activation again')
         return redirect('adminRegister')
 
+@is_logged
+def studentRegister(request):
+    if request.method=='POST':
+        form=UserFormStudent(request.POST)
+        if form.is_valid():
+            user=form.save(commit=False)
+            user.is_active = True
+            name = user.username
+            email = form.cleaned_data.get('email')
+            first_name = form.cleaned_data.get('first_name')
+            for x in User.objects.all():
+                if x.email == email:
+                    messages.info(request, f'Account with this email already exists.')
+                    return redirect('studentRegister')
+
+            user.save()
+            group=Group.objects.get(name='student')
+            user.groups.add(group)
+            print(user.id)
+            current_site = get_current_site(request)                #Email activation
+            mail_subject = 'Activate your student account.'
+            message = render_to_string('grievance/acc_studentactive_email.html', {
+                'user': user,
+                'domain': current_site.domain,
+                'uid':urlsafe_base64_encode(force_bytes(user.pk)),
+                'token':account_activation_token.make_token(user),
+                'name':name
+            })
+            to_email = email
+            email = EmailMessage(
+                        mail_subject, message, to=[to_email]
+            )
+            email.send()
+            messages.info(request, 'Please confirm your email address to complete the registration')   #Email activation end
+            return redirect('loginStudent')
+    else:
+        form=UserFormStudent()
+    return render(request,'grievance/registerstudent.html',{'form':form})
+
+
 
 
