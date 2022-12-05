@@ -228,7 +228,46 @@ def studentdashboard(request):
     }
     return render(request,'grievance/studentdashboard.html',context)
 
+@login_required(login_url='/login/admins/')
+@admin_required
+@adminprofile_required
+def admindashboard(request):
+    admin=Admin.objects.get(user=request.user)
+    position=admin.designation
+    college = admin.college
+    complains=Complain.objects.filter(receiver=admin)
+    for c  in complains:
+        if c.status == 'Pending':
+            # to_email = c.sender.user.email
+            # mail_subject = 'Status Changed'
+            # message =  'Hey ' +c.sender.user.first_name+',\nYour complain was viewed by the concerned authority and will be addressed soon.\n\nYour complain details.\nComplain heading : '+c.complain_heading+'\nComplain content: '+c.complain_content
+            # email = EmailMessage(
+            #             mail_subject, message, to=[to_email]
+            # )
+            # email.send()
+            c.status = 'Viewed'
+            c.save()
 
+    rcomplains=Complain.objects.filter(receiver=admin,status='Rejected')
+    scomplains=Complain.objects.filter(receiver=admin,status='Solved')
+    vcomplains=Complain.objects.filter(receiver=admin,status='Viewed')
+    ipcomplains = Complain.objects.filter(receiver=admin,status='In Progress')
+    tcomplains = Complain.objects.filter(receiver=admin,transfer=True)
+    srcomplains = Complain.objects.filter(Q(status='Solved', receiver=admin) | Q(status='Rejected', receiver=admin))
+    management = Complain.objects.filter(college=college, related_to='Management').count()
+    security = Complain.objects.filter(college=college, related_to='Security').count()
+    library = Complain.objects.filter(college=college, related_to='Library').count()
+    faculty = Complain.objects.filter(college=college, related_to='Faculty').count()
+    canteen = Complain.objects.filter(college=college, related_to='Canteen').count()
+    computer = Complain.objects.filter(college=college, related_to='Faculty', branch='Computer').count()
+    it = Complain.objects.filter(college=college, related_to='Faculty', branch='IT').count()
+    extc = Complain.objects.filter(college=college, related_to='Faculty', branch='EXTC').count()
+    elex = Complain.objects.filter(college=college, related_to='Faculty', branch='ELEX').count()
+    chemical = Complain.objects.filter(college=college, related_to='Faculty', branch='Chemical').count()
+    production = Complain.objects.filter(college=college, related_to='Faculty', branch='Production').count()
+    biomed = Complain.objects.filter(college=college, related_to='Faculty', branch='Bio Med').count()
+
+    
 @login_required(login_url='/login/student/')
 @student_required
 @studentprofile_required
