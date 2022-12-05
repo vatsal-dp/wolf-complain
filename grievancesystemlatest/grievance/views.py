@@ -432,6 +432,59 @@ def logout_view(request):
     logout(request)
     return redirect('home')
 
+@login_required(login_url='/login/student/')
+@student_required
+def studentProfile(request):
+    profile=Student.objects.filter(user=request.user).count()
+    if profile>0:
+        return redirect('studentdashboard')
+    else:
+        if request.method=='POST':
+            form=StudentProfileForm(request.POST)
+            if form.is_valid():
+                instance=form.save(commit=False)
+                instance.user=request.user
+                instance.save()
+                return redirect('studentdashboard')
+        else:
+            form=StudentProfileForm()
+        return render(request,'grievance/profileStudent.html',{'form':form, 'sprofile_active':'active'})
+
+@login_required(login_url='/login/admins/')
+@admin_required
+def adminProfile(request):
+    profile=Admin.objects.filter(user=request.user).count()
+    if profile>0:
+        return redirect('admindashboard')
+    else:
+        if request.method=='POST':
+            form=AdminProfileForm(request.POST)
+            if form.is_valid():
+                instance=form.save(commit=False)
+                college = form.cleaned_data.get("college")
+                designation = request.POST.get("designation")
+                if designation == 'HOD':
+                    branch = request.POST.get('branches')
+                else:
+                    branch = None
+                #messages.info(request, f'{branch}')
+                #return redirect('adminProfile')
+                admin=Admin.objects.filter(college=college,branch=branch, designation=designation).count()
+                if admin>0:
+                    if branch:
+                        messages.info(request, f"Admin account for {branch} branch already exists in {college}.")
+                    else:
+                        messages.info(request, f"Admin account for {designation} already exists in {college}.")
+
+                else:
+                    instance.designation = designation
+                    instance.branch = branch
+                    instance.user=request.user
+                    instance.save()
+                    return redirect('admindashboard')
+        else:
+            form=AdminProfileForm()
+    return render(request,'grievance/profileAdmin.html',{'form':form, 'admin_profile_active':'active'})
 
 
 @login_required(login_url='/login/student/')
