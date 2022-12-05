@@ -283,3 +283,22 @@ def student_editprofile(request):
         s_form = EditStudent(instance=student)
     return render(request, 'grievance/student_editprofile.html', {'form1':u_form, 'form2':s_form, 'sprofile_active':'active'})
 
+@login_required(login_url='/login/admins/')
+@admin_required
+@adminprofile_required
+def principalComplains(request):
+    pcollege = request.user.admin.college
+    admin = Admin.objects.get(college = pcollege, designation = 'Principal')
+    vcomplains = Complain.objects.filter(Q(college = pcollege,transfer = True, status = 'Viewed') | Q(college = pcollege, status = 'Pending', receiver = admin) | Q(college = pcollege, receiver = admin, status = 'Viewed'))
+    for x in vcomplains:
+        if x.status == 'Pending':
+            x.status = 'Viewed'
+            x.save()
+    srtcomplains =  Complain.objects.filter(Q(status = 'Solved', college = pcollege,transfer = True, ) | Q(status = 'Rejected', college = pcollege,transfer = True, ) | Q(status = 'In Progress', college = pcollege,transfer = True, ) | Q(college = pcollege, status = 'Solved', receiver = admin) | Q(college = pcollege, status = 'Rejected', receiver = admin) | Q(college = pcollege, status = 'In Progress', receiver = admin))
+    context={
+        'vcomplains' : vcomplains,
+        'my_complains' : 'active',
+        'srtcomplains' : srtcomplains
+    }
+    return render(request,'grievance/principalComplains.html',context)
+
