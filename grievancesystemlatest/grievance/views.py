@@ -486,6 +486,18 @@ def adminProfile(request):
             form=AdminProfileForm()
     return render(request,'grievance/profileAdmin.html',{'form':form, 'admin_profile_active':'active'})
 
+@login_required(login_url='/login/student/')
+@student_required
+@studentprofile_required
+def previousComplaints(request):
+    student=Student.objects.get(user=request.user)
+    complains=Complain.objects.filter(sender=student)
+    context={
+        'complains':complains,
+        'scomplains_active':'active'
+    }
+
+    return render(request,'grievance/previousComplaints.html',context)
 
 @login_required(login_url='/login/student/')
 @student_required
