@@ -263,3 +263,23 @@ def studentProfileView(request):
 
     }
     return render(request,'grievance/studentProfileView.html',context)
+
+@login_required(login_url='/login/student/')
+@student_required
+@studentprofile_required
+def student_editprofile(request):
+    student = Student.objects.get(user = request.user)
+    user = request.user
+    if request.method == 'POST':
+        u_form = EditUser(request.POST, instance=user)
+        s_form = EditStudent(request.POST, request.FILES, instance=student)
+        if u_form.is_valid() and s_form.is_valid():
+            u_form.save()
+            s_form.save()
+            messages.info(request, 'Profile Updated Successfully!')
+            return redirect('studentProfileView')
+    else:
+        u_form = EditUser(instance=user)
+        s_form = EditStudent(instance=student)
+    return render(request, 'grievance/student_editprofile.html', {'form1':u_form, 'form2':s_form, 'sprofile_active':'active'})
+
