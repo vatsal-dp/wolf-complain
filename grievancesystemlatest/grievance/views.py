@@ -346,7 +346,71 @@ def admindashboard(request):
     }
     return render(request,'grievance/admindashboard.html',context)
 
-    
+@login_required(login_url='/login/student/')
+@student_required
+@studentprofile_required
+def addComplain(request):
+
+    student=Student.objects.get(user=request.user)
+    complains_count=Complain.objects.filter(sender=student,date_posted__date=timezone.now()).count()
+    diff = 6 - complains_count
+    if complains_count > 5:
+        messages.info(request,"You have exceeded limit of 6 complains a day!")
+        messages.info(request, 'Come back again tomorrow.')
+        form=ComplainForm()
+    else:
+
+        if request.method=='POST':
+            form=ComplainForm(request.POST)
+            if form.is_valid():
+                instance=form.save(commit=False)
+                college = request.user.student.college
+                related_to=request.POST.get('related')
+                if related_to == 'Faculty':
+                    branch=request.POST.get('branches')
+                else:
+                    branch = None
+
+                try:
+                            if related_to == 'Management':
+                                admin=Admin.objects.filter(college=college, designation='Principal').count()
+                            elif related_to == 'Faculty':
+                                admin=Admin.objects.filter(college=college,branch=branch, designation='HOD').count()
+                            elif related_to == 'Security':
+                                admin=Admin.objects.filter(college=college, designation='Security Head').count()
+                            elif related_to == 'Library':
+                                admin=Admin.objects.filter(college=college, designation='Senior Librarian').count()
+                            elif related_to == 'Canteen':
+                                admin=Admin.objects.filter(college=college, designation='Canteen Owner').count()
+                except:
+                            admin = 0
+                if admin!= 0:
+                        if related_to == 'Management':
+                            admin=Admin.objects.get(college=college, designation='Principal')
+                        elif related_to == 'Faculty':
+                            admin=Admin.objects.get(college=college,branch=branch, designation='HOD')
+                        elif related_to == 'Security':
+                            admin=Admin.objects.get(college=college, designation='Security Head')
+                        elif related_to == 'Library':
+                            admin=Admin.objects.get(college=college, designation='Senior Librarian')
+                        elif related_to == 'Canteen':
+                            admin=Admin.objects.filter(college=college, designation='Canteen Owner')
+                        instance.sender=student
+                        instance.receiver=admin
+                        instance.branch = branch
+                        instance.related_to = related_to
+                        instance.college = college
+                        instance.save()
+                        messages.info(request, f'Complain sent to the concerned authority.')
+                        return redirect('studentdashboard')
+                else:
+                        messages.info(request, f"The concerned authority is not available on our system.")
+        else:
+            form=ComplainForm()
+
+    return render(request,'grievance/addComplain.html',{'form':form, 'addcomplain_active':'active','complains_count':complains_count, 'diff':diff})
+
+
 @login_required(login_url='/login/student/')
 @student_required
 @studentprofile_required
