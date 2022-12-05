@@ -194,3 +194,36 @@ def activatestudent(request, uidb64, token, name):
         user.delete()
         messages.info(request, 'Activation link is invalid! Request account activation again')
         return redirect('studentRegister')
+
+
+@login_required(login_url='/login/admins/')
+@admin_required
+@adminprofile_required
+def adminComplainView(request,cid):
+    complain = Complain.objects.get(id = cid)
+    status = complain.status
+    if request.method == 'POST':
+        form = ChangeStatusForm(request.POST, instance=complain)
+        instance = form.save(commit=False)
+        complain.status = instance.status
+        complain.date_resolved = date.today().strftime('%b %d, %Y')
+        complain.save()
+        # if complain.status == 'In Progress':
+        #     mail_subject = 'Complain in progress'
+        #     message =  'Hey ' +complain.sender.user.first_name+',\nYour complain is in progress and will be addressed very soon.\n\nYour complain details.\nComplain heading : '+complain.complain_heading+'\nComplain content: '+complain.complain_content+'\nResponse provided: '+complain.response
+        # else:
+        #     mail_subject = 'Complain '+complain.status
+        #     message =  'Hey ' +complain.sender.user.first_name+',\nYour complain was '+complain.status+' by the concerned authority.\n\nYour complain details.\nComplain heading : '+complain.complain_heading+'\nComplain content: '+complain.complain_content+'\nResponse provided: '+complain.response
+        # to_email = complain.sender.user.email
+        # email = EmailMessage(
+        #             mail_subject, message, to=[to_email]
+        # )
+        # email.send()
+        messages.info(request, f'Status changed successfully!')
+        if request.user.admin.designation == 'Principal':
+            return redirect('principaldashboard')
+        else:
+            return redirect('admindashboard')
+    else:
+        form = ChangeStatusForm(instance=complain)
+    return render(request, 'grievance/adminComplainView.html', {'form':form, 'complain':complain, 'admin_complains_active':'active'})
