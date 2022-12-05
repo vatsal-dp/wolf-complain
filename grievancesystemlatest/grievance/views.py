@@ -410,6 +410,29 @@ def addComplain(request):
 
     return render(request,'grievance/addComplain.html',{'form':form, 'addcomplain_active':'active','complains_count':complains_count, 'diff':diff})
 
+@login_required(login_url='/login/admins/')
+@admin_required
+@adminprofile_required
+def complainview(request,cid):
+    complain = Complain.objects.get(id = cid)
+    status = complain.status
+    if request.method == 'POST':
+        form = ChangeStatusForm(request.POST, instance=complain)
+        instance = form.save(commit=False)
+        complain.status = instance.status
+        complain.save()
+        messages.info(request, f'Status changed successfully!')
+        return redirect('admindashboard')
+    else:
+        form = ChangeStatusForm(instance=complain)
+    return render(request, 'grievance/complainview.html', {'form':form, 'c':complain})
+
+
+def logout_view(request):
+    logout(request)
+    return redirect('home')
+
+
 
 @login_required(login_url='/login/student/')
 @student_required
