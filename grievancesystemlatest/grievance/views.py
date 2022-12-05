@@ -335,3 +335,7 @@ def delete(request):
     user.delete()
     messages.info(request, 'Account deleted successfully!')
     return redirect('home')
+
+def about(request):
+    return render (request, 'grievance/about.html')
+
