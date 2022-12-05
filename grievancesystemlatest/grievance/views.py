@@ -196,6 +196,37 @@ def loginAdmin(request):
         form= LoginForm()
     return render(request,"grievance/adminlogin.html",{'form':form})
 
+@login_required(login_url='/login/student/')
+@student_required
+@studentprofile_required
+def studentdashboard(request):
+    student= Student.objects.get(user=request.user)
+    pcomplains=Complain.objects.filter(sender=student,status='Pending')
+    rcomplains=Complain.objects.filter(sender=student,status='Rejected')
+    vcomplains=Complain.objects.filter(sender=student,status='Viewed')
+    scomplains=Complain.objects.filter(sender=student,status='Solved')
+    ipcomplains = Complain.objects.filter(sender=student,status='In Progress')
+    tcomplains=Complain.objects.filter(sender=student,transfer=True)
+
+    p=pcomplains.count()
+    r=rcomplains.count()
+    s=scomplains.count()
+    v=vcomplains.count()
+
+    context={
+        'student':student,
+        'pcomplains':pcomplains,
+        'vcomplains':vcomplains,
+        'rcomplains':rcomplains,
+        'scomplains':scomplains,
+        'ipcomplains':ipcomplains,
+        'r':r,
+        's':s,
+        'p':p,
+        'v':v,
+        'studentdashboard_active': 'active'
+    }
+    return render(request,'grievance/studentdashboard.html',context)
 
 
 @login_required(login_url='/login/student/')
