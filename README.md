@@ -1,4 +1,4 @@
-# SE_group25_Project_2: WolfComplain2.0
+# SE_Group25_Project_2: WolfComplain 2.0
 
 <!-- Head -->
 
@@ -97,26 +97,10 @@ docker run --publish 8000:8000 <docker-image-name>
 5. Now the application is running inside the docker container and you can access the website by goign on the local host port:8000 of your device. 
 
 
-## Documentation -- (Update with your links )
-All the documentation related to our project could be found under the docs folder and at this link - https://sanayshah2.github.io/SE_Project_1/
 
-<a href="https://github.com/Sanayshah2/SE_Project_1/blob/main/docs/Function%20Descriptions.md">Description of Functions</a>
+## Demo Video Tutorial
 
-<a href="https://github.com/Sanayshah2/SE_Project_1/blob/main/docs/Mini-Tutorial.pdf">Mini Tutorials</a>
-
-<a href="https://github.com/Sanayshah2/SE_Project_1/blob/main/docs/motivation.md">Motivation</a>
-
-
-
-## Languages
-- HTML
-- Python 
-- Javascript (embedded in HTML)
-
-
-
-## DOI
-[![DOI](https://zenodo.org/badge/537628861.svg)](https://zenodo.org/badge/latestdoi/537628861)
+https://user-images.githubusercontent.com/54198410/205815070-1cb2614b-d5de-47fe-9ba9-01afab486c28.mp4
 
 
 
@@ -153,6 +137,20 @@ admin view complaints
 <img src="./screenshots/college_feed_pagination.png" width=300>
 
 
+## Languages
+- HTML
+- Python 
+- Javascript (embedded in HTML)
+
+
+## Documentation -- (Update with your links )
+All the documentation related to our project could be found under the docs folder and at this link - https://sanayshah2.github.io/SE_Project_1/
+
+<a href="https://github.com/Sanayshah2/SE_Project_1/blob/main/docs/Function%20Descriptions.md">Description of Functions</a>
+
+<a href="https://github.com/Sanayshah2/SE_Project_1/blob/main/docs/Mini-Tutorial.pdf">Mini Tutorials</a>
+
+<a href="https://github.com/Sanayshah2/SE_Project_1/blob/main/docs/motivation.md">Motivation</a>
 
 
 ## Deployment 
