@@ -19,12 +19,12 @@ Bonus: Xfold improvement | 3 | Scalibility Folder
 |Use of style checkers | 3 | README.md |
 |Use of code formatters. | 3 | README.md |
 |Use of syntax checkers. | 3 | README.md |
-|Use of code coverage | 3 | README.md |
+|Use of code coverage | 3 | [Code Coverage](https://codecov.io/gh/divyagiridhar/SE_Project_2/branch/main)|
 |Other automated analysis tools| 3 | Automated test cases in Github Actions |
-|Test cases exist| 3 |  |
+|Test cases exist| 3 | [Test Cases](https://github.com/divyagiridhar/SE_Project_2/tree/main/grievancesystemlatest/tests) |
 |Test cases are routinely executed| 3 | Github actions was used |
 |The files CONTRIBUTING.md lists coding standards and lots of tips on how to extend the system without screwing things up| 3 | [CONTRIBUTING.md](https://github.com/divyagiridhar/SE_Project_2/blob/main/CONTRIBUTING.md) |
-|Issues are discussed before they are closed| 3 | https://github.com/divyagiridhar/SE_Project_2/pulse#closed-issues |
+|Issues are discussed before they are closed| 3 | [Issues](https://github.com/divyagiridhar/SE_Project_2/pulse#closed-issues) |
 |Chat channel: exists| 3 | [Discussion Panel](https://github.com/divyagiridhar/SE_Project_2/discussions) |
 |Test cases: a large proportion of the issues related to handling failing cases.| 3 | Github Actions |
 |Evidence that the whole team is using the same tools: everyone can get to all tools and files| 3 | Insights of the repository |
