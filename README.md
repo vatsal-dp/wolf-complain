@@ -4,20 +4,31 @@
 
 <!-- SHIELDS -->
 
-<a href="https://github.com/divyagiridhar/SE_Project_2/Issues">
+
+<a href="https://github.com/divyagiridhar/SE_Project_2/issues">
         <img src="https://img.shields.io/github/issues-closed/divyagiridhar/SE_Project_2" /></a>
+
 <a href="https://github.com/divyagiridhar/SE_Project_2/blob/main/LICENSE"> 
         <img src="https://img.shields.io/github/license/divyagiridhar/SE_Project_2" /></a>
-<a href="https://github.com/Sanayshah2/SE_Project_1/actions/workflows/code_checker.yml">
-        <img src="https://github.com/Sanayshah2/SE_Project_1/actions/workflows/code_checker.yml/badge.svg"/></a>
+
 <a href="https://github.com/divyagiridhar/SE-Group-25-WolfCare.git">
     <img src="https://img.shields.io/github/repo-size/divyagiridhar/SE-Group-25-WolfCare?color=brightgreen"></a>
     
+<a href="https://github.com/divyagiridhar/SE_Project_2/graphs/contributors">
+    <img src="https://img.shields.io/github/contributors/divyagiridhar/SE_Project_2"></a>
     
+<a href="https://github.com/divyagiridhar/SE-Group-25-WolfCare">
+    <img src="https://img.shields.io/github/languages/count/divyagiridhar/SE_Project_2"></a>
 
 [![Code Coverage](https://codecov.io/gh/Sanayshah2/SE_Project_1/branch/main/graphs/badge.svg)](https://codecov.io/gh/Sanayshah2/SE_Project_1/branch/main)
+
 [![Django CI](https://github.com/sanayshah2/SE_Project_1/actions/workflows/django.yml/badge.svg)](https://github.com/sanayshah2/SE_Project_1/actions/workflows/django.yml)
-[![DOI](https://zenodo.org/badge/537628861.svg)](https://zenodo.org/badge/latestdoi/537628861)
+
+[![DOI](https://zenodo.org/badge/537628861.svg)](https://zenodo.org/record/7402637#.Y466FXbMLIU)
+
+
+[![code checker](https://github.com/divyagiridhar/SE_Project_2/actions/workflows/code_checker.yml/badge.svg)](https://github.com/divyagiridhar/SE_Project_2/actions/workflows/code_checker.yml)
+
 
 ## Introduction
 
@@ -30,8 +41,18 @@ We have created tags for all doubts and as such students know the status of all 
 
 
 ## Advertisement Video
-https://user-images.githubusercontent.com/70748055/205807717-03f1df28-063c-48ef-b02a-75b594819186.mp4
+<a href="https://www.youtube.com/watch?v=XYYWJ1TtzEQ">
+<img src="https://github.com/Sanayshah2/SE_Project_1/blob/main/grievancesystemlatest/grievance/static/grievance/images/banner.PNG" width="400" height="200"></a>
 
+[Click on the image above to play, click here if that does not work](https://www.youtube.com/watch?v=XYYWJ1TtzEQ)
+
+
+
+## Languages
+- HTML
+- Python 
+- Javascript (embedded in HTML)
+<p align="right">(<a href="https://github.com/Sanayshah2/SE_Project_1/blob/main/README.md">back to top</a>)</p>
 
 
 ## Installation and Execution
@@ -76,19 +97,7 @@ docker run --publish 8000:8000 <docker-image-name>
 
 
 
-## New and improved functionalities 
-1. Dockerized the entire application for quicker deployment
-
-- One of the biggest advantage of using docker is one can easily run a complex app locally, on any machine in less than five minutes. One can run the above 5 steps on any machine where Docker is installed irrespective of the OS(Linux, MacOS, Windows) and in few minutes the application is up and running. It doesn't matter if the application was built on python 3.6 while other apps are using python 2.7 or if your system is using even different versions of these languages; each container is perfectly isolated from the others and from the host system.
-
-- After we build container images, we can run them consistently on any server environment. Automating server installation would usually require steps and domain knowledge specific to our infrastructure. For instance, if we are using AWS EC2, we may use AMI, but these images are built differently from the ones used on Azure, Google Cloud. Configuration management systems help us by describing our servers and their configuration as manifests but writing these manifests is no easy task, and they don’t guarantee reproducible execution. These manifests have to be adapted when switching from a cloud provider to another, because they would use different network interface or disk naming. Once we have installed the Docker Engine (the most popular option), it can run any container image and effectively abstract these environment discrepancies. The ability to stage up new environments easily and reliably gives us exactly what we need to set up continuous integration and continuous deployment. 
-
-2. Pagination to limit data load for each query
-- Pagination typically means smaller, shorter responses and as a result reduced load times. Long pages take longer to load, and infinite pages require loading to take place as the user scrolls but this is not always a seamless experience. Also pagination, and shorter pages in general, can help in terms of overall navigation. The footer becomes more visible (or is allowed to exist full stop) and there is no need for floating navigation - which can come with user experience challenges of its own.
-
-3. Filters for viewing the college feed
-- Added filters on the college feed page for better user experince and for easily searching a particular feed. Currently the application has three major filters which are on the fields - college with which the feed is associated, type of the feed and the department.
-
+<p align="right">(<a href="https://github.com/Sanayshah2/SE_Project_1/blob/main/README.md">back to top</a>)</p>
 
 ## DOI
 [![DOI](https://zenodo.org/badge/537628861.svg)](https://zenodo.org/badge/latestdoi/537628861)
