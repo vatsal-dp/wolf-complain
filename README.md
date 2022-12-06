@@ -44,7 +44,8 @@ We have created tags for all doubts and as such students know the status of all 
 
 
 ## Advertisement Video
-https://user-images.githubusercontent.com/70748055/205809252-b1e40954-2490-4e5b-b8ad-59fb8693ea3b.mp4
+https://user-images.githubusercontent.com/70748055/205810850-12dad6ff-c499-4c1e-9559-4d327f64c97a.mp4
+
 
 
 
