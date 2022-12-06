@@ -22,15 +22,26 @@
     
 <a href="https://github.com/divyagiridhar/SE-Group-25-WolfCare/tags">
     <img src="https://img.shields.io/github/v/tag/divyagiridhar/SE_Project_2"></a>
+    
+<a href="https://codecov.io/gh/divyagiridhar/SE_Project_2/branch/main">
+    <img src="https://codecov.io/gh/Sanayshah2/SE_Project_1/branch/main/graphs/badge.svg"></a>
+    
+<a href="https://codecov.io/gh/divyagiridhar/SE_Project_2/branch/main">
+    <img src="https://github.com/sanayshah2/SE_Project_1/actions/workflows/django.yml/badge.svg"></a>
+    
+<a href="https://zenodo.org/record/7402637#.Y466FXbMLIU">
+    <img src="https://zenodo.org/badge/537628861.svg"></a>
+    
+<a href="https://github.com/divyagiridhar/SE_Project_2/actions/workflows/code_checker.yml">
+    <img src="https://github.com/divyagiridhar/SE_Project_2/actions/workflows/code_checker.yml/badge.svg"></a>
+    
+<a href="https://github.com/divyagiridhar/SE_Project_2/graphs/commit-activity">
+    <img src="https://img.shields.io/github/commit-activity/w/divyagiridhar/SE_Project_2"></a>
 
 [![Code Coverage](https://codecov.io/gh/Sanayshah2/SE_Project_1/branch/main/graphs/badge.svg)](https://codecov.io/gh/Sanayshah2/SE_Project_1/branch/main)
 
 [![Django CI](https://github.com/sanayshah2/SE_Project_1/actions/workflows/django.yml/badge.svg)](https://github.com/sanayshah2/SE_Project_1/actions/workflows/django.yml)
 
-[![DOI](https://zenodo.org/badge/537628861.svg)](https://zenodo.org/record/7402637#.Y466FXbMLIU)
-
-
-[![code checker](https://github.com/divyagiridhar/SE_Project_2/actions/workflows/code_checker.yml/badge.svg)](https://github.com/divyagiridhar/SE_Project_2/actions/workflows/code_checker.yml)
 
 
 ## Introduction
@@ -44,9 +55,18 @@ We have created tags for all doubts and as such students know the status of all 
 
 
 ## Advertisement Video
-https://user-images.githubusercontent.com/70748055/205810850-12dad6ff-c499-4c1e-9559-4d327f64c97a.mp4
 
 
+
+https://user-images.githubusercontent.com/70748055/205809252-b1e40954-2490-4e5b-b8ad-59fb8693ea3b.mp4
+
+
+
+## Languages
+- HTML
+- Python 
+- Javascript (embedded in HTML)
+<p align="right">(<a href="https://github.com/Sanayshah2/SE_Project_1/blob/main/README.md">back to top</a>)</p>
 
 
 ## Installation and Execution
@@ -91,65 +111,39 @@ docker run --publish 8000:8000 <docker-image-name>
 
 
 
-## Documentation -- (Update with your links )
+<p align="right">(<a href="https://github.com/Sanayshah2/SE_Project_1/blob/main/README.md">back to top</a>)</p>
+
+## DOI
+[![DOI](https://zenodo.org/badge/537628861.svg)](https://zenodo.org/badge/latestdoi/537628861)
+
+## Requirements
+<a href="https://github.com/Sanayshah2/SE_Project_1/blob/main/requirements.txt">REQUIREMENTS.txt</a>
+
+## Documentation
 All the documentation related to our project could be found under the docs folder and at this link - https://sanayshah2.github.io/SE_Project_1/
+<p align="right">(<a href="https://github.com/Sanayshah2/SE_Project_1/blob/main/README.md">back to top</a>)</p>
 
 <a href="https://github.com/Sanayshah2/SE_Project_1/blob/main/docs/Function%20Descriptions.md">Description of Functions</a>
 
 <a href="https://github.com/Sanayshah2/SE_Project_1/blob/main/docs/Mini-Tutorial.pdf">Mini Tutorials</a>
 
 <a href="https://github.com/Sanayshah2/SE_Project_1/blob/main/docs/motivation.md">Motivation</a>
+ 
+<!-- ## Install
+<a href="https://github.com/ShiveshJha12/SE_group28_HW2/blob/main/INSTALL.md"><h4>INSTALL.md</a>  -->
 
-
-## Languages
-- HTML
-- Python 
-- Javascript (embedded in HTML)
-
-
-## Output:
-
-![](./screenshots/main1.png)
-
-![](./screenshots/main2.png)
-
-student view complaints
-
-![](./screenshots/collge_feed_complaints.png)
-
-admin view complaints
-![](./screenshots/admin_view_college_feed.png)
-
-
-## New and improved functionalities 
-1. Dockerized the entire application for quicker deployment
-
-- One of the biggest advantage of using docker is one can easily run a complex app locally, on any machine in less than five minutes. One can run the above 5 steps on any machine where Docker is installed irrespective of the OS(Linux, MacOS, Windows) and in few minutes the application is up and running. It doesn't matter if the application was built on python 3.6 while other apps are using python 2.7 or if your system is using even different versions of these languages; each container is perfectly isolated from the others and from the host system.
-
-- After we build container images, we can run them consistently on any server environment. Automating server installation would usually require steps and domain knowledge specific to our infrastructure. For instance, if we are using AWS EC2, we may use AMI, but these images are built differently from the ones used on Azure, Google Cloud. Configuration management systems help us by describing our servers and their configuration as manifests but writing these manifests is no easy task, and they don’t guarantee reproducible execution. These manifests have to be adapted when switching from a cloud provider to another, because they would use different network interface or disk naming. Once we have installed the Docker Engine (the most popular option), it can run any container image and effectively abstract these environment discrepancies. The ability to stage up new environments easily and reliably gives us exactly what we need to set up continuous integration and continuous deployment. 
-
-2. Pagination to limit data load for each query
-- Pagination typically means smaller, shorter responses and as a result reduced load times. Long pages take longer to load, and infinite pages require loading to take place as the user scrolls but this is not always a seamless experience. Also pagination, and shorter pages in general, can help in terms of overall navigation. The footer becomes more visible (or is allowed to exist full stop) and there is no need for floating navigation - which can come with user experience challenges of its own.
-
-3. Filters for viewing the college feed
-- Added filters on the college feed page for better user experince and for easily searching a particular feed. Currently the application has three major filters which are on the fields - college with which the feed is associated, type of the feed and the department.  
-
-<img src="./screenshots/college_feed_filter.png">
-<img src="./screenshots/college_feed_pagination.png" width=300>
-
-
-
-## Deployment 
-This project was deployed on Heroku platform by the previous team on a free tier account but as per the new policies of Heroku they have ceased all free tier account and have started paid subscription plans for all users. As such we have created a docker image of our application which can be easily deployed on any cloud platform using Docker Engine. The link to the docker file is - https://drive.google.com/file/d/1_-hrrcBlHTl3_KFKhyfN6XwS6KpcxVbP/view?usp=sharing
-
+## Deployment:
+Our project is deployed at Heroku Platform and you can access it using link - http://complainx.herokuapp.com/
+<p align="right">(<a href="https://github.com/Sanayshah2/SE_Project_1/blob/main/README.md">back to top</a>)</p>
 
 ## License
 [MIT](https://github.com/Sanayshah2/SE_Project_1/blob/main/LICENSE)
-
+<p align="right">(<a href="https://github.com/Sanayshah2/SE_Project_1/blob/main/README.md">back to top</a>)</p>
 
 ## Contributors:
-1. Dhruv Patel  
-2. Ravi Ghevariya
-3. name 
-4. name
-5. name
+1. Elizabeth Lin  
+2. Neel Shah  
+3. Sanay Shah  
+4. Shaival Shah
+5. Shivesh Jha    
+<p align="right">(<a href="https://github.com/Sanayshah2/SE_Project_1/blob/main/README.md">back to top</a>)</p>
