@@ -26,9 +26,6 @@
 <a href="https://codecov.io/gh/divyagiridhar/SE_Project_2/branch/main">
     <img src="https://codecov.io/gh/Sanayshah2/SE_Project_1/branch/main/graphs/badge.svg"></a>
     
-<a href="https://codecov.io/gh/divyagiridhar/SE_Project_2/branch/main">
-    <img src="https://github.com/sanayshah2/SE_Project_1/actions/workflows/django.yml/badge.svg"></a>
-    
 <a href="https://zenodo.org/record/7402637#.Y466FXbMLIU">
     <img src="https://zenodo.org/badge/537628861.svg"></a>
     
