@@ -3,18 +3,18 @@ Score: 90
 |Rubrics|Score:|Evidence|
 |-----|---------|---------|
 |Video1| 3 | README.md | 
-Bonus: Xfold improvement | 3 | Scalibility Folder
+Bonus: Xfold improvement | 3 | [Xfold Improvement](https://github.com/divyagiridhar/SE_Project_2/blob/main/scalability/Scalability%20(1).pdf)
 |Workload is spread over the whole team (one team member is often Xtimes more productive than the others, but nevertheless, here is a track record that everyone is contributing a lot)| 3 | Insights of the repository |
 |Number of commits| 3 | Insights of the repository |
 |Number of commits: by different people| 3 | Insights of the repository |
-|Issues reports: there are **many**| 3 | Insights of the repository |
-|Issues are being closed| 3 | Insights of the repository |
-|DOI badge: exists| 3 | README.md |
+|Issues reports: there are **many**| 3 | [Issues](https://github.com/divyagiridhar/SE_Project_2/pulse#closed-issues) |
+|Issues are being closed| 3 | I[Closed Issues](https://github.com/divyagiridhar/SE_Project_2/pulse#closed-issues) |
+|DOI badge: exists| 3 | [DOI Badge](https://zenodo.org/record/7402637#.Y47EAnbMI2x) |
 |Docs: doco generated, format not ugly | 3 |  |
-|Docs: what: point descriptions of each class/function (in isolation) | 3 |  |
+|Docs: what: point descriptions of each class/function (in isolation) | 3 | [Function & Class Description](https://github.com/divyagiridhar/SE_Project_2/blob/main/docs/Function%20Description.md) |
 |Docs: how: for common use cases X,Y,Z mini-tutorials showing worked examples on how to do X,Y,Z| 3 |  |
 |Docs: why: docs tell a story, motivate the whole thing, deliver a punchline that makes you want to rush out and use the thing| 3 |  |
-|Docs: short video, animated, hosted on your repo. That convinces people why they want to work on your code.| 3 | README.md |
+|Docs: short video, animated, hosted on your repo. That convinces people why they want to work on your code.| 3 | [Advertise Video](https://github.com/divyagiridhar/SE_Project_2#advertisement-video) |
 |Use of version control tools| 3 | GIT |
 |Use of style checkers | 3 | README.md |
 |Use of code formatters. | 3 | README.md |
