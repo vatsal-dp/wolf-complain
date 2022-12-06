@@ -167,7 +167,7 @@ This project was deployed on Heroku platform by the previous team on a free tier
 ## Contributors:
 1. Dhruv Patel  
 2. Ravi Ghevariya
-3. name 
-4. name
-5. name
+3. Manan Patel
+4. Divya Giridhar
+5. Shreyas Titus
 
