@@ -4,7 +4,7 @@
 
 <!-- SHIELDS -->
 
-
+<div align="center">
 <a href="https://github.com/divyagiridhar/SE_Project_2/issues">
         <img src="https://img.shields.io/github/issues-closed/divyagiridhar/SE_Project_2" /></a>
 
@@ -40,9 +40,7 @@
 
 [![Code Coverage](https://codecov.io/gh/Sanayshah2/SE_Project_1/branch/main/graphs/badge.svg)](https://codecov.io/gh/Sanayshah2/SE_Project_1/branch/main)
 
-[![Django CI](https://github.com/sanayshah2/SE_Project_1/actions/workflows/django.yml/badge.svg)](https://github.com/sanayshah2/SE_Project_1/actions/workflows/django.yml)
-
-
+</div>
 
 ## Introduction
 
