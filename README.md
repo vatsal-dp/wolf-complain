@@ -76,9 +76,6 @@ docker run --publish 8000:8000 <docker-image-name>
 
 
 
-<p align="right">(<a href="https://github.com/Sanayshah2/SE_Project_1/blob/main/README.md">back to top</a>)</p>
-
-
 ## New and improved functionalities 
 1. Dockerized the entire application for quicker deployment
 
