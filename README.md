@@ -4,12 +4,16 @@
 
 <!-- SHIELDS -->
 
-<a href="https://github.com/Sanayshah2/SE_Project_1/issues">
-        <img src="https://img.shields.io/github/issues/Sanayshah2/SE_Project_1" /></a>
-<a href="https://github.com/Sanayshah2/SE_Project_1/blob/main/LICENSE"> 
-        <img src="https://img.shields.io/github/license/Sanayshah2/SE_Project_1" /></a>
+<a href="https://github.com/divyagiridhar/SE_Project_2/Issues">
+        <img src="https://img.shields.io/github/issues-closed/divyagiridhar/SE_Project_2" /></a>
+<a href="https://github.com/divyagiridhar/SE_Project_2/blob/main/LICENSE"> 
+        <img src="https://img.shields.io/github/license/divyagiridhar/SE_Project_2" /></a>
 <a href="https://github.com/Sanayshah2/SE_Project_1/actions/workflows/code_checker.yml">
         <img src="https://github.com/Sanayshah2/SE_Project_1/actions/workflows/code_checker.yml/badge.svg"/></a>
+<a href="https://github.com/divyagiridhar/SE-Group-25-WolfCare.git">
+    <img src="https://img.shields.io/github/repo-size/divyagiridhar/SE-Group-25-WolfCare?color=brightgreen"></a>
+    
+    
 
 [![Code Coverage](https://codecov.io/gh/Sanayshah2/SE_Project_1/branch/main/graphs/badge.svg)](https://codecov.io/gh/Sanayshah2/SE_Project_1/branch/main)
 [![Django CI](https://github.com/sanayshah2/SE_Project_1/actions/workflows/django.yml/badge.svg)](https://github.com/sanayshah2/SE_Project_1/actions/workflows/django.yml)
