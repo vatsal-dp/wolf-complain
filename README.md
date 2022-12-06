@@ -1,4 +1,4 @@
-# SE_group28_Project_1: COMPLAINX
+# SE_group25_Project_2: WolfComplain2.0
 
 <!-- Head -->
 
