@@ -8,7 +8,7 @@ Bonus: Xfold improvement | 3 | [Xfold Improvement](https://github.com/divyagirid
 |Number of commits| 3 | Insights of the repository |
 |Number of commits: by different people| 3 | Insights of the repository |
 |Issues reports: there are **many**| 3 | [Issues](https://github.com/divyagiridhar/SE_Project_2/pulse#closed-issues) |
-|Issues are being closed| 3 | I[Closed Issues](https://github.com/divyagiridhar/SE_Project_2/pulse#closed-issues) |
+|Issues are being closed| 3 | [Closed Issues](https://github.com/divyagiridhar/SE_Project_2/pulse#closed-issues) |
 |DOI badge: exists| 3 | [DOI Badge](https://zenodo.org/record/7402637#.Y47EAnbMI2x) |
 |Docs: doco generated, format not ugly | 3 |  |
 |Docs: what: point descriptions of each class/function (in isolation) | 3 | [Function & Class Description](https://github.com/divyagiridhar/SE_Project_2/blob/main/docs/Function%20Description.md) |
