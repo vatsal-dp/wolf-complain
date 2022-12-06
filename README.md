@@ -161,7 +161,7 @@ This project was deployed on Heroku platform by the previous team on a free tier
 
 
 ## License
-[MIT](https://github.com/Sanayshah2/SE_Project_1/blob/main/LICENSE)
+[MIT](https://github.com/divyagiridhar/SE_Project_2/blob/main/LICENSE.MD)
 
 
 ## Contributors:
