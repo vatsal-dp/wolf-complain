@@ -31,4 +31,4 @@ Bonus: Xfold improvement | 3 | Scalibility Folder
 |Evidence that the whole team is using the same tools (e.g. config files in the repo, updated by lots of different people)| 3 | Insights of the repository |
 |Evidence that the whole team is using the same tools (e.g. tutor can ask anyone to share screen, they demonstrate the system running on their computer)| 3 | Insights of the repository |
 |Evidence that the members of the team are working across multiple places in the code base| 3 | Insights of the repository (Commits) |
-|Short release cycles | 3  | Home page of the repository(Right Side) |
+|Short release cycles | 3  | [Released Cycles](https://github.com/divyagiridhar/SE_Project_2/releases/tag/1.0.1) |
