@@ -23,10 +23,10 @@ Bonus: Xfold improvement | 3 | Scalibility Folder
 |Other automated analysis tools| 3 | Automated test cases in Github Actions |
 |Test cases exist| 3 |  |
 |Test cases are routinely executed| 3 | Github actions was used |
-|The files CONTRIBUTING.md lists coding standards and lots of tips on how to extend the system without screwing things up| 3 | Description of steps mentioned |
-|Issues are discussed before they are closed| 3 | CONTRIBUTING.md |
-|Chat channel: exists| 3 | Discussion panel exists |
-|Test cases: a large proportion of the issues related to handling failing cases.| 3 | Yes |
+|The files CONTRIBUTING.md lists coding standards and lots of tips on how to extend the system without screwing things up| 3 | [CONTRIBUTING.md](https://github.com/divyagiridhar/SE_Project_2/blob/main/CONTRIBUTING.md) |
+|Issues are discussed before they are closed| 3 | https://github.com/divyagiridhar/SE_Project_2/pulse#closed-issues |
+|Chat channel: exists| 3 | [Discussion Panel](https://github.com/divyagiridhar/SE_Project_2/discussions) |
+|Test cases: a large proportion of the issues related to handling failing cases.| 3 | Github Actions |
 |Evidence that the whole team is using the same tools: everyone can get to all tools and files| 3 | Insights of the repository |
 |Evidence that the whole team is using the same tools (e.g. config files in the repo, updated by lots of different people)| 3 | Insights of the repository |
 |Evidence that the whole team is using the same tools (e.g. tutor can ask anyone to share screen, they demonstrate the system running on their computer)| 3 | Insights of the repository |
