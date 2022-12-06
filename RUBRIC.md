@@ -10,10 +10,10 @@ Bonus: Xfold improvement | 3 | [Xfold Improvement](https://github.com/divyagirid
 |Issues reports: there are **many**| 3 | [Issues](https://github.com/divyagiridhar/SE_Project_2/pulse#closed-issues) |
 |Issues are being closed| 3 | [Closed Issues](https://github.com/divyagiridhar/SE_Project_2/pulse#closed-issues) |
 |DOI badge: exists| 3 | [DOI Badge](https://zenodo.org/record/7402637#.Y47EAnbMI2x) |
-|Docs: doco generated, format not ugly | 3 |  |
+|Docs: doco generated, format not ugly | 3 | [DOCO Generated](https://github.com/divyagiridhar/SE_Project_2/tree/main/docs) |
 |Docs: what: point descriptions of each class/function (in isolation) | 3 | [Function & Class Description](https://github.com/divyagiridhar/SE_Project_2/blob/main/docs/Function%20Description.md) |
-|Docs: how: for common use cases X,Y,Z mini-tutorials showing worked examples on how to do X,Y,Z| 3 |  |
-|Docs: why: docs tell a story, motivate the whole thing, deliver a punchline that makes you want to rush out and use the thing| 3 |  |
+|Docs: how: for common use cases X,Y,Z mini-tutorials showing worked examples on how to do X,Y,Z| 3 | [How?](https://github.com/divyagiridhar/SE_Project_2/blob/main/docs/Mini_Tutorials.pdf) |
+|Docs: why: docs tell a story, motivate the whole thing, deliver a punchline that makes you want to rush out and use the thing| 3 | [Why?](https://github.com/divyagiridhar/SE_Project_2/blob/main/docs/motivation.md)  |
 |Docs: short video, animated, hosted on your repo. That convinces people why they want to work on your code.| 3 | [Advertise Video](https://github.com/divyagiridhar/SE_Project_2#advertisement-video) |
 |Use of version control tools| 3 | GIT |
 |Use of style checkers | 3 | README.md |
