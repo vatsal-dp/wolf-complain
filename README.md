@@ -39,15 +39,49 @@ We have created tags for all doubts and as such students know the status of all 
 - Javascript (embedded in HTML)
 <p align="right">(<a href="https://github.com/Sanayshah2/SE_Project_1/blob/main/README.md">back to top</a>)</p>
 
-## Installation
-This project requires:
 
+## Installation and Execution
+### Method 1:
+This method requires:
+```
     -Python 3.6 or greater
     -pip (or) pip3  
-To install the packages used by this project, run 
-``
-pip install -r requirements.txt 
-``  in the command line.  
+``` 
+1. Install the entire source code from this git repository as a zip file and extract it.
+2. Install the necessary packages for the project using the following command - 
+``` 
+pip install -r reqirements.txt
+```
+3. Setup the database using the following command - 
+```
+python manage.py makemigrations
+```
+4. Create the superuser using the following command - 
+```
+python manage.py createsuperuser
+```
+5. Finally start the server using the following command - 
+```
+python manage.py runserver
+```
+6. Now the application is running on your local device and you can access the website by goign on the local host port:8000 of your device. 
+### Method 2: 
+1. Install the Docker Desktop application on your device.
+2. Download the docker image file(.tar) using this link https://drive.google.com/file/d/1_-hrrcBlHTl3_KFKhyfN6XwS6KpcxVbP/view?usp=sharing
+3. Build docker image using the following command - 
+```
+docker build --tag <docker-image-name> .
+
+# add the --network=host tag if you run into network problems
+```
+4. To execute the application, run the docker image which you just created using the following command -
+```
+docker run --publish 8000:8000 <docker-image-name>
+```
+5. Now the application is running inside the docker container and you can access the website by goign on the local host port:8000 of your device. 
+
+
+
 <p align="right">(<a href="https://github.com/Sanayshah2/SE_Project_1/blob/main/README.md">back to top</a>)</p>
 
 ## DOI
