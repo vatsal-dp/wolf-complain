@@ -112,11 +112,11 @@ https://user-images.githubusercontent.com/54198410/205815070-1cb2614b-d5de-47fe-
 
 ![](./screenshots/main2.png)
 
-student view complaints
+Student View Complaints
 
 ![](./screenshots/collge_feed_complaints.png)
 
-admin view complaints
+Admin View Complaints
 ![](./screenshots/admin_view_college_feed.png)
 
 
