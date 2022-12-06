@@ -145,6 +145,7 @@ admin view complaints
 2. Pagination to limit data load for each query
 - Pagination typically means smaller, shorter responses and as a result reduced load times. Long pages take longer to load, and infinite pages require loading to take place as the user scrolls but this is not always a seamless experience. Also pagination, and shorter pages in general, can help in terms of overall navigation. The footer becomes more visible (or is allowed to exist full stop) and there is no need for floating navigation - which can come with user experience challenges of its own.
 
+
 3. Filters for viewing the college feed
 - Added filters on the college feed page for better user experince and for easily searching a particular feed. Currently the application has three major filters which are on the fields - college with which the feed is associated, type of the feed and the department.  
 
