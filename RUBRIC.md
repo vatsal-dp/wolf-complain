@@ -3,7 +3,7 @@ Score: 90
 |Rubrics|Score:|Evidence|
 |-----|---------|---------|
 |Video1| 3 | README.md | 
-Bonus: Xfold improvement | 3 | README.md
+Bonus: Xfold improvement | 3 | Scalibility Folder
 |Workload is spread over the whole team (one team member is often Xtimes more productive than the others, but nevertheless, here is a track record that everyone is contributing a lot)| 3 | Insights of the repository |
 |Number of commits| 3 | Insights of the repository |
 |Number of commits: by different people| 3 | Insights of the repository |
