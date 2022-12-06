@@ -145,14 +145,14 @@ admin view complaints
 - Javascript (embedded in HTML)
 
 
-## Documentation -- (Update with your links )
+## Documentation
 All the documentation related to our project could be found under the docs folder and at this link - https://sanayshah2.github.io/SE_Project_1/
 
-<a href="https://github.com/Sanayshah2/SE_Project_1/blob/main/docs/Function%20Descriptions.md">Description of Functions</a>
+<a href="https://github.com/divyagiridhar/SE_Project_2/blob/main/docs/Function%20Description.md">Description of Functions</a>
 
-<a href="https://github.com/Sanayshah2/SE_Project_1/blob/main/docs/Mini-Tutorial.pdf">Mini Tutorials</a>
+<a href="https://github.com/divyagiridhar/SE_Project_2/blob/main/docs/Mini_Tutorials.pdf">Mini Tutorials</a>
 
-<a href="https://github.com/Sanayshah2/SE_Project_1/blob/main/docs/motivation.md">Motivation</a>
+<a href="https://github.com/divyagiridhar/SE_Project_2/blob/main/docs/motivation.md">Motivation</a>
 
 
 ## Deployment 
