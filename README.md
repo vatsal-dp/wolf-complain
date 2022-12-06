@@ -52,7 +52,9 @@ We have created tags for all doubts and as such students know the status of all 
 
 
 ## Advertisement Video
-https://user-images.githubusercontent.com/70748055/205809252-b1e40954-2490-4e5b-b8ad-59fb8693ea3b.mp4
+https://user-images.githubusercontent.com/70748055/205815526-333953ec-82af-41a1-b9e6-fdcbc059dc06.mp4
+
+
 
 
 
