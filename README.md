@@ -19,6 +19,9 @@
     
 <a href="https://github.com/divyagiridhar/SE-Group-25-WolfCare">
     <img src="https://img.shields.io/github/languages/count/divyagiridhar/SE_Project_2"></a>
+    
+<a href="https://github.com/divyagiridhar/SE-Group-25-WolfCare/tags">
+    <img src="https://img.shields.io/github/v/tag/divyagiridhar/SE_Project_2"></a>
 
 [![Code Coverage](https://codecov.io/gh/Sanayshah2/SE_Project_1/branch/main/graphs/badge.svg)](https://codecov.io/gh/Sanayshah2/SE_Project_1/branch/main)
 
