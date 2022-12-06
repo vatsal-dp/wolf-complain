@@ -44,10 +44,10 @@ We have created tags for all doubts and as such students know the status of all 
 
 
 ## Advertisement Video
-<a href="https://www.youtube.com/watch?v=XYYWJ1TtzEQ">
-<img src="https://github.com/Sanayshah2/SE_Project_1/blob/main/grievancesystemlatest/grievance/static/grievance/images/banner.PNG" width="400" height="200"></a>
 
-[Click on the image above to play, click here if that does not work](https://www.youtube.com/watch?v=XYYWJ1TtzEQ)
+
+
+https://user-images.githubusercontent.com/70748055/205809252-b1e40954-2490-4e5b-b8ad-59fb8693ea3b.mp4
 
 
 
