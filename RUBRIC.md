@@ -24,11 +24,11 @@ Bonus: Xfold improvement | 3 | README.md
 |Test cases exist| 3 |  |
 |Test cases are routinely executed| 3 | Github actions was used |
 |The files CONTRIBUTING.md lists coding standards and lots of tips on how to extend the system without screwing things up| 3 | Description of steps mentioned |
-|Issues are discussed before they are closed| 3 | Present  |
-|Chat channel: exists| 3 | [Chat Screenshot](Link to be added) |
+|Issues are discussed before they are closed| 3 | CONTRIBUTING.md |
+|Chat channel: exists| 3 | Discussion panel exists |
 |Test cases: a large proportion of the issues related to handling failing cases.| 3 | Yes |
-|Evidence that the whole team is using the same tools: everyone can get to all tools and files| 3 | Can be seen in GH |
-|Evidence that the whole team is using the same tools (e.g. config files in the repo, updated by lots of different people)| 3 | Seen |
-|Evidence that the whole team is using the same tools (e.g. tutor can ask anyone to share screen, they demonstrate the system running on their computer)| 3 | -- |
-|Evidence that the members of the team are working across multiple places in the code base| 3 | Evidence in GH |
-|Short release cycles | 3  | Team members contributed and made commits often |
+|Evidence that the whole team is using the same tools: everyone can get to all tools and files| 3 | Insights of the repository |
+|Evidence that the whole team is using the same tools (e.g. config files in the repo, updated by lots of different people)| 3 | Insights of the repository |
+|Evidence that the whole team is using the same tools (e.g. tutor can ask anyone to share screen, they demonstrate the system running on their computer)| 3 | Insights of the repository |
+|Evidence that the members of the team are working across multiple places in the code base| 3 | Insights of the repository (Commits) |
+|Short release cycles | 3  | Home page of the repository(Right Side) |
