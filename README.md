@@ -16,23 +16,14 @@
 [![DOI](https://zenodo.org/badge/537628861.svg)](https://zenodo.org/badge/latestdoi/537628861)
 
 ## Introduction
-This repository contains source code for Project 1 which was created for CSC 510 course of NC State University Fall 22. 
-As international students, the US education system was very new for us and it took time getting used to it. 
-Here at NC State each faculty has their own set of rules they use for teaching and grading students.
-Students are given access to a lot of resources and Moodle website is one such. This site contains all the details related to courses a student has taken.
-But Moodle page is overcluttered and there is a lot of data which is unorganised. 
-As such faculty use other softwares and platforms like Discord, GitHub, Piazza and more for doubt solving and more.
 
-This leads to students spending useful time at learning and getting acquitaned to these softwares. 
-Students waste time in finding a answers to questions like 'where can I find this feature' or 'how do I post this' which could be better spent on productive things.
-Also finding a particular resource takes more time and as such students tend to ask the same questions again and again.
+This repository contains source code for Project 2 which was created for CSC 510 course of NC State University Fall 22. This project is an extenstion to the project 1 developed by Team 28. Below is the introduction for the same - Here at NC State each faculty has their own set of rules they use for teaching and grading students. Students are given access to a lot of resources and Moodle website is one such. The site contains all the details related to courses a student has taken, but the Moodle page is overcluttered and there is a lot of data which is unorganised. This leads to faculty using other specialized softwares and platforms like Discord, GitHub, Piazza for tasks like doubt solving, class participation exercises, forums, etc.
 
+This leads to students spending useful time at learning and getting acquitaned to all these different softwares. Students waste time in finding answers to questions like 'where can I find this feature' or 'how do I post this' which could be better spent on productive things. Also finding a particular resource takes more time and as such students tend to ask the same questions again and again. 
 
-To tackle this issue we have created a this website which is specialily designed for doubt solving and class discussions.
-In our website students can easily track all the questions they have asked so far across all courses. 
-Also they can find all doubts posted for a particular course by all students. 
-We have created tags for all doubts and as such students know the status of all their doubts.
-With this project we aim to increase the productivity of students and faculty by avoiding time to learn new softwares and lesser chances of same doubts being posted again and again.
+This website, WolfComplain, was thus created to tackle this issue. It is specifically designed for doubt solving and class discussions. In our website students can easily track all the questions they have asked so far across all courses. Also they can find all doubts posted for a particular course by all other students. 
+We have created tags for all doubts and as such students know the status of all their doubts. With this project we aim to increase the productivity of students and faculty by avoiding time to learn new softwares and lesser chances of same doubts being posted again and again.
+
 
 ## Advertisement Video
 <a href="https://www.youtube.com/watch?v=XYYWJ1TtzEQ">
