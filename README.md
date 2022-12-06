@@ -155,9 +155,11 @@ All the documentation related to our project could be found under the docs folde
 <a href="https://github.com/divyagiridhar/SE_Project_2/blob/main/docs/motivation.md">Motivation</a>
 
 
+#### GitHub Page Link - https://divyagiridhar.github.io/SE_Project_2/
+
+
 ## Deployment 
 This project was deployed on Heroku platform by the previous team on a free tier account but as per the new policies of Heroku they have ceased all free tier account and have started paid subscription plans for all users. As such we have created a docker image of our application which can be easily deployed on any cloud platform using Docker Engine. The link to the docker file is - https://drive.google.com/file/d/1_-hrrcBlHTl3_KFKhyfN6XwS6KpcxVbP/view?usp=sharing
-
 
 
 ## License
