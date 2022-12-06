@@ -30,10 +30,7 @@ We have created tags for all doubts and as such students know the status of all 
 
 
 ## Advertisement Video
-<a href="https://www.youtube.com/watch?v=XYYWJ1TtzEQ">
-<img src="https://github.com/Sanayshah2/SE_Project_1/blob/main/grievancesystemlatest/grievance/static/grievance/images/banner.PNG" width="400" height="200"></a>
-
-[Click on the image above to play, click here if that does not work](https://www.youtube.com/watch?v=XYYWJ1TtzEQ)
+https://user-images.githubusercontent.com/70748055/205807717-03f1df28-063c-48ef-b02a-75b594819186.mp4
 
 
 
