@@ -146,7 +146,7 @@ admin view complaints
 
 
 ## Documentation
-All the documentation related to our project could be found under the docs folder and at this link - https://sanayshah2.github.io/SE_Project_1/
+All the documentation related to our project could be found under the docs folder and at this link - https://github.com/divyagiridhar/SE_Project_2/tree/main/docs
 
 <a href="https://github.com/divyagiridhar/SE_Project_2/blob/main/docs/Function%20Description.md">Description of Functions</a>
 
