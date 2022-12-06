@@ -37,8 +37,10 @@
     
 <a href="https://github.com/divyagiridhar/SE_Project_2/graphs/commit-activity">
     <img src="https://img.shields.io/github/commit-activity/w/divyagiridhar/SE_Project_2"></a>
-
-[![Code Coverage](https://codecov.io/gh/Sanayshah2/SE_Project_1/branch/main/graphs/badge.svg)](https://codecov.io/gh/Sanayshah2/SE_Project_1/branch/main)
+    
+<a href="https://github.com/divyagiridhar/SE_Project_2/actions/workflows/django.yml">
+    <img src="https://github.com/divyagiridhar/SE_Project_2/actions/workflows/django.yml/badge.svg"></a>
+    
 
 </div>
 
